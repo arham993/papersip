@@ -2,7 +2,8 @@ import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { SERVICES, OOH_IMG, SIGN_IMG, PRINT_IMG } from '../data.js';
 import { useSeo } from '../components/Seo.jsx';
-import { Lines, Eyebrow, SecHead, Slug, Streams, Marquee, Stats, Ticker, CtaBand, pad2 } from '../components/ui.jsx';
+import { Lines, Eyebrow, SecHead, Slug, Streams, Marquee, Stats, CtaBand, pad2 } from '../components/ui.jsx';
+import MediaPartners from '../components/MediaPartners.jsx';
 import { HeroScene, StageScene } from '../components/Scene3D.jsx';
 import { Gallery } from '../components/Media.jsx';
 
@@ -57,7 +58,7 @@ export default function Home() {
           </div>
           <div className="wrap"><div className="hero-meta mono"><span>8 disciplines · One team · Faridabad</span><span className="tc"><b>● REC</b> <span data-tc="">00:00:00:00</span> <span>PAL 25fps</span></span></div></div>
         </section>
-        <Ticker />
+        <MediaPartners />
 
         <section className="sec" id="channels">
           <div className="wrap">

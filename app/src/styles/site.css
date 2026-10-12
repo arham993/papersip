@@ -710,3 +710,24 @@ a.v:hover,.foot-grid a:hover,.crumbs a:hover{color:var(--ink);text-decoration:un
 .logo:hover .logo-img{transform:translateY(-1px);box-shadow:0 10px 22px -10px rgba(17,17,17,.55)}
 .logo-foot .logo-img{height:125px;border-radius:16px}
 @media (max-width:520px){.logo-img{height:48px}.logo-foot .logo-img{height:110px}}
+
+/* ===== Our media partners ===== */
+.media-partners{background:var(--paper-2);border-block:1px solid var(--line);padding-block:clamp(40px,5vw,64px);overflow:hidden}
+.mp-head{display:grid;gap:12px;margin-bottom:clamp(24px,3vw,36px)}
+.mp-head h2{font-size:clamp(30px,3.6vw,52px)}
+.mp-row{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:0;padding-left:clamp(16px,4vw,48px)}
+.mp-row + .mp-row{margin-top:14px}
+.mp-label{position:relative;z-index:2;background:var(--ink);color:var(--gold-2);padding:10px 14px;border-radius:999px;white-space:nowrap;margin-right:-8px;box-shadow:12px 0 18px var(--paper-2)}
+.mp-viewport{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.mp-track{display:flex;gap:14px;width:max-content;padding-block:6px;animation:mpScroll calc(var(--n) * 6s) linear infinite}
+.mp-track.rev{animation-direction:reverse}
+.mp-row:hover .mp-track{animation-play-state:paused}
+@keyframes mpScroll{to{transform:translateX(-50%)}}
+.mp-card{flex:none;width:clamp(150px,14vw,190px);height:88px;border-radius:16px;background:#fff;border:1px solid var(--line);display:grid;place-items:center;padding:14px 18px;transition:transform .4s var(--ease),border-color .3s,box-shadow .4s var(--ease)}
+.mp-card:hover{transform:translateY(-3px);border-color:var(--gold);box-shadow:0 14px 28px -18px rgba(17,17,17,.4)}
+.mp-card img{max-width:100%;max-height:58px;width:auto;height:auto;object-fit:contain}
+.mp-card.dark{background:#111;border-color:#111}
+.mp-card.txt{background:var(--ink);border-color:var(--ink)}
+.mp-name{font:800 22px/1 var(--fd);text-transform:uppercase;color:var(--gold-2);text-align:center;letter-spacing:.02em}
+@media (max-width:620px){.mp-row{grid-template-columns:1fr;padding-left:0}.mp-label{justify-self:start;margin:0 0 10px 16px;box-shadow:none}.mp-card{width:140px;height:76px}.mp-card img{max-height:48px}}
+@media (prefers-reduced-motion: reduce){.mp-track{animation:none}.mp-viewport{overflow-x:auto}}

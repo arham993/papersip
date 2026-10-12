@@ -139,3 +139,29 @@ export const STREAM_IMG = {
 export const TICKER = ['TV', 'Radio', 'Print', 'Out-of-home', 'Digital', 'Signage', 'Media planning', 'Strategy'];
 
 export const ROUTES = ['/', '/about/', '/services/', ...SERVICES.map((s) => `/services/${s.slug}/`), '/clients/', '/our-work/', '/contact/'];
+
+// "Our media partners" logo rows on the home page.
+// src: a local file in public/partners, or a Wikimedia file (loaded from Wikimedia).
+// Any logo that fails to load shows as a name tile instead. dark: logo is designed for a dark background.
+const WM = (f, w = 320) => `https://commons.wikimedia.org/wiki/Special:FilePath/${f}?width=${w}`;
+const WP = (f, w = 320) => `https://en.wikipedia.org/wiki/Special:FilePath/${f}?width=${w}`;
+const LOCAL = (f) => import.meta.env.BASE_URL + 'partners/' + f;
+export const MEDIA_PARTNERS = {
+  radio: [
+    { name: 'Radio Mirchi', src: WM('Mirchi_logo_-_Copy.png') },
+    { name: 'Big FM', src: WM('BIGFM_NEW_LOGO_2019.png') },
+    { name: 'Fever FM', src: WP('Fever-104-FM-Logo.png') },
+    { name: 'Radio City', src: null },
+    { name: 'Red FM', src: WM('RedFM_logo.svg') },
+  ],
+  tv: [
+    { name: 'Aaj Tak', src: LOCAL('aajtak.webp') },
+    { name: 'TV9', src: LOCAL('tv9.webp') },
+    { name: 'India TV', src: LOCAL('indiatv.webp'), dark: true },
+    { name: 'Zee News', src: LOCAL('zeenews.webp') },
+    { name: 'Network18', src: WM('Network_18_Logo.svg') },
+    { name: 'Hotstar', src: WM('Hotstar_logo.svg') },
+    { name: 'ZEE5', src: WM('ZEE5_2025.svg') },
+    { name: 'SonyLIV', src: WM('SonyLIV_2020.png') },
+  ],
+};
