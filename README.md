@@ -2,7 +2,43 @@
 
 Website for Papersip Company, a one-stop advertising agency in Faridabad running TV, radio, print, OOH and digital advertising, visibility signage, media buying & planning, and strategy. In business since 2010.
 
-Plain static HTML, CSS and JS. No build step is needed to host it.
+Built with **React 18 + React Router + Vite**. Every page is pre-rendered to static HTML at build time, then React hydrates it in the browser. The first paint is instant, every page can be crawled, and moving between pages happens without a reload.
+
+## Folder layout
+
+```
+app/                  React source (edit here)
+  src/data.js         all text content: services, clients, work, contact details
+  src/pages/          one component per page
+  src/components/     layout, header/menu, shared UI, media, 3D wrappers
+  src/three/scenes.js 3D paper-craft models (Three.js), loaded on demand
+  src/styles/site.css all styles
+  public/             fonts, model stills, favicon (copied as-is)
+  scripts/            pre-render + publish steps
+index.html, about/, services/, …   built site (generated, served by GitHub Pages)
+```
+
+## Edit and publish
+
+```bash
+cd app
+npm install          # first time only
+npm run dev          # local preview with hot reload
+npm run publish      # build, pre-render every page, copy the result to the repo root
+```
+
+Then commit and push. GitHub Pages serves the repo root, so you don't need to change any settings.
+
+For a custom domain at the root (for example `papersipcompany.com`), build with `BASE_PATH=/ npm run publish`.
+
+## Why it's fast
+
+- Pages are pre-rendered HTML with the CSS inlined, so they need no extra request before first paint.
+- Fonts are self-hosted: 4 small WOFF2 files with the Latin subset only. There are no Google Fonts requests.
+- React hydrates in interruptible slices (`startTransition`), so the page stays responsive while it takes over.
+- Three.js (about 135 KB gzipped) loads only after the visitor interacts, or about 1.5 s after load on desktop. Until then, each model shows as a pre-rendered WebP still. Phones with Data Saver on, or with very little memory, keep the stills.
+- Models are built one per frame, so the 3D start-up never freezes scrolling. Scenes pause when they are off-screen and are disposed when you leave the page.
+- SoundCloud players, TV videos and the Google map load only when someone presses play or "Show map".
 
 ## Pages
 
@@ -11,11 +47,7 @@ Plain static HTML, CSS and JS. No build step is needed to host it.
 | Home | `/` |
 | About | `/about/` |
 | Services | `/services/` |
-| TV Advertising | `/services/tv-advertising/` |
-| Radio Advertising | `/services/radio-advertising/` |
-| Print Advertising | `/services/print-advertising/` |
-| OOH Advertising | `/services/ooh-advertising/` |
-| Digital Advertising | `/services/digital-advertising/` |
+| TV · Radio · Print · OOH · Digital Advertising | `/services/tv-advertising/` etc. |
 | Visibility Signage | `/services/visibility-signage/` |
 | Media Buying & Planning | `/services/media-buying-planning/` |
 | Strategy | `/services/strategy/` |
@@ -23,23 +55,8 @@ Plain static HTML, CSS and JS. No build step is needed to host it.
 | Our Work | `/our-work/` |
 | Contact | `/contact/` |
 
-The service URLs match the current WordPress site, so existing links keep working.
-
-## Files
-
-- `assets/css/site.css` holds all styles: colours, type, layout and every component.
-- `assets/js/site.js` runs the menus, smooth scrolling, page transitions, the contact brief builder, the work filters and the lightbox.
-- `assets/js/scene.js` is the 3D paper-craft media set (Three.js r128): the home hero, the channel turntable, the service-page models, the services carousel and the card thumbnails.
-- `assets/vendor/` holds Three.js r128 and Lenis 1.1.13, both MIT licensed.
-
-All links are relative, so the site works on GitHub Pages under `/papersip/` and on a custom domain at `/`.
+Service URLs match the existing WordPress site.
 
 ## Media
 
-Portfolio images and client logos load from `papersipcompany.com/wp-content/uploads/`. TV commercials load from `cariotauto.in`, and radio spots from SoundCloud. If any of these fails to load, that tile hides itself.
-
-## Go live with GitHub Pages
-
-1. Open **Settings → Pages → Build and deployment**.
-2. Set **Source** to **Deploy from a branch**.
-3. Choose **main** and **/ (root)**, then click **Save**.
+Portfolio images and client logos load from `papersipcompany.com/wp-content/uploads/`. TV commercials load from `cariotauto.in`, and radio spots from SoundCloud. A tile whose image fails to load hides itself.
