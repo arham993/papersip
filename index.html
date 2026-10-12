@@ -1,384 +1,57 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-root="./">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Papersip Company · One-stop advertising agency</title>
+<meta name="description" content="Papersip Company runs TV, radio, print, OOH and digital advertising, visibility signage, media buying and strategy from one team in Faridabad. In business since 2010.">
 <meta name="theme-color" content="#FF1F8E">
-<title>Papersip Company</title>
-<meta name="description" content="Papersip Company: TV, radio, print, OOH and digital advertising, signage, media planning and strategy. In business since 2010.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Papersip Company">
+<meta property="og:title" content="Papersip Company · One-stop advertising agency">
+<meta property="og:description" content="Papersip Company runs TV, radio, print, OOH and digital advertising, visibility signage, media buying and strategy from one team in Faridabad. In business since 2010.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23FF1F8E'/%3E%3Ccircle cx='16' cy='16' r='7' fill='none' stroke='white' stroke-width='2.4'/%3E%3Cpath d='M16 4v24M4 16h24' stroke='white' stroke-width='2.4'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<style>
-:root{
-  --paper:#FFFFFF;
-  --paper-2:#F4F0FF;
-  --card:#FFFFFF;
-  --ink:#140F2D;
-  --ink-2:#4D4770;
-  --line:#E2DCF5;
-  --m:#FF1F8E;
-  --c:#00B8FF;
-  --y:#FFD60A;
-  --v:#7B3CFF;
-  --k:#140F2D;
-  --dk:#140F2D;
-  --wh:#FFFFFF;
-  --on-m:#FFFFFF;
-  --glow:color-mix(in srgb, var(--m) 24%, transparent);
-  --glow-2:color-mix(in srgb, var(--c) 26%, transparent);
-  --glow-3:color-mix(in srgb, var(--y) 38%, transparent);
-  --hdr:color-mix(in srgb, var(--paper) 82%, transparent);
-  --fd:"Big Shoulders Display","Arial Narrow","Roboto Condensed",Impact,sans-serif;
-  --fb:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
-  --fm:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
-  --ease:cubic-bezier(.2,.8,.2,1);
-}
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --paper:#0E0A24; --paper-2:#1A1440; --card:#1C1646; --ink:#F5F3FF; --ink-2:#B3ACD6;
-    --line:#302868; --m:#FF3FA0; --c:#22C8FF; --y:#FFDD33; --v:#9B6BFF; --k:#F5F3FF; --on-m:#FFFFFF;
-    color-scheme:dark;
-  }
-}
-:root[data-theme="dark"]{
-  --paper:#0E0A24; --paper-2:#1A1440; --card:#1C1646; --ink:#F5F3FF; --ink-2:#B3ACD6;
-  --line:#302868; --m:#FF3FA0; --c:#22C8FF; --y:#FFDD33; --v:#9B6BFF; --k:#F5F3FF; --on-m:#FFFFFF;
-  color-scheme:dark;
-}
-
-*,*::before,*::after{box-sizing:border-box}
-html.lenis,html.lenis body{height:auto}
-.lenis.lenis-smooth{scroll-behavior:auto!important}
-.lenis.lenis-stopped{overflow:hidden}
-body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.6 var(--fb);-webkit-font-smoothing:antialiased;overflow-x:hidden}
-a{color:inherit}
-h1,h2,h3{font-family:var(--fd);font-weight:800;text-transform:uppercase;line-height:.9;letter-spacing:.005em;margin:0;text-wrap:balance}
-p{margin:0}
-.wrap{max-width:1320px;margin-inline:auto;padding-inline:clamp(16px,4vw,48px)}
-.mono{font-family:var(--fm);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase}
-section{scroll-margin-top:72px}
-:focus-visible{outline:2px solid var(--m);outline-offset:3px;border-radius:4px}
-
-/* registration mark + cmyk bar */
-.reg{width:14px;height:14px;flex:none;fill:none;stroke:currentColor;stroke-width:1.4}
-.slug{display:flex;align-items:center;gap:10px;color:var(--ink-2)}
-.cmyk{display:inline-flex;gap:3px}
-.cmyk i{width:9px;height:9px;display:block}
-.cmyk i:nth-child(1){background:var(--c)}
-.cmyk i:nth-child(2){background:var(--m)}
-.cmyk i:nth-child(3){background:var(--y)}
-.cmyk i:nth-child(4){background:var(--k)}
-
-/* buttons */
-.btn{display:inline-flex;align-items:center;gap:10px;height:52px;padding-inline:24px;border-radius:999px;font:600 15px/1 var(--fb);text-decoration:none;border:1.5px solid var(--ink);color:var(--ink);background:transparent;cursor:pointer;transition:transform .35s var(--ease),background .25s,color .25s,border-color .25s}
-.btn:hover{transform:translateY(-2px)}
-.btn .arr{transition:transform .35s var(--ease)}
-.btn:hover .arr{transform:translateX(4px)}
-.btn-m{background:var(--m);border-color:var(--m);color:var(--on-m)}
-.btn-m:hover{background:var(--ink);border-color:var(--ink);color:var(--paper)}
-.btn-sm{height:40px;padding-inline:18px;font-size:14px}
-
-/* header */
-.hdr{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--hdr);backdrop-filter:blur(14px) saturate(1.3);-webkit-backdrop-filter:blur(14px) saturate(1.3);border-bottom:1px solid transparent;transition:border-color .3s}
-.hdr.scrolled{border-bottom-color:var(--line)}
-.hdr .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;height:68px}
-.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font:800 26px/1 var(--fd);text-transform:uppercase;letter-spacing:.02em}
-.logo .reg{width:20px;height:20px;color:var(--m);stroke-width:1.6}
-.logo small{font:500 10px/1 var(--fm);letter-spacing:.14em;color:var(--ink-2);align-self:flex-end;margin-bottom:3px}
-.nav{display:flex;gap:28px}
-.nav a{text-decoration:none;font-weight:500;font-size:15px;color:var(--ink-2);transition:color .2s}
-.nav a:hover{color:var(--ink)}
-@media (max-width:860px){.nav{display:none}.logo small{display:none}}
-
-/* hero */
-.hero{position:relative;isolation:isolate;overflow:hidden;min-height:clamp(620px,88vh,900px);display:flex;flex-direction:column;justify-content:flex-end;
-  background:radial-gradient(50% 60% at 72% 38%,var(--glow),transparent 70%),radial-gradient(40% 50% at 94% 82%,var(--glow-2),transparent 70%),radial-gradient(38% 42% at 52% 96%,var(--glow-3),transparent 70%),radial-gradient(30% 36% at 8% 6%,color-mix(in srgb,var(--v) 14%,transparent),transparent 70%),var(--paper)}
-#hero3d{position:absolute;inset:0;width:100%;height:100%;z-index:-1;display:block;touch-action:pan-y}
-.hero-inner{padding-block:96px 36px;width:100%}
-.hero-copy{max-width:640px;display:grid;gap:26px}
-.eyebrow{display:flex;align-items:center;gap:14px;color:var(--ink-2)}
-.onair{display:inline-flex;align-items:center;gap:8px;padding:6px 11px;border-radius:4px;background:var(--m);color:var(--on-m);font-weight:500}
-.onair::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor;animation:blink 1.4s steps(2,start) infinite}
-@keyframes blink{to{visibility:hidden}}
-.hero h1{font-size:clamp(64px,9.6vw,152px);line-height:.84;font-weight:900}
-.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.03em}
-.hero h1 .ln>span{display:inline-block;animation:rise 1s var(--ease) both;animation-delay:calc(var(--d,0) * 90ms + 120ms)}
-.hero h1 em{font-style:normal;color:var(--m);background:linear-gradient(90deg,var(--m),var(--v) 55%,var(--c));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;padding-right:.04em}
-@keyframes rise{from{transform:translateY(108%)}}
-.lede{font-size:clamp(17px,1.4vw,19px);color:var(--ink-2);max-width:52ch}
-.ctas{display:flex;flex-wrap:wrap;gap:12px}
-.hero-meta{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-block:18px 22px;border-top:1px solid var(--line);color:var(--ink-2)}
-.hero-meta .tc{display:flex;align-items:center;gap:10px;font-variant-numeric:tabular-nums}
-.hero-meta .tc b{color:var(--m);font-weight:500}
-.crop{position:absolute;width:22px;height:22px;border-color:var(--ink-2);opacity:.5;pointer-events:none}
-.crop.tl{top:18px;left:18px;border-top:1px solid;border-left:1px solid}
-.crop.tr{top:18px;right:18px;border-top:1px solid;border-right:1px solid}
-.drag-hint{position:absolute;right:clamp(16px,4vw,48px);top:92px;color:var(--ink-2);display:flex;gap:8px;align-items:center}
-@media (max-width:860px){
-  .hero{min-height:0;justify-content:flex-start}
-  #hero3d{position:relative;inset:auto;height:min(92vw,400px)}
-  .hero-inner{padding-block:4px 28px}
-  .drag-hint{display:none}
-  .crop{display:none}
-}
-
-/* ticker */
-.ticker{background:var(--y);color:var(--dk);overflow:hidden}
-.ticker-track{display:flex;width:max-content;animation:marquee 38s linear infinite}
-.ticker-item{display:flex;align-items:center;gap:22px;padding:18px 22px;font:800 clamp(28px,3.4vw,44px)/1 var(--fd);text-transform:uppercase;white-space:nowrap}
-.ticker-item i{width:12px;height:12px;border-radius:50%;background:var(--m);display:block}
-.ticker-item:nth-child(3n+2) i{background:var(--v)}
-.ticker-item:nth-child(3n) i{background:var(--c)}
-@keyframes marquee{to{transform:translateX(-50%)}}
-
-/* section header */
-.sec{padding-block:clamp(80px,11vw,150px)}
-.sec-head{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:24px 56px;align-items:end;margin-bottom:clamp(40px,6vw,72px)}
-.sec-head h2{font-size:clamp(44px,6.4vw,96px)}
-.sec-head .intro{color:var(--ink-2);max-width:46ch}
-.sec-head .slug{grid-column:1/-1}
-@media (max-width:860px){.sec-head{grid-template-columns:1fr}}
-
-/* channels */
-.channels{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(24px,5vw,72px);align-items:start}
-.ch-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
-.ch{all:unset;box-sizing:border-box;display:grid;grid-template-columns:70px minmax(0,1fr);gap:4px 18px;width:100%;padding:26px 4px;border-bottom:1px solid var(--line);cursor:pointer;min-height:132px;align-content:center}
-.ch .num{grid-row:1/4;align-self:start;margin-top:6px;display:inline-flex;justify-content:center;padding:5px 0;border:1px solid var(--line);border-radius:4px;color:var(--ink-2);transition:background .3s,color .3s,border-color .3s}
-.ch h3{font-size:clamp(30px,3vw,42px);font-weight:800;transition:color .3s,transform .5s var(--ease)}
-.ch p{color:var(--ink-2)}
-.ch .spec{color:var(--ink-2);opacity:.8;margin-top:4px;font-size:11.5px}
-.ch:hover h3,.ch.on h3{color:var(--m)}
-.ch.on h3{transform:translateX(6px)}
-.ch.on .num{background:var(--m);border-color:var(--m);color:var(--on-m)}
-.ch:focus-visible{outline-offset:-2px}
-.stage{position:sticky;top:92px;height:min(620px,calc(100vh - 120px));border-radius:22px;overflow:hidden;isolation:isolate;border:1px solid var(--line);
-  background:
-   linear-gradient(var(--line) 1px,transparent 1px) 0 0/40px 40px,
-   linear-gradient(90deg,var(--line) 1px,transparent 1px) 0 0/40px 40px,
-   linear-gradient(140deg,color-mix(in srgb,var(--c) 30%,var(--paper)),color-mix(in srgb,var(--v) 18%,var(--paper)) 55%,color-mix(in srgb,var(--m) 22%,var(--paper)))}
-.stage::after{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(55% 50% at 50% 50%,color-mix(in srgb,var(--y) 45%,transparent),transparent 75%);opacity:.9}
-#stage3d{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:grab;touch-action:pan-y}
-#stage3d:active{cursor:grabbing}
-.stage-top,.stage-bot{position:absolute;left:22px;right:22px;display:flex;justify-content:space-between;align-items:flex-start;gap:12px;pointer-events:none}
-.stage-top{top:20px;color:var(--ink-2)}
-.stage-top .live{display:flex;align-items:center;gap:8px}
-.stage-top .live::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--m);animation:blink 1.4s steps(2,start) infinite}
-.stage-bot{bottom:20px;align-items:flex-end}
-.stage-bot h3{font-size:clamp(34px,4vw,56px);font-weight:900}
-.stage-bot .spec{color:var(--ink-2);max-width:26ch;text-align:right}
-@media (max-width:860px){
-  .channels{grid-template-columns:1fr}
-  .stage{order:-1;top:calc(68px + env(safe-area-inset-top,0px));height:300px;z-index:5;border-radius:16px}
-  .stage-bot h3{font-size:32px}
-  .stage-bot .spec{display:none}
-  .ch{min-height:0;grid-template-columns:56px minmax(0,1fr)}
-}
-
-/* streams */
-.streams{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
-.drift{will-change:transform}
-.tilt{--rx:0deg;--ry:0deg;transform:perspective(1000px) rotateX(var(--rx)) rotateY(var(--ry));transform-style:preserve-3d;transition:transform .5s var(--ease);background:var(--card);border:1px solid var(--line);border-radius:20px;padding:14px;display:grid;gap:18px;height:100%}
-.tilt.hot{transition:transform .08s linear}
-.vis{height:230px;border-radius:12px;overflow:hidden;position:relative;transform:translateZ(46px)}
-.tilt .txt{padding:4px 8px 10px;display:grid;gap:8px;transform:translateZ(24px)}
-.tilt .kicker{color:var(--m)}
-.tilt h3{font-size:34px;font-weight:800}
-.tilt p{color:var(--ink-2);font-size:15.5px}
-@media (max-width:1100px){.streams{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:620px){.streams{grid-template-columns:1fr}}
-
-#streams{background:var(--v);color:var(--wh)}
-#streams .slug,#streams .sec-head .intro{color:rgba(255,255,255,.82)}
-#streams .tilt{box-shadow:0 30px 60px -30px rgba(20,15,45,.55);border-color:transparent}
-/* TV vis */
-.v-tv{background:#111;display:grid;grid-template-rows:68% 8% 1fr}
-.v-tv .bars,.v-tv .mid,.v-tv .low{display:grid;grid-template-columns:repeat(7,1fr)}
-.v-tv .bars span:nth-child(1){background:#C0C0C0}.v-tv .bars span:nth-child(2){background:#C0C000}.v-tv .bars span:nth-child(3){background:#00C0C0}.v-tv .bars span:nth-child(4){background:#00C000}.v-tv .bars span:nth-child(5){background:#C000C0}.v-tv .bars span:nth-child(6){background:#C00000}.v-tv .bars span:nth-child(7){background:#0000C0}
-.v-tv .mid span:nth-child(1){background:#0000C0}.v-tv .mid span:nth-child(3){background:#C000C0}.v-tv .mid span:nth-child(5){background:#00C0C0}.v-tv .mid span:nth-child(7){background:#C0C0C0}.v-tv .mid span{background:#131313}
-.v-tv .low{grid-template-columns:1.25fr 1.25fr 1.25fr 2fr 1fr}
-.v-tv .low span:nth-child(1){background:#00214C}.v-tv .low span:nth-child(2){background:#FFFFFF}.v-tv .low span:nth-child(3){background:#32006A}.v-tv .low span:nth-child(4){background:#131313}.v-tv .low span:nth-child(5){background:#262626}
-.v-tv::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(0,0,0,.18) 0 1px,transparent 1px 3px);mix-blend-mode:multiply;animation:roll 7s linear infinite}
-@keyframes roll{to{background-position:0 120px}}
-.v-tv .rec{position:absolute;top:10px;left:12px;right:12px;display:flex;justify-content:space-between;color:#fff;font:500 11px/1 var(--fm);letter-spacing:.08em;text-shadow:0 1px 2px #000;z-index:2}
-.v-tv .rec b{color:#ff2d55;font-weight:500}
-
-/* radio vis */
-.v-radio{background:var(--ink);color:var(--paper);display:grid;align-content:center;gap:22px;padding:22px}
-.dial{position:relative;height:54px;border-bottom:1px solid color-mix(in srgb,var(--paper) 40%,transparent);
-  background:repeating-linear-gradient(90deg,color-mix(in srgb,var(--paper) 55%,transparent) 0 1px,transparent 1px 8px) bottom/100% 12px no-repeat,
-             repeating-linear-gradient(90deg,var(--paper) 0 1.5px,transparent 1.5px 40px) bottom/100% 22px no-repeat}
-.dial .nums{display:flex;justify-content:space-between;font:500 11px/1 var(--fm);opacity:.8}
-.dial .needle{position:absolute;bottom:-6px;top:4px;width:2px;background:var(--m);left:30%;animation:tune 9s var(--ease) infinite alternate;box-shadow:0 0 12px var(--m)}
-@keyframes tune{0%{left:22%}40%{left:58%}70%{left:47%}100%{left:71%}}
-.wave{display:flex;align-items:center;gap:4px;height:64px}
-.wave i{flex:1;height:100%;background:var(--paper);border-radius:2px;transform-origin:center;animation:eq 1.1s ease-in-out infinite alternate}
-@keyframes eq{0%{transform:scaleY(.15)}100%{transform:scaleY(1)}}
-.v-radio .band{display:flex;justify-content:space-between;font:500 11px/1 var(--fm);letter-spacing:.1em;opacity:.8}
-
-/* print vis */
-.v-print{background:#F7F6F1;color:#16192B;padding:14px 16px;display:grid;grid-template-rows:auto auto 1fr;gap:8px}
-.v-print .mast{font:900 26px/1 var(--fd);text-transform:uppercase;text-align:center;border-bottom:3px double #16192B;padding-bottom:6px;letter-spacing:.02em}
-.v-print .date{display:flex;justify-content:space-between;font:500 9.5px/1 var(--fm);letter-spacing:.08em;text-transform:uppercase;border-bottom:1px solid #16192B;padding-bottom:6px}
-.v-print .body{display:grid;grid-template-columns:1.3fr 1fr;gap:10px}
-.v-print .photo{background:radial-gradient(circle,#FF1F8E 34%,transparent 36%) 0 0/7px 7px,radial-gradient(circle,#00B8FF 30%,transparent 32%) 3.5px 3.5px/7px 7px;border:1px solid #16192B;position:relative}
-.v-print .photo::after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,transparent 40%,#F7F6F1 100%)}
-.v-print .cols{display:grid;gap:5px;align-content:start}
-.v-print .cols b{font:800 17px/1 var(--fd);text-transform:uppercase}
-.v-print .cols i{height:4px;background:#16192B;opacity:.22;border-radius:2px}
-.v-print .cols i:nth-of-type(3n){width:72%}
-
-/* ooh vis */
-.v-ooh{background:linear-gradient(180deg,color-mix(in srgb,var(--c) 30%,var(--paper-2)) 0%,var(--paper-2) 75%);position:relative}
-.v-ooh .board{position:absolute;left:10%;top:16%;width:64%;aspect-ratio:2/1;background:var(--m);border:5px solid var(--k);color:#fff;display:grid;place-content:center;text-align:center;font:900 clamp(20px,2.2vw,28px)/.9 var(--fd);text-transform:uppercase}
-.v-ooh .board small{font:500 9px/1 var(--fm);letter-spacing:.1em;margin-top:6px;opacity:.9}
-.v-ooh .pole{position:absolute;left:calc(10% + 32% - 5px);top:calc(16% + 32%);width:10px;bottom:0;background:var(--k)}
-.v-ooh .dim{position:absolute;left:10%;width:64%;top:8%;display:flex;justify-content:center;font:500 10px/1 var(--fm);letter-spacing:.08em;color:var(--ink-2);border-inline:1px solid var(--ink-2);height:9px;align-items:center}
-.v-ooh .dim::before{content:"";position:absolute;left:0;right:0;top:50%;border-top:1px dashed var(--ink-2)}
-.v-ooh .dim span{background:color-mix(in srgb,var(--c) 22%,var(--paper-2));padding-inline:6px;position:relative;margin-top:-1px}
-.v-ooh .phone{position:absolute;right:8%;bottom:10%;width:26%;aspect-ratio:9/18;background:var(--k);border-radius:12px;padding:5px;box-shadow:0 18px 30px -12px rgba(0,0,0,.4)}
-.v-ooh .phone div{height:100%;border-radius:8px;background:var(--card);display:grid;grid-template-rows:auto 1fr auto;gap:4px;padding:5px}
-.v-ooh .phone .tag{font:500 6.5px/1 var(--fm);color:var(--ink-2);letter-spacing:.06em}
-.v-ooh .phone .img{background:linear-gradient(135deg,var(--m),var(--y));border-radius:4px}
-.v-ooh .phone .cta{height:9px;border-radius:3px;background:var(--c)}
-
-/* integrated */
-.integrated{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(32px,6vw,96px);align-items:start}
-.integrated h2{font-size:clamp(42px,5.2vw,82px)}
-.integrated .copy{display:grid;gap:26px}
-.integrated .copy p{color:var(--ink-2);font-size:18px;max-width:58ch}
-.stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.stat{padding:26px 24px 28px;border-radius:20px;display:grid;gap:10px;align-content:start;transition:transform .4s var(--ease)}
-.stat:hover{transform:translateY(-4px) rotate(-.6deg)}
-.stat:nth-child(1){background:var(--y);color:var(--dk)}.stat:nth-child(2){background:var(--c);color:var(--dk)}.stat:nth-child(3){background:var(--m);color:var(--wh)}.stat:nth-child(4){background:var(--v);color:var(--wh)}
-.stat .n{font:900 clamp(64px,7.4vw,116px)/.85 var(--fd);font-variant-numeric:tabular-nums;letter-spacing:-.01em}
-.stat .n sup{font-size:.42em;vertical-align:top;margin-left:2px}
-.stat p{color:inherit;opacity:.85;font-size:15px}
-@media (max-width:900px){.integrated{grid-template-columns:1fr}}
-@media (max-width:420px){.stat{padding:20px 14px}}
-
-/* approach */
-.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;counter-reset:s;border-top:1px solid var(--line)}
-.step{padding:30px 28px 34px 0;display:grid;gap:14px;align-content:start;position:relative}
-.step + .step{padding-left:28px;border-left:1px solid var(--line)}
-.step .big{font:900 clamp(80px,9vw,140px)/.8 var(--fd);color:var(--sc,var(--m));transition:transform .5s var(--ease);display:inline-block;transform-origin:left bottom}
-.step:nth-child(2){--sc:var(--c)}.step:nth-child(3){--sc:var(--v)}
-.step:hover .big{transform:rotate(-4deg) scale(1.05)}
-.step h3{font-size:36px}
-.step p{color:var(--ink-2);max-width:36ch}
-@media (max-width:860px){.steps{grid-template-columns:1fr}.step,.step + .step{padding:28px 0;border-left:0;border-bottom:1px solid var(--line)}}
-.values{display:flex;flex-wrap:wrap;align-items:center;gap:14px 26px;margin-top:clamp(56px,8vw,96px);font:800 clamp(30px,4.4vw,64px)/1 var(--fd);text-transform:uppercase}
-.values .reg{width:22px;height:22px;color:var(--m)}
-.values .reg:nth-of-type(2){color:var(--c)}.values .reg:nth-of-type(3){color:var(--v)}
-.mission{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:24px clamp(32px,6vw,96px);margin-top:clamp(64px,9vw,120px);padding-top:clamp(40px,5vw,56px);border-top:1px solid var(--line)}
-.mission blockquote{margin:0;font:500 clamp(24px,2.6vw,36px)/1.25 var(--fb);letter-spacing:-.01em;text-wrap:balance}
-.mission blockquote::before{content:"“";color:var(--m)}
-.mission blockquote::after{content:"”";color:var(--m)}
-.mission .vision{margin-top:18px;color:var(--ink-2)}
-.desks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:10px}
-.desk{border:1px solid var(--line);border-radius:14px;padding:18px 18px 20px;display:grid;gap:6px;background:var(--card);transition:transform .4s var(--ease),border-color .3s}
-.desk:hover{transform:translateY(-4px);border-color:var(--m)}
-.desk:nth-child(1){background:color-mix(in srgb,var(--y) 30%,var(--card))}.desk:nth-child(2){background:color-mix(in srgb,var(--c) 18%,var(--card))}.desk:nth-child(3){background:color-mix(in srgb,var(--m) 14%,var(--card))}.desk:nth-child(4){background:color-mix(in srgb,var(--v) 16%,var(--card))}
-.desk b{font:800 26px/1 var(--fd);text-transform:uppercase}
-.desk span{color:var(--ink-2);font-size:14.5px}
-@media (max-width:860px){.mission{grid-template-columns:1fr}}
-@media (max-width:460px){.desks{grid-template-columns:1fr}}
-
-/* clients */
-.clients{background:var(--m);color:var(--wh);overflow:hidden}
-.clients .sec-head .intro,.clients .slug{color:rgba(255,255,255,.85)}
-.marq{display:flex;width:max-content;animation:marquee 60s linear infinite}
-.marq.rev{animation-direction:reverse;animation-duration:70s}
-.marq:hover{animation-play-state:paused}
-.marq span{font:800 clamp(44px,6.4vw,96px)/1.05 var(--fd);text-transform:uppercase;padding-inline:26px;white-space:nowrap;display:flex;align-items:center;gap:52px;transition:color .25s}
-.marq span::after{content:"";width:12px;height:12px;border-radius:50%;background:var(--y);flex:none}
-.marq.rev span{color:transparent;-webkit-text-stroke:1.4px rgba(255,255,255,.9)}
-.marq.rev span::after{background:var(--dk)}
-.marq span:hover{color:var(--y);-webkit-text-stroke-color:var(--y)}
-.clients .note{margin-top:clamp(40px,6vw,64px);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center;color:rgba(255,255,255,.85)}
-.clients .btn{border-color:#fff;color:#fff}
-.clients .btn:hover{background:#fff;color:var(--m)}
-
-/* contact */
-.contact{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:clamp(32px,6vw,88px);align-items:start}
-.contact h2{font-size:clamp(48px,6.6vw,104px)}
-.contact h2 em{font-style:normal;color:var(--m)}
-#contact .contact h2 em{color:#E0006F}
-.reach{display:grid;gap:0;margin-top:36px;border-top:1px solid var(--line)}
-.reach div{display:grid;grid-template-columns:90px minmax(0,1fr) auto;gap:12px;align-items:center;padding:16px 0;border-bottom:1px solid var(--line)}
-.reach .k{color:var(--ink-2)}
-.reach .v{font-weight:600;font-size:17px;user-select:all;overflow-wrap:anywhere}
-.copy-btn{all:unset;cursor:pointer;font:500 11.5px/1 var(--fm);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);padding:8px 10px;border:1px solid var(--line);border-radius:6px;transition:color .2s,border-color .2s}
-.copy-btn:hover{color:var(--m);border-color:var(--m)}
-.copy-btn.ok{color:var(--on-m);background:var(--m);border-color:var(--m)}
-.brief{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:clamp(20px,3vw,34px);display:grid;gap:22px}
-.brief-top{display:flex;justify-content:space-between;align-items:center;gap:12px;color:var(--ink-2)}
-.brief-top b{font:800 28px/1 var(--fd);text-transform:uppercase;color:var(--ink)}
-fieldset{border:0;margin:0;padding:0;display:grid;gap:10px}
-legend,.lbl{font:500 11.5px/1 var(--fm);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);margin-bottom:10px;padding:0}
-.chips{display:flex;flex-wrap:wrap;gap:8px}
-.chip input{position:absolute;opacity:0;pointer-events:none}
-.chip span{display:inline-flex;align-items:center;gap:8px;height:38px;padding-inline:14px;border:1px solid var(--line);border-radius:999px;font-size:14.5px;font-weight:500;cursor:pointer;transition:all .2s;user-select:none}
-.chip span::before{content:"";width:8px;height:8px;border-radius:50%;border:1.5px solid var(--ink-2);transition:all .2s}
-.chip input:checked + span{background:var(--ink);color:var(--paper);border-color:var(--ink)}
-.chip input:checked + span::before{background:var(--m);border-color:var(--m)}
-.chip input:focus-visible + span{outline:2px solid var(--m);outline-offset:2px}
-.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-.field{display:grid;gap:0}
-.field.full{grid-column:1/-1}
-.field input,.field select,.field textarea,.out{width:100%;font:500 15.5px/1.4 var(--fb);color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:12px 14px;transition:border-color .2s}
-.field textarea{resize:vertical;min-height:74px}
-.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--m)}
-.out{font:400 13.5px/1.55 var(--fm);min-height:210px;resize:vertical;background:var(--paper-2);border-style:dashed}
-.brief-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
-.brief-actions .hint{color:var(--ink-2);font-size:13.5px;flex:1 1 220px}
-@media (max-width:900px){.contact{grid-template-columns:1fr}}
-@media (max-width:520px){.fields{grid-template-columns:1fr}.reach div{grid-template-columns:70px minmax(0,1fr) auto}}
-
-#contact{--ink:#140F2D;--ink-2:#4A4128;--line:rgba(20,15,45,.2);--paper:#FFFFFF;--paper-2:#FFF7CC;--card:#FFFFFF;--k:#140F2D;background:#FFD60A;color:var(--ink);color-scheme:light}
-#contact .brief{box-shadow:0 30px 60px -34px rgba(20,15,45,.45);border-color:transparent}
-#contact .reach .v{color:var(--ink)}
-/* footer */
-.foot{border-top:1px solid var(--line);padding-block:56px 32px;overflow:hidden}
-.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:36px}
-.foot-grid h4{margin:0 0 14px;font:500 11.5px/1 var(--fm);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2)}
-.foot-grid ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
-.foot-grid a{text-decoration:none;color:var(--ink);opacity:.85}
-.foot-grid a:hover{color:var(--m);opacity:1}
-.foot-grid .about{color:var(--ink-2);max-width:36ch}
-.wordmark{font:900 clamp(80px,21vw,330px)/.8 var(--fd);text-transform:uppercase;color:transparent;-webkit-text-stroke:1.6px var(--m);opacity:.55;margin-top:56px;white-space:nowrap;letter-spacing:-.005em;user-select:none;text-align:center}
-.foot-bot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:28px;color:var(--ink-2)}
-@media (max-width:900px){.foot-grid{grid-template-columns:1fr 1fr}}
-@media (max-width:520px){.foot-grid{grid-template-columns:1fr}}
-
-.no3d #hero3d,.no3d #stage3d{display:none}
-
-@media (prefers-reduced-motion: reduce){
-  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
-  .ticker-track,.marq{animation:none!important}
-  .marq{flex-wrap:wrap;width:auto}
-}
-</style>
+<link rel="stylesheet" href="assets/css/site.css">
 </head>
-<body>
+<body data-acc="m">
+<a class="skip" href="#main">Skip to content</a>
 <header class="hdr" id="hdr">
   <div class="wrap">
-    <a class="logo" href="#top" aria-label="Papersip Company, back to top">
-      <svg class="reg" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="5.5"/><path d="M10 0v20M0 10h20"/></svg>
-      Papersip <small>Est. 2010</small>
-    </a>
+    <a class="logo" href="./" aria-label="Papersip Company home"><svg class="reg" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="5.5"/><path d="M10 0v20M0 10h20"/></svg>Papersip <small>Est. 2010</small></a>
     <nav class="nav" aria-label="Main">
-      <a href="#channels">Channels</a>
-      <a href="#streams">Streams</a>
-      <a href="#approach">Approach</a>
-      <a href="#clients">Clients</a>
-      <a href="#contact">Contact</a>
+      <a href="./" aria-current="page">Home</a>
+      <a href="about/">About</a>
+      <div class="dd">
+        <a href="services/">Services <svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
+        <div class="mega"><a href="services/tv-advertising/" data-acc="y"><span class="sw">01</span><b>TV Advertising</b><span class="d">TV commercials built to earn trust, not just attention.</span></a><a href="services/radio-advertising/" data-acc="c"><span class="sw">02</span><b>Radio Advertising</b><span class="d">Audio that stays in memory long after visuals fade.</span></a><a href="services/print-advertising/" data-acc="m"><span class="sw">03</span><b>Print Advertising</b><span class="d">A written confirmation to your consumer.</span></a><a href="services/ooh-advertising/" data-acc="v"><span class="sw">04</span><b>OOH Advertising</b><span class="d">Total market coverage in a short span of time.</span></a><a href="services/digital-advertising/" data-acc="c"><span class="sw">05</span><b>Digital Advertising</b><span class="d">Research-led targeting that reaches prospects who buy.</span></a><a href="services/visibility-signage/" data-acc="y"><span class="sw">06</span><b>Visibility Signage</b><span class="d">Wayfinding systems, retail signage, and murals.</span></a><a href="services/media-buying-planning/" data-acc="m"><span class="sw">07</span><b>Media Buying &amp; Planning</b><span class="d">A media plan and campaign proposal, adjusted as feedback comes in.</span></a><a href="services/strategy/" data-acc="v"><span class="sw">08</span><b>Strategy</b><span class="d">Targeting the markets most likely to buy.</span></a><a class="all" href="services/"><b>All services</b><span class="d">Eight disciplines, one team →</span></a></div>
+      </div>
+      <a href="clients/">Clients</a>
+      <a href="our-work/">Our Work</a>
+      <a href="contact/">Contact</a>
     </nav>
-    <a class="btn btn-m btn-sm" href="#contact">Get a quote <span class="arr">→</span></a>
+    <div class="hdr-cta">
+      <a class="btn btn-m btn-sm" href="contact/">Get a quote <span class="arr">→</span></a>
+      <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mnav"><i></i></button>
+    </div>
   </div>
 </header>
-
-<main>
+<div class="mnav" id="mnav" aria-hidden="true">
+  <nav class="big" aria-label="Mobile">
+    <a href="./" aria-current="page"><small>01</small>Home</a>
+    <a href="about/"><small>02</small>About</a>
+    <a href="services/"><small>03</small>Services</a>
+    <a href="clients/"><small>04</small>Clients</a>
+    <a href="our-work/"><small>05</small>Our Work</a>
+    <a href="contact/"><small>06</small>Contact</a>
+  </nav>
+  <div class="svcs"><a href="services/tv-advertising/" data-acc="y"><i></i>TV Advertising</a><a href="services/radio-advertising/" data-acc="c"><i></i>Radio Advertising</a><a href="services/print-advertising/" data-acc="m"><i></i>Print Advertising</a><a href="services/ooh-advertising/" data-acc="v"><i></i>OOH Advertising</a><a href="services/digital-advertising/" data-acc="c"><i></i>Digital Advertising</a><a href="services/visibility-signage/" data-acc="y"><i></i>Visibility Signage</a><a href="services/media-buying-planning/" data-acc="m"><i></i>Media Buying &amp; Planning</a><a href="services/strategy/" data-acc="v"><i></i>Strategy</a></div>
+  <div class="meta mono"><span>madan@papersipcompany.com</span><span>+91 99587 97259</span><span>A-2617, Green Field, Faridabad</span></div>
+  <a class="btn btn-m" href="contact/">Get a quote <span class="arr">→</span></a>
+</div>
+<main id="main">
 <section class="hero" id="top">
   <canvas id="hero3d" aria-hidden="true"></canvas>
   <span class="crop tl" aria-hidden="true"></span><span class="crop tr" aria-hidden="true"></span>
@@ -386,713 +59,115 @@ legend,.lbl{font:500 11.5px/1 var(--fm);letter-spacing:.1em;text-transform:upper
   <div class="wrap hero-inner">
     <div class="hero-copy">
       <p class="eyebrow mono"><span class="onair">On air</span> In business since 2010</p>
-      <h1>
-        <span class="ln"><span style="--d:0">Expertly</span></span>
-        <span class="ln"><span style="--d:1">crafting</span></span>
-        <span class="ln"><span style="--d:2">your <em>brand</em></span></span>
-        <span class="ln"><span style="--d:3">story.</span></span>
-      </h1>
+      <h1><span class="ln"><span style="--d:0">Expertly</span></span><span class="ln"><span style="--d:1">crafting</span></span><span class="ln"><span style="--d:2">your <em class="grad">brand</em></span></span><span class="ln"><span style="--d:3">story.</span></span></h1>
       <p class="lede">A venture built to provide and run Radio, Outdoor, Digital, TV and Print advertising, wayfinding signage systems, retail solutions, wall art and murals, and creative design. All from ground zero.</p>
-      <div class="ctas">
-        <a class="btn btn-m" href="#contact">Get a quote <span class="arr">→</span></a>
-        <a class="btn" href="#channels">See what we run</a>
-      </div>
+      <div class="ctas"><a class="btn btn-m" href="contact/">Get a quote <span class="arr">→</span></a><a class="btn" href="services/">See what we run</a></div>
     </div>
   </div>
-  <div class="wrap">
-    <div class="hero-meta mono">
-      <span>8 disciplines · One team · Faridabad</span>
-      <span class="tc"><b>● REC</b> <span id="tc">00:00:00:00</span> <span>PAL 25fps</span></span>
-    </div>
-  </div>
+  <div class="wrap"><div class="hero-meta mono"><span>8 disciplines · One team · Faridabad</span><span class="tc"><b>● REC</b> <span data-tc>00:00:00:00</span> <span>PAL 25fps</span></span></div></div>
 </section>
-
-<div class="ticker" aria-label="Channels we run">
-  <div class="ticker-track" id="ticker"></div>
-</div>
+<div class="ticker" aria-label="Channels we run"><div class="ticker-track"><span class="ticker-item"><i></i>TV</span><span class="ticker-item"><i></i>Radio</span><span class="ticker-item"><i></i>Print</span><span class="ticker-item"><i></i>Out-of-home</span><span class="ticker-item"><i></i>Digital</span><span class="ticker-item"><i></i>Signage</span><span class="ticker-item"><i></i>Media planning</span><span class="ticker-item"><i></i>Strategy</span><span class="ticker-item" aria-hidden="true"><i></i>TV</span><span class="ticker-item" aria-hidden="true"><i></i>Radio</span><span class="ticker-item" aria-hidden="true"><i></i>Print</span><span class="ticker-item" aria-hidden="true"><i></i>Out-of-home</span><span class="ticker-item" aria-hidden="true"><i></i>Digital</span><span class="ticker-item" aria-hidden="true"><i></i>Signage</span><span class="ticker-item" aria-hidden="true"><i></i>Media planning</span><span class="ticker-item" aria-hidden="true"><i></i>Strategy</span></div></div>
 
 <section class="sec" id="channels">
   <div class="wrap">
-    <div class="sec-head">
-      <p class="slug mono"><svg class="reg" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="5.5"/><path d="M10 0v20M0 10h20"/></svg>Our channels</p>
-      <h2>One team, eight ways to reach your audience.</h2>
-      <p class="intro">Scroll or hover a channel to bring it onto the table. Drag the model to turn it. Every channel is planned, bought and produced by the same people.</p>
-    </div>
+    <div class="sec-head rv"><p class="slug mono"><svg class="reg" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="5.5"/><path d="M10 0v20M0 10h20"/></svg>Our channels</p><h2>One team, eight ways to reach your audience.</h2><p class="intro">Scroll or hover a channel to bring it onto the table, drag the model to turn it, and open any channel to see how we run it.</p></div>
     <div class="channels">
-      <ul class="ch-list" id="chList"></ul>
-      <div class="stage" id="stage">
+      <ul class="ch-list"><li><a class="ch on" data-i="0" href="services/tv-advertising/"><span class="num mono">CH 01</span><h3>TV Advertising</h3><p>TV commercials built to earn trust, not just attention.</p><span class="more">Explore TV <span>→</span></span></a></li><li><a class="ch" data-i="1" href="services/radio-advertising/"><span class="num mono">CH 02</span><h3>Radio Advertising</h3><p>Audio that stays in memory long after visuals fade.</p><span class="more">Explore Radio <span>→</span></span></a></li><li><a class="ch" data-i="2" href="services/print-advertising/"><span class="num mono">CH 03</span><h3>Print Advertising</h3><p>A written confirmation to your consumer.</p><span class="more">Explore Print <span>→</span></span></a></li><li><a class="ch" data-i="3" href="services/ooh-advertising/"><span class="num mono">CH 04</span><h3>OOH Advertising</h3><p>Total market coverage in a short span of time.</p><span class="more">Explore OOH <span>→</span></span></a></li><li><a class="ch" data-i="4" href="services/digital-advertising/"><span class="num mono">CH 05</span><h3>Digital Advertising</h3><p>Research-led targeting that reaches prospects who buy.</p><span class="more">Explore Digital <span>→</span></span></a></li><li><a class="ch" data-i="5" href="services/visibility-signage/"><span class="num mono">CH 06</span><h3>Visibility Signage</h3><p>Wayfinding systems, retail signage, and murals.</p><span class="more">Explore Signage <span>→</span></span></a></li><li><a class="ch" data-i="6" href="services/media-buying-planning/"><span class="num mono">CH 07</span><h3>Media Buying &amp; Planning</h3><p>A media plan and campaign proposal, adjusted as feedback comes in.</p><span class="more">Explore Media planning <span>→</span></span></a></li><li><a class="ch" data-i="7" href="services/strategy/"><span class="num mono">CH 08</span><h3>Strategy</h3><p>Targeting the markets most likely to buy.</p><span class="more">Explore Strategy <span>→</span></span></a></li></ul>
+      <div class="stage">
         <canvas id="stage3d" aria-label="3D model of the selected advertising channel"></canvas>
         <div class="stage-top mono"><span id="chNum">CH 01 / 08</span><span class="live">Drag to turn</span></div>
-        <div class="stage-bot"><h3 id="chName">TV Advertising</h3><p class="spec mono" id="chSpec">Spots · sponsorships · tickers</p></div>
+        <div class="stage-bot"><h3 id="chName">TV Advertising</h3><a class="btn btn-sm" id="chGo" href="services/tv-advertising/" style="background:var(--paper);border-color:var(--paper)">Open <span class="arr">→</span></a></div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="sec" id="streams">
+<section class="sec band-v" id="streams">
   <div class="wrap">
-    <div class="sec-head">
-      <p class="slug mono"><svg class="reg" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="5.5"/><path d="M10 0v20M0 10h20"/></svg>Advertising streams</p>
-      <h2>One brand. Multiple touchpoints. Greater impact.</h2>
-      <p class="intro">From radio and TV to print, OOH and digital, we take your brand message where your audience is and make it matter.</p>
-    </div>
+    <div class="sec-head rv"><p class="slug mono"><svg class="reg" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="5.5"/><path d="M10 0v20M0 10h20"/></svg>Advertising streams</p><h2>One brand. Multiple touchpoints. Greater impact.</h2><p class="intro">From radio and TV to print, OOH and digital, we take your brand message where your audience is and make it matter.</p></div>
     <div class="streams">
-      <div class="drift" data-speed="0.03">
-        <article class="tilt">
-          <div class="vis v-tv" aria-hidden="true">
-            <div class="rec"><span><b>●</b> REC</span><span id="tc2">00:00:30:00</span></div>
-            <div class="bars"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-            <div class="mid"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-            <div class="low"><span></span><span></span><span></span><span></span><span></span></div>
-          </div>
-          <div class="txt"><p class="kicker mono">The reach of TV</p><h3>Television</h3><p>Sight, sound and motion in the living room. Commercials built to earn trust, then placed where your buyers watch.</p></div>
-        </article>
-      </div>
-      <div class="drift" data-speed="-0.02">
-        <article class="tilt">
-          <div class="vis v-radio" aria-hidden="true">
-            <div class="dial"><div class="nums"><span>88</span><span>92</span><span>96</span><span>100</span><span>104</span><span>108</span></div><div class="needle"></div></div>
-            <div class="wave" id="wave"></div>
-            <div class="band"><span>FM</span><span>MHz</span></div>
-          </div>
-          <div class="txt"><p class="kicker mono">The intimacy of radio</p><h3>Radio</h3><p>One voice talking to one listener, often on the drive home. Audio stays in memory long after visuals fade.</p></div>
-        </article>
-      </div>
-      <div class="drift" data-speed="0.04">
-        <article class="tilt">
-          <div class="vis v-print" aria-hidden="true">
-            <div class="mast">The Morning Edition</div>
-            <div class="date"><span>Vol. XVI</span><span>Delhi NCR</span><span>₹5</span></div>
-            <div class="body"><div class="photo"></div><div class="cols"><b>Brands built from ground zero</b><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
-          </div>
-          <div class="txt"><p class="kicker mono">The trust of print</p><h3>Print</h3><p>A written confirmation to your consumer. Something they can hold, read twice and keep on the table.</p></div>
-        </article>
-      </div>
-      <div class="drift" data-speed="-0.03">
-        <article class="tilt">
-          <div class="vis v-ooh" aria-hidden="true">
-            <div class="dim"><span>40 × 20 FT</span></div>
-            <div class="board">Seen daily<small>on the whole route</small></div>
-            <div class="pole"></div>
-            <div class="phone"><div><span class="tag">SPONSORED</span><span class="img"></span><span class="cta"></span></div></div>
-          </div>
-          <div class="txt"><p class="kicker mono">The precision of OOH & digital</p><h3>Outdoor + Digital</h3><p>Hoardings cover a whole route many times a day. Digital narrows it to the prospects most likely to buy.</p></div>
-        </article>
-      </div>
-    </div>
+  <div class="drift" data-speed="0.03"><a class="tilt" href="services/tv-advertising/">
+    <div class="vis v-tv" aria-hidden="true"><div class="rec"><span><b>●</b> REC</span><span data-tc="loop">00:00:30:00</span></div><div class="bars"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><div class="mid"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><div class="low"><span></span><span></span><span></span><span></span><span></span></div></div>
+    <div class="txt"><p class="kicker mono">The reach of TV</p><h3>Television</h3><p>Sight, sound and motion in the living room. Commercials built to earn trust, then placed where your buyers watch.</p></div></a></div>
+  <div class="drift" data-speed="-0.02"><a class="tilt" href="services/radio-advertising/">
+    <div class="vis v-radio" aria-hidden="true"><div class="dial"><div class="nums"><span>88</span><span>92</span><span>96</span><span>100</span><span>104</span><span>108</span></div><div class="needle"></div></div><div class="wave"></div><div class="band"><span>FM</span><span>MHz</span></div></div>
+    <div class="txt"><p class="kicker mono">The intimacy of radio</p><h3>Radio</h3><p>One voice talking to one listener, often on the drive home. Audio stays in memory long after visuals fade.</p></div></a></div>
+  <div class="drift" data-speed="0.04"><a class="tilt" href="services/print-advertising/">
+    <div class="vis v-print" aria-hidden="true"><div class="mast">The Morning Edition</div><div class="date"><span>Vol. XVI</span><span>Delhi NCR</span><span>₹5</span></div><div class="body"><div class="photo"></div><div class="cols"><b>Brands built from ground zero</b><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div></div>
+    <div class="txt"><p class="kicker mono">The trust of print</p><h3>Print</h3><p>A written confirmation to your consumer. Something they can hold, read twice and keep on the table.</p></div></a></div>
+  <div class="drift" data-speed="-0.03"><a class="tilt" href="services/ooh-advertising/">
+    <div class="vis v-ooh" aria-hidden="true"><div class="dim"><span>40 × 20 FT</span></div><div class="board">Seen daily<small>on the whole route</small></div><div class="pole"></div><div class="phone"><div><span class="tag">SPONSORED</span><span class="img"></span><span class="cta"></span></div></div></div>
+    <div class="txt"><p class="kicker mono">The precision of OOH & digital</p><h3>Outdoor + Digital</h3><p>Hoardings cover a whole route many times a day. Digital narrows it to the prospects most likely to buy.</p></div></a></div>
+</div>
   </div>
 </section>
 
 <section class="sec" id="what">
   <div class="wrap integrated">
-    <div class="copy">
-      <p class="slug mono"><svg class="reg" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="5.5"/><path d="M10 0v20M0 10h20"/></svg>What we do</p>
-      <h2>Transforming brands through integrated advertising.</h2>
+    <div class="copy rv"><p class="slug mono"><svg class="reg" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="5.5"/><path d="M10 0v20M0 10h20"/></svg>What we do</p><h2>Transforming brands through integrated advertising.</h2>
       <p>We craft advertising designed to lift your brand across every medium. Whether it's the reach of TV, the intimacy of radio, the trust of print, or the precision of digital and out-of-home, we make sure your message lands with the right audience.</p>
       <p>Our approach starts with understanding your goals and ends with campaigns that inspire action. With Papersip you get more than advertising. You get a partner dedicated to your success.</p>
-    </div>
+      <div class="ctas"><a class="btn" href="about/">About Papersip <span class="arr">→</span></a></div></div>
     <div class="stats">
-      <div class="stat"><span class="n" data-count="2010" data-plain="1">2010</span><p>In business since. Sixteen years of planning and buying media.</p></div>
-      <div class="stat"><span class="n" data-count="8">8</span><p>Disciplines under one roof, run by one team.</p></div>
-      <div class="stat"><span class="n"><span data-count="95">95</span><sup>%</sup></span><p>Successful projects delivered for our clients.</p></div>
-      <div class="stat"><span class="n" data-count="27">27</span><p>Brands on our client list, from real estate to healthcare.</p></div>
+      <div class="stat rv"><span class="n" data-count="2010" data-from="1994">2010</span><p>In business since. Sixteen years of planning and buying media.</p></div>
+      <div class="stat rv"><span class="n" data-count="8">8</span><p>Disciplines under one roof, run by one team.</p></div>
+      <div class="stat rv"><span class="n"><span data-count="95">95</span><sup>%</sup></span><p>Successful projects delivered for our clients.</p></div>
+      <div class="stat rv"><span class="n" data-count="27">27</span><p>Brands on our client list, from real estate to healthcare.</p></div>
     </div>
   </div>
 </section>
 
-<section class="sec" id="approach" style="padding-top:0">
+<section class="sec tight" id="approach">
   <div class="wrap">
-    <div class="sec-head">
-      <p class="slug mono"><svg class="reg" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="5.5"/><path d="M10 0v20M0 10h20"/></svg>How a campaign runs</p>
-      <h2>Ground work first. Then the noise.</h2>
-      <p class="intro">Creativity has a role to play. Strategy is the garnishing effect. Every campaign moves through the same three stages.</p>
-    </div>
-    <div class="steps">
-      <div class="step"><span class="big" aria-hidden="true">01</span><h3>Discovery</h3><p>We confirm the audience you need to reach and set a budget that fits the goal.</p></div>
-      <div class="step"><span class="big" aria-hidden="true">02</span><h3>Build & launch</h3><p>Creative made for each format, placed on a schedule across the channels that suit the brief.</p></div>
-      <div class="step"><span class="big" aria-hidden="true">03</span><h3>Track & refine</h3><p>Weekly performance reporting. The plan adjusts as feedback comes in.</p></div>
-    </div>
-    <div class="values" aria-label="Our values">
-      <span>Transparency</span><svg class="reg" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="5.5"/><path d="M10 0v20M0 10h20"/></svg>
-      <span>Accountability</span><svg class="reg" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="5.5"/><path d="M10 0v20M0 10h20"/></svg>
-      <span>Creative excellence</span><svg class="reg" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="5.5"/><path d="M10 0v20M0 10h20"/></svg>
-      <span>Results-driven</span>
-    </div>
-    <div class="mission">
-      <div>
-        <p class="slug mono" style="margin-bottom:18px">Our mission</p>
-        <blockquote>Develop and apply talent for the benefit of our clients, in partnership, and in profit.</blockquote>
-        <p class="vision">Our vision: to be the market leader in driving innovation and shaping the industry.</p>
-      </div>
-      <div>
-        <p class="slug mono" style="margin-bottom:8px">Four desks, one team</p>
-        <div class="desks">
-          <div class="desk"><b>Media Strategy</b><span>Planning and media buying</span></div>
-          <div class="desk"><b>Creative Direction</b><span>TV, print and radio</span></div>
-          <div class="desk"><b>Digital</b><span>Digital and performance</span></div>
-          <div class="desk"><b>Client Partnerships</b><span>Account and delivery</span></div>
-        </div>
-      </div>
-    </div>
+    <div class="sec-head rv"><p class="slug mono"><svg class="reg" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="5.5"/><path d="M10 0v20M0 10h20"/></svg>How a campaign runs</p><h2>Ground work first. Then the noise.</h2><p class="intro">Creativity has a role to play. Strategy is the garnishing effect. Every campaign moves through the same three stages.</p></div>
+    <div class="steps"><div class="step rv"><span class="big" aria-hidden="true">01</span><h3>Discovery</h3><p>We confirm your audience for this channel and set a realistic budget range.</p></div><div class="step rv"><span class="big" aria-hidden="true">02</span><h3>Build &amp; launch</h3><p>Creative is built to the channel&#x27;s format and placements go live on schedule.</p></div><div class="step rv"><span class="big" aria-hidden="true">03</span><h3>Track &amp; refine</h3><p>We report results weekly and adjust placements toward what performs.</p></div></div>
   </div>
 </section>
 
-<section class="sec clients" id="clients">
-  <div class="wrap">
-    <div class="sec-head">
-      <p class="slug mono"><svg class="reg" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="5.5"/><path d="M10 0v20M0 10h20"/></svg>Clients</p>
-      <h2>Brands that trust us with their media budget.</h2>
-      <p class="intro">Developers, hospitals, universities, retailers and automotive brands we've worked with.</p>
-    </div>
-  </div>
-  <div class="marq" id="marqA" aria-hidden="true"></div>
-  <div class="marq rev" id="marqB" aria-hidden="true"></div>
-  <div class="wrap">
-    <p class="sr" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)" id="clientText"></p>
-    <div class="note"><span class="mono">Want your brand on this list next?</span><a class="btn" href="#contact">Start a brief <span class="arr">→</span></a></div>
-  </div>
+<section class="sec band-m" id="clients">
+  <div class="wrap"><div class="sec-head"><p class="slug mono"><svg class="reg" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="5.5"/><path d="M10 0v20M0 10h20"/></svg>Clients</p><h2>Brands that trust us with their media budget.</h2><p class="intro">Developers, hospitals, universities, retailers and automotive brands we've worked with.</p></div></div>
+  <div class="marq" aria-hidden="true"><span>91wheels</span><span>Amrita Hospital</span><span>Auto Expo 2014</span><span>AVS Infra</span><span>Billu</span><span>BGRE</span><span>Canwinn</span><span>Centre for Sight</span><span>Chandigarh University</span><span>Delta</span><span>DLF</span><span>E1 Trucks</span><span>Emaar India</span><span>Grand Arch</span><span>91wheels</span><span>Amrita Hospital</span><span>Auto Expo 2014</span><span>AVS Infra</span><span>Billu</span><span>BGRE</span><span>Canwinn</span><span>Centre for Sight</span><span>Chandigarh University</span><span>Delta</span><span>DLF</span><span>E1 Trucks</span><span>Emaar India</span><span>Grand Arch</span></div><div class="marq rev" aria-hidden="true"><span>IID</span><span>Ireo</span><span>JIMS Noida</span><span>L26T</span><span>M3M</span><span>Manipal Hospitals</span><span>Moov</span><span>Navraj</span><span>Nextra Developers</span><span>Nike</span><span>PC Jeweller</span><span>Samadhan</span><span>Silver Stone Realty</span><span>IID</span><span>Ireo</span><span>JIMS Noida</span><span>L26T</span><span>M3M</span><span>Manipal Hospitals</span><span>Moov</span><span>Navraj</span><span>Nextra Developers</span><span>Nike</span><span>PC Jeweller</span><span>Samadhan</span><span>Silver Stone Realty</span></div><p class="sr">Clients include 91wheels, Amrita Hospital, Auto Expo 2014, AVS Infra, Billu, BGRE, Canwinn, Centre for Sight, Chandigarh University, Delta, DLF, E1 Trucks, Emaar India, Grand Arch, IID, Ireo, JIMS Noida, L26T, M3M, Manipal Hospitals, Moov, Navraj, Nextra Developers, Nike, PC Jeweller, Samadhan, Silver Stone Realty.</p>
+  <div class="wrap"><div class="note"><span class="mono">27 brands and counting</span><a class="btn" href="clients/">See all clients <span class="arr">→</span></a></div></div>
 </section>
 
-<section class="sec" id="contact">
-  <div class="wrap contact">
-    <div>
-      <p class="slug mono" style="margin-bottom:22px"><svg class="reg" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="5.5"/><path d="M10 0v20M0 10h20"/></svg>Get a quote</p>
-      <h2>Ready to craft your brand story from <em>ground zero?</em></h2>
-      <div class="reach">
-        <div><span class="k mono">Email</span><span class="v" id="em">madan@papersipcompany.com</span><button class="copy-btn" type="button" data-copy="madan@papersipcompany.com">Copy</button></div>
-        <div><span class="k mono">Phone</span><span class="v">+91 99587 97259</span><button class="copy-btn" type="button" data-copy="+91 99587 97259">Copy</button></div>
-        <div><span class="k mono">Office</span><span class="v">A-2617, Green Field, Faridabad</span><button class="copy-btn" type="button" data-copy="A-2617, Green Field, Faridabad">Copy</button></div>
-      </div>
-    </div>
-    <form class="brief" id="brief" novalidate>
-      <div class="brief-top"><b>Build your brief</b><span class="mono">Takes a minute</span></div>
-      <fieldset>
-        <legend>Channels you're considering</legend>
-        <div class="chips" id="chips"></div>
-      </fieldset>
-      <div class="fields">
-        <label class="field" for="f-name"><span class="lbl">Your name</span><input id="f-name" autocomplete="name" placeholder="Aditi Sharma"></label>
-        <label class="field" for="f-co"><span class="lbl">Company or brand</span><input id="f-co" autocomplete="organization" placeholder="Your brand"></label>
-        <label class="field" for="f-mkt"><span class="lbl">Market or city</span><input id="f-mkt" placeholder="Delhi NCR"></label>
-        <label class="field" for="f-budget"><span class="lbl">Budget range</span>
-          <select id="f-budget">
-            <option>Under ₹5 lakh</option>
-            <option selected>₹5 – 25 lakh</option>
-            <option>₹25 lakh – 1 crore</option>
-            <option>Above ₹1 crore</option>
-            <option>Not sure yet</option>
-          </select></label>
-        <label class="field" for="f-time"><span class="lbl">When to go live</span>
-          <select id="f-time">
-            <option>This month</option>
-            <option selected>In the next 1–3 months</option>
-            <option>Later this year</option>
-            <option>Just exploring</option>
-          </select></label>
-        <label class="field" for="f-goal"><span class="lbl">Main goal</span>
-          <select id="f-goal">
-            <option selected>Launch a new project or product</option>
-            <option>Build brand awareness</option>
-            <option>Drive enquiries and sales</option>
-            <option>Store or site visibility</option>
-          </select></label>
-        <label class="field full" for="f-notes"><span class="lbl">Anything else</span><textarea id="f-notes" placeholder="Launch dates, sites you like, past campaigns…"></textarea></label>
-        <label class="field full" for="f-out"><span class="lbl">Your brief, ready to send</span><textarea class="out" id="f-out" readonly></textarea></label>
-      </div>
-      <div class="brief-actions">
-        <button class="btn btn-m" type="button" id="copyBrief">Copy brief <span class="arr">→</span></button>
-        <a class="btn" id="mailBrief" href="mailto:madan@papersipcompany.com">Open in email</a>
-        <p class="hint">Paste it into an email to madan@papersipcompany.com or read it out on a call.</p>
-      </div>
-    </form>
+<section class="sec" id="work">
+  <div class="wrap">
+    <div class="strip-head rv"><div><p class="slug mono"><svg class="reg" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="5.5"/><path d="M10 0v20M0 10h20"/></svg>Our work</p><h2 style="margin-top:14px">Out there, on the route.</h2></div><a class="btn" href="our-work/">See all work <span class="arr">→</span></a></div>
+    <div class="strip gal"><a href="https://papersipcompany.com/wp-content/uploads/2024/06/ooh-1-1.png" data-tile data-cat="Campaign" data-alt="Campaign campaign"><img src="https://papersipcompany.com/wp-content/uploads/2024/06/ooh-1-1.png" alt="Campaign campaign by Papersip" loading="lazy" decoding="async" data-hide-on-error></a><a href="https://papersipcompany.com/wp-content/uploads/2024/06/tanishq.png" data-tile data-cat="Campaign" data-alt="Campaign campaign"><img src="https://papersipcompany.com/wp-content/uploads/2024/06/tanishq.png" alt="Campaign campaign by Papersip" loading="lazy" decoding="async" data-hide-on-error></a><a href="https://papersipcompany.com/wp-content/uploads/2024/06/print-1.jpeg" data-tile data-cat="Campaign" data-alt="Campaign campaign"><img src="https://papersipcompany.com/wp-content/uploads/2024/06/print-1.jpeg" alt="Campaign campaign by Papersip" loading="lazy" decoding="async" data-hide-on-error></a><a href="https://papersipcompany.com/wp-content/uploads/2024/06/ooh-17.jpg" data-tile data-cat="Campaign" data-alt="Campaign campaign"><img src="https://papersipcompany.com/wp-content/uploads/2024/06/ooh-17.jpg" alt="Campaign campaign by Papersip" loading="lazy" decoding="async" data-hide-on-error></a><a href="https://papersipcompany.com/wp-content/uploads/2024/06/radisson.png" data-tile data-cat="Campaign" data-alt="Campaign campaign"><img src="https://papersipcompany.com/wp-content/uploads/2024/06/radisson.png" alt="Campaign campaign by Papersip" loading="lazy" decoding="async" data-hide-on-error></a><a href="https://papersipcompany.com/wp-content/uploads/2024/06/ooh-3.png" data-tile data-cat="Campaign" data-alt="Campaign campaign"><img src="https://papersipcompany.com/wp-content/uploads/2024/06/ooh-3.png" alt="Campaign campaign by Papersip" loading="lazy" decoding="async" data-hide-on-error></a></div>
   </div>
 </section>
 </main>
-
+<section class="cta-band" data-acc="m">
+  <span class="ghost" aria-hidden="true">On air</span>
+  <div class="wrap">
+    <div><h2>Ready to craft your brand story from ground zero?</h2></div>
+    <div class="ctas"><a class="btn btn-solid" href="contact/">Get a quote <span class="arr">→</span></a><a class="btn" href="tel:+919958797259">+91 99587 97259</a></div>
+  </div>
+</section>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Campaign image" aria-hidden="true">
+  <div class="bar"><span class="mono" id="lbCap"></span><button type="button" id="lbClose" aria-label="Close">Close ✕</button></div>
+  <div class="stagebox"><img alt=""></div>
+  <div class="navs"><button type="button" id="lbPrev" aria-label="Previous image">← Prev</button><button type="button" id="lbNext" aria-label="Next image">Next →</button></div>
+</div>
 <footer class="foot">
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <a class="logo" href="#top"><svg class="reg" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="5.5"/><path d="M10 0v20M0 10h20"/></svg>Papersip</a>
+        <a class="logo" href="./"><svg class="reg" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="5.5"/><path d="M10 0v20M0 10h20"/></svg>Papersip</a>
         <p class="about" style="margin-top:14px">A brand-focused marketing media consultancy with a strong team of innovative and strategic thinkers, in business since 2010.</p>
         <p style="margin-top:16px"><span class="cmyk" aria-hidden="true"><i></i><i></i><i></i><i></i></span></p>
       </div>
-      <div><h4>Company</h4><ul><li><a href="#top">Home</a></li><li><a href="#what">About us</a></li><li><a href="#channels">Services</a></li><li><a href="#clients">Clients</a></li><li><a href="#contact">Contact us</a></li></ul></div>
-      <div><h4>Services</h4><ul id="footServices"></ul></div>
-      <div><h4>Get in touch</h4><ul><li>madan@papersipcompany.com</li><li>+91 99587 97259</li><li>A-2617, Green Field, Faridabad</li></ul></div>
+      <div><h4>Company</h4><ul><li><a href="./">Home</a></li><li><a href="about/">About us</a></li><li><a href="services/">Services</a></li><li><a href="clients/">Clients</a></li><li><a href="our-work/">Our work</a></li><li><a href="contact/">Contact us</a></li></ul></div>
+      <div><h4>Services</h4><ul><li><a href="services/tv-advertising/">TV Advertising</a></li><li><a href="services/radio-advertising/">Radio Advertising</a></li><li><a href="services/print-advertising/">Print Advertising</a></li><li><a href="services/ooh-advertising/">OOH Advertising</a></li><li><a href="services/digital-advertising/">Digital Advertising</a></li><li><a href="services/visibility-signage/">Visibility Signage</a></li><li><a href="services/media-buying-planning/">Media Buying &amp; Planning</a></li><li><a href="services/strategy/">Strategy</a></li></ul></div>
+      <div><h4>Get in touch</h4><ul><li><a href="mailto:madan@papersipcompany.com">madan@papersipcompany.com</a></li><li><a href="tel:+919958797259">+91 99587 97259</a></li><li>A-2617, Green Field, Faridabad, Haryana 121003</li><li>Mon – Sat, 9:30am – 6:30pm</li></ul></div>
     </div>
     <div class="wordmark" aria-hidden="true">Papersip</div>
-    <div class="foot-bot mono"><span>© 2026 Papersip Company. All rights reserved.</span><span>Terms & Conditions · Privacy Policy</span></div>
+    <div class="foot-bot mono"><span>© 2026 Papersip Company. All rights reserved.</span><span>Faridabad · Delhi NCR</span></div>
   </div>
 </footer>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
-<script>
-(function(){
-"use strict";
-var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-/* ---------- content ---------- */
-var CH = [
-  {k:'tv',      name:'TV Advertising',        line:'TV commercials built to earn trust, not just attention.', spec:'Spots · sponsorships · tickers'},
-  {k:'radio',   name:'Radio Advertising',     line:'Audio that stays in memory long after visuals fade.',      spec:'Jingles · RJ mentions · spots'},
-  {k:'print',   name:'Print Advertising',     line:'A written confirmation to your consumer.',                 spec:'Full page · half page · jackets · inserts'},
-  {k:'ooh',     name:'OOH Advertising',       line:'Total market coverage in a short span of time.',           spec:'Hoardings · digital boards · bus & metro'},
-  {k:'digital', name:'Digital Advertising',   line:'Research-led targeting that reaches prospects who buy.',   spec:'Search · social · display · performance'},
-  {k:'signage', name:'Visibility Signage',    line:'Wayfinding systems, retail signage, and murals.',          spec:'Wayfinding · retail · wall art'},
-  {k:'plan',    name:'Media Buying & Planning', line:'A media plan and campaign proposal, adjusted as feedback comes in.', spec:'Plan · buy · report'},
-  {k:'strat',   name:'Strategy',              line:'Targeting the markets most likely to buy.',                spec:'Market · audience · message'}
-];
-var CLIENTS = ['91wheels','Amrita Hospital','Auto Expo 2014','AVS Infra','Billu','BGRE','Canwinn','Centre for Sight','Chandigarh University','Delta','DLF','E1 Trucks','Emaar India','Grand Arch','IID','Ireo','JIMS Noida','L26T','M3M','Manipal Hospitals','Moov','Navraj','Nextra Developers','Nike','PC Jeweller','Samadhan','Silver Stone Realty'];
-
-function el(tag, cls, html){var e=document.createElement(tag); if(cls) e.className=cls; if(html!=null) e.innerHTML=html; return e;}
-function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
-
-// ticker
-var tk=document.getElementById('ticker'); var words=['TV','Radio','Print','Out-of-home','Digital','Signage','Media planning','Strategy'];
-for(var r=0;r<2;r++) words.forEach(function(w){ var it=el('span','ticker-item','<i></i>'+esc(w)); if(r) it.setAttribute('aria-hidden','true'); tk.appendChild(it); });
-
-// channel list
-var list=document.getElementById('chList');
-CH.forEach(function(c,i){
-  var li=el('li');
-  var b=el('button','ch'+(i===0?' on':''));
-  b.type='button'; b.dataset.i=i;
-  b.innerHTML='<span class="num mono">CH '+String(i+1).padStart(2,'0')+'</span><h3>'+esc(c.name)+'</h3><p>'+esc(c.line)+'</p><span class="spec mono">'+esc(c.spec)+'</span>';
-  li.appendChild(b); list.appendChild(li);
-});
-var fs=document.getElementById('footServices');
-CH.forEach(function(c){ var li=el('li'); li.innerHTML='<a href="#channels">'+esc(c.name)+'</a>'; fs.appendChild(li); });
-
-// clients marquee
-function fillMarq(id, arr){ var m=document.getElementById(id); var h=arr.map(function(n){return '<span>'+esc(n)+'</span>';}).join(''); m.innerHTML=h+h; }
-fillMarq('marqA', CLIENTS.slice(0,14)); fillMarq('marqB', CLIENTS.slice(14));
-document.getElementById('clientText').textContent='Clients include: '+CLIENTS.join(', ')+'.';
-
-// radio wave
-var wave=document.getElementById('wave');
-for(var i=0;i<28;i++){ var bar=el('i'); bar.style.animationDelay=(-Math.random()*1.1).toFixed(2)+'s'; bar.style.animationDuration=(0.6+Math.random()*0.9).toFixed(2)+'s'; wave.appendChild(bar); }
-
-/* ---------- timecode (PAL 25fps) ---------- */
-var tcEl=document.getElementById('tc'), tc2=document.getElementById('tc2'), t0=performance.now();
-function fmtTC(ms){ var f=Math.floor(ms/40); var ff=f%25, s=Math.floor(f/25)%60, m=Math.floor(f/1500)%60, h=Math.floor(f/90000); function p(n){return String(n).padStart(2,'0');} return p(h)+':'+p(m)+':'+p(s)+':'+p(ff); }
-function tick(){ var d=performance.now()-t0; tcEl.textContent=fmtTC(d); tc2.textContent=fmtTC(d%30000 + 0); if(!reduce) requestAnimationFrame(tick); }
-tick();
-
-/* ---------- header ---------- */
-var hdr=document.getElementById('hdr');
-function onScrollHdr(){ hdr.classList.toggle('scrolled', window.scrollY>8); }
-addEventListener('scroll', onScrollHdr, {passive:true}); onScrollHdr();
-
-/* ---------- smooth scroll ---------- */
-var lenis=null;
-if(window.Lenis && !reduce){
-  try{
-    lenis=new Lenis({lerp:0.085, smoothWheel:true, wheelMultiplier:1});
-    (function raf(t){ lenis.raf(t); requestAnimationFrame(raf); })(performance.now());
-  }catch(e){ lenis=null; }
-}
-document.querySelectorAll('a[href^="#"]').forEach(function(a){
-  a.addEventListener('click', function(e){
-    var id=a.getAttribute('href'); if(id.length<2) return;
-    var t=document.querySelector(id); if(!t) return;
-    e.preventDefault();
-    if(lenis) lenis.scrollTo(t,{offset:-70, duration:1.4});
-    else t.scrollIntoView({behavior: reduce?'auto':'smooth'});
-  });
-});
-
-/* ---------- tilt cards ---------- */
-document.querySelectorAll('.tilt').forEach(function(card){
-  if(reduce) return;
-  card.addEventListener('pointermove', function(e){
-    if(e.pointerType==='touch') return;
-    var r=card.getBoundingClientRect(); var x=(e.clientX-r.left)/r.width-.5, y=(e.clientY-r.top)/r.height-.5;
-    card.classList.add('hot'); card.style.setProperty('--ry',(x*14).toFixed(2)+'deg'); card.style.setProperty('--rx',(-y*12).toFixed(2)+'deg');
-  });
-  card.addEventListener('pointerleave', function(){ card.classList.remove('hot'); card.style.setProperty('--ry','0deg'); card.style.setProperty('--rx','0deg'); });
-});
-
-/* ---------- drift parallax ---------- */
-var drifts=[].slice.call(document.querySelectorAll('[data-speed]'));
-function drift(){
-  var vh=innerHeight;
-  drifts.forEach(function(d){ var r=d.getBoundingClientRect(); if(r.bottom<-200||r.top>vh+200) return; var off=(r.top+r.height/2-vh/2); d.style.transform='translate3d(0,'+(off*parseFloat(d.dataset.speed)).toFixed(1)+'px,0)'; });
-}
-if(!reduce && innerWidth>620){ addEventListener('scroll', function(){ requestAnimationFrame(drift); }, {passive:true}); drift(); }
-
-/* ---------- count up ---------- */
-if(!reduce && 'IntersectionObserver' in window){
-  var cio=new IntersectionObserver(function(ents){
-    ents.forEach(function(en){
-      if(!en.isIntersecting) return; cio.unobserve(en.target);
-      var n=en.target, end=+n.dataset.count, start=n.dataset.plain? end-16 : 0, t=performance.now(), dur=1400;
-      (function step(now){ var p=Math.min(1,(now-t)/dur); var e=1-Math.pow(1-p,4); n.textContent=Math.round(start+(end-start)*e); if(p<1) requestAnimationFrame(step); })(t);
-    });
-  },{threshold:.6});
-  document.querySelectorAll('[data-count]').forEach(function(n){ cio.observe(n); });
-}
-
-/* ---------- brief builder ---------- */
-var chips=document.getElementById('chips');
-['TV','Radio','Print','OOH','Digital','Signage','Media planning','Strategy'].forEach(function(n,i){
-  var lab=el('label','chip'); lab.setAttribute('for','c-'+i);
-  lab.innerHTML='<input type="checkbox" id="c-'+i+'" value="'+esc(n)+'"'+((i===0||i===3)?' checked':'')+'><span>'+esc(n)+'</span>';
-  chips.appendChild(lab);
-});
-var out=document.getElementById('f-out'), mail=document.getElementById('mailBrief');
-function val(id,fb){ var v=document.getElementById(id).value.trim(); return v||fb; }
-function build(){
-  var sel=[].slice.call(chips.querySelectorAll('input:checked')).map(function(i){return i.value;});
-  var chText = sel.length? (sel.length>1? sel.slice(0,-1).join(', ')+' and '+sel[sel.length-1] : sel[0]) : '[pick at least one channel]';
-  var notes=val('f-notes','');
-  var txt='Hi Papersip team,\n\n'+
-    "I'm "+val('f-name','[your name]')+' from '+val('f-co','[your brand]')+". We'd like a quote for "+chText+' in '+val('f-mkt','[market or city]')+'.\n\n'+
-    'Goal: '+document.getElementById('f-goal').value+'\n'+
-    'Budget: '+document.getElementById('f-budget').value+'\n'+
-    'Go live: '+document.getElementById('f-time').value+'\n'+
-    (notes? '\n'+notes+'\n' : '')+
-    '\nThanks,\n'+val('f-name','[your name]');
-  out.value=txt;
-  mail.href='mailto:madan@papersipcompany.com?subject='+encodeURIComponent('Quote request: '+val('f-co','new campaign'))+'&body='+encodeURIComponent(txt);
-}
-document.getElementById('brief').addEventListener('input', build);
-document.getElementById('brief').addEventListener('change', build);
-document.getElementById('brief').addEventListener('submit', function(e){ e.preventDefault(); });
-build();
-function flash(btn, label){ var old=btn.dataset.label||btn.innerHTML; btn.dataset.label=old; btn.innerHTML=label; btn.classList.add('ok'); setTimeout(function(){ btn.innerHTML=old; btn.classList.remove('ok'); },1600); }
-function copyText(text, btn, okLabel, fallbackEl){
-  var done=function(){ flash(btn, okLabel); };
-  var fail=function(){ if(fallbackEl){ fallbackEl.focus(); if(fallbackEl.select) fallbackEl.select(); else { var rg=document.createRange(); rg.selectNodeContents(fallbackEl); var s=getSelection(); s.removeAllRanges(); s.addRange(rg);} } flash(btn,'Selected, press Ctrl+C'); };
-  try{ navigator.clipboard.writeText(text).then(done, fail); }catch(e){ fail(); }
-}
-document.getElementById('copyBrief').addEventListener('click', function(){ copyText(out.value, this, 'Copied to clipboard', out); });
-document.querySelectorAll('.copy-btn').forEach(function(b){ b.addEventListener('click', function(){ copyText(b.dataset.copy, b, 'Copied', b.previousElementSibling); }); });
-
-/* =====================================================
-   3D — paper-craft media set
-   ===================================================== */
-if(!window.THREE){ document.documentElement.classList.add('no3d'); return; }
-var T=THREE;
-var FD='"Big Shoulders Display","Arial Narrow",Impact,sans-serif';
-var FM='"IBM Plex Mono",Menlo,monospace';
-
-function mat(c, o){ o=o||{}; return new T.MeshStandardMaterial({color:c, roughness:o.r!=null?o.r:.85, metalness:0, flatShading:true, side:o.ds?T.DoubleSide:T.FrontSide}); }
-var MAT={
-  paper:mat(0xF7F6F1), paperDS:mat(0xF7F6F1,{ds:true}), shade:mat(0xD7DAE1), ink:mat(0x1B1F35,{r:.6}),
-  m:mat(0xFF1F8E), c:mat(0x00B8FF), y:mat(0xFFD60A), v:mat(0x7B3CFF),
-  mDS:mat(0xFF1F8E,{ds:true}), cDS:mat(0x00B8FF,{ds:true}), yDS:mat(0xFFD60A,{ds:true}), vDS:mat(0x7B3CFF,{ds:true})
-};
-var EDGE=new T.LineBasicMaterial({color:0x151931, transparent:true, opacity:.5});
-
-function part(g, geo, m, p, r, noEdge){
-  var mesh=new T.Mesh(geo, m); if(p) mesh.position.set(p[0],p[1],p[2]); if(r) mesh.rotation.set(r[0],r[1],r[2]);
-  g.add(mesh);
-  if(!noEdge){ mesh.add(new T.LineSegments(new T.EdgesGeometry(geo, 24), EDGE)); }
-  return mesh;
-}
-function canvasTex(w,h,draw){ var c=document.createElement('canvas'); c.width=w; c.height=h; var x=c.getContext('2d'); draw(x,w,h); var t=new T.CanvasTexture(c); t.anisotropy=4; return t; }
-function basic(t){ return new T.MeshBasicMaterial({map:t}); }
-function boxFront(w,h,d,t){ var face=new T.MeshStandardMaterial({map:t, roughness:.8}); return [MAT.paper,MAT.paper,MAT.paper,MAT.paper,face,MAT.paper]; }
-
-function fitFont(x,weight,size,fam,text,max){ x.font=weight+' '+size+'px '+fam; var w=x.measureText(text).width; if(w>max){ size=Math.floor(size*max/w); x.font=weight+' '+size+'px '+fam; } return size; }
-/* textures (built once fonts are ready) */
-var TEX={};
-function makeTextures(){
-  TEX.bars=canvasTex(512,384,function(x,w,h){
-    var top=['#C0C0C0','#C0C000','#00C0C0','#00C000','#C000C0','#C00000','#0000C0'], bw=w/7;
-    top.forEach(function(c,i){ x.fillStyle=c; x.fillRect(i*bw,0,bw+1,h*.67); });
-    var mid=['#0000C0','#131313','#C000C0','#131313','#00C0C0','#131313','#C0C0C0'];
-    mid.forEach(function(c,i){ x.fillStyle=c; x.fillRect(i*bw,h*.67,bw+1,h*.08); });
-    var low=[['#00214C',1.25],['#FFFFFF',1.25],['#32006A',1.25],['#131313',2],['#262626',1]], sx=0, tot=6.75;
-    low.forEach(function(l){ x.fillStyle=l[0]; var ww=w*l[1]/tot; x.fillRect(sx,h*.75,ww+1,h*.25); sx+=ww; });
-    x.fillStyle='rgba(0,0,0,.14)'; for(var y=0;y<h;y+=3) x.fillRect(0,y,w,1);
-  });
-  TEX.board=canvasTex(1024,512,function(x,w,h){
-    x.fillStyle='#FF1F8E'; x.fillRect(0,0,w,h);
-    x.fillStyle='rgba(255,255,255,.08)'; for(var i=0;i<14;i++){ x.fillRect(i*w/14,0,2,h); }
-    x.fillStyle='#fff'; var bs=Math.min(fitFont(x,'900',190,FD,'YOUR BRAND,',w-110),fitFont(x,'900',190,FD,'40 FT WIDE.',w-110)); x.font='900 '+bs+'px '+FD; x.textBaseline='alphabetic';
-    x.fillText('YOUR BRAND,',56,220);
-    x.fillStyle='#FFD60A'; x.fillText('40 FT',56,410);
-    x.fillStyle='#fff'; x.fillText(' WIDE.',56+x.measureText('40 FT').width,410);
-    x.font='500 26px '+FM; x.fillStyle='rgba(255,255,255,.85)'; x.fillText('PAPERSIP · OOH',60,470);
-  });
-  TEX.paper=canvasTex(512,660,function(x,w,h){
-    x.fillStyle='#F7F6F1'; x.fillRect(0,0,w,h); x.fillStyle='#16192B';
-    fitFont(x,'900',58,FD,'THE MORNING EDITION',w-52); x.textAlign='center'; x.fillText('THE MORNING EDITION',w/2,74);
-    x.fillRect(24,92,w-48,4); x.fillRect(24,100,w-48,1.5);
-    x.font='500 14px '+FM; x.textAlign='left'; x.fillText('VOL. XVI',26,124); x.textAlign='right'; x.fillText('DELHI NCR',w-26,124);
-    x.fillRect(24,134,w-48,1.5);
-    x.textAlign='left'; fitFont(x,'900',54,FD,'FROM GROUND ZERO',w-52); x.fillText('BRANDS BUILT',26,196); x.fillText('FROM GROUND ZERO',26,248);
-    // photo w/ halftone
-    x.save(); x.beginPath(); x.rect(26,272,260,200); x.clip(); x.fillStyle='#fff'; x.fillRect(26,272,260,200);
-    for(var yy=272; yy<472; yy+=9) for(var xx=26; xx<286; xx+=9){ var rr=1+3.2*Math.abs(Math.sin(xx*.021+yy*.013)); x.fillStyle=((xx+yy)%18<9)?'#FF1F8E':'#00B8FF'; x.beginPath(); x.arc(xx,yy,rr,0,7); x.fill(); }
-    x.restore(); x.strokeStyle='#16192B'; x.lineWidth=2; x.strokeRect(26,272,260,200);
-    x.fillStyle='rgba(22,25,43,.35)';
-    for(var l=0;l<16;l++){ x.fillRect(304,276+l*12.4,(l%4===3?120:180),5); }
-    for(var c=0;c<3;c++) for(var l2=0;l2<11;l2++){ x.fillRect(26+c*160,494+l2*14,(l2%5===4?90:140),5); }
-  });
-  TEX.phone=canvasTex(360,720,function(x,w,h){
-    x.fillStyle='#F4F5F8'; x.fillRect(0,0,w,h);
-    x.fillStyle='#11152A'; x.font='600 22px sans-serif'; x.fillText('9:41',28,40);
-    function card(y,hh,ad){ x.fillStyle='#fff'; x.fillRect(18,y,w-36,hh); x.strokeStyle='#D8DCE4'; x.lineWidth=2; x.strokeRect(18,y,w-36,hh);
-      x.fillStyle=ad?'#FF1F8E':'#CBD1DB'; x.fillRect(30,y+48,w-60,hh-110);
-      x.fillStyle='#11152A'; x.beginPath(); x.arc(44,y+26,12,0,7); x.fill(); x.fillStyle='#8A92A6'; x.fillRect(64,y+18,120,8); x.fillRect(64,y+30,70,6);
-      if(ad){ x.fillStyle='#8A92A6'; x.font='500 14px '+FM; x.fillText('SPONSORED',w-130,y+30); x.fillStyle='#0092C3'; x.fillRect(30,y+hh-50,w-60,34); x.fillStyle='#fff'; x.font='700 18px sans-serif'; x.fillText('Get a quote',w/2-50,y+hh-27);
-        x.fillStyle='#fff'; fitFont(x,'900',64,FD,'ON AIR.',w-100); x.fillText('ON AIR.',48,y+140); }
-      else { x.fillStyle='#8A92A6'; x.fillRect(30,y+hh-50,w-120,8); x.fillRect(30,y+hh-34,w-170,8); } }
-    card(66,330,true); card(412,280,false);
-  });
-  TEX.dial=canvasTex(256,96,function(x,w,h){
-    x.fillStyle='#FFD60A'; x.fillRect(0,0,w,h); x.fillStyle='#1B1F35';
-    for(var i=0;i<=40;i++){ var xx=12+i*(w-24)/40; x.fillRect(xx,h-30,1.5,i%5===0?20:10); }
-    x.font='600 16px '+FM; ['88','96','104'].forEach(function(n,i){ x.fillText(n,14+i*100,26); });
-    x.fillStyle='#D4006E'; x.fillRect(150,6,4,h-10);
-  });
-}
-
-/* builders */
-function buildTV(){
-  var g=new T.Group();
-  part(g,new T.BoxGeometry(2.1,1.55,1.3),MAT.y,[0,0,0]);
-  part(g,new T.BoxGeometry(1.42,1.16,.06),MAT.ink,[-.28,0,.66]);
-  part(g,new T.PlaneGeometry(1.28,1.02),basic(TEX.bars),[-.28,0,.695],null,true);
-  part(g,new T.CylinderGeometry(.11,.11,.08,24),MAT.m,[.72,.36,.68],[Math.PI/2,0,0]);
-  part(g,new T.CylinderGeometry(.11,.11,.08,24),MAT.c,[.72,.04,.68],[Math.PI/2,0,0]);
-  for(var i=0;i<4;i++) part(g,new T.BoxGeometry(.34,.035,.02),MAT.ink,[.72,-.26-i*.1,.66]);
-  [[-.8,.4],[.8,.4],[-.8,-.4],[.8,-.4]].forEach(function(p){ part(g,new T.CylinderGeometry(.04,.03,.42,8),MAT.shade,[p[0],-.98,p[1]],[p[1]*.35,0,-p[0]*.18]); });
-  part(g,new T.SphereGeometry(.2,16,8,0,Math.PI*2,0,Math.PI/2),MAT.shade,[0,.775,0]);
-  [-1,1].forEach(function(s){ var a=part(g,new T.CylinderGeometry(.018,.018,1.2,6),MAT.ink,[s*.3,1.3,0],[0,0,-s*.5]); part(g,new T.SphereGeometry(.07,12,8),MAT.m,[s*.59,1.83,0]); });
-  return g;
-}
-function buildRadio(){
-  var g=new T.Group();
-  part(g,new T.BoxGeometry(2.5,1.25,.62),MAT.c);
-  [-.78,.78].forEach(function(x,i){
-    part(g,new T.CylinderGeometry(.44,.44,.06,32),MAT.ink,[x,-.12,.32],[Math.PI/2,0,0]);
-    part(g,new T.CylinderGeometry(.33,.26,.1,32),MAT.paper,[x,-.12,.35],[Math.PI/2,0,0]);
-    part(g,new T.CylinderGeometry(.1,.1,.06,20),i?MAT.y:MAT.m,[x,-.12,.42],[Math.PI/2,0,0]);
-  });
-  var d=new T.Mesh(new T.BoxGeometry(.62,.26,.05), [MAT.y,MAT.y,MAT.y,MAT.y,new T.MeshStandardMaterial({map:TEX.dial,roughness:.7}),MAT.y]); d.position.set(0,.3,.32); g.add(d); d.add(new T.LineSegments(new T.EdgesGeometry(d.geometry),EDGE));
-  [[-.9,MAT.m],[-.62,MAT.v],[.62,MAT.y],[.9,MAT.m]].forEach(function(b){ part(g,new T.BoxGeometry(.2,.08,.2),b[1],[b[0],.665,0]); });
-  part(g,new T.TorusGeometry(.72,.05,8,28,Math.PI),MAT.ink,[0,.62,0]);
-  part(g,new T.CylinderGeometry(.016,.016,1.3,6),MAT.ink,[1.02,1.18,-.18],[0,0,-.42]);
-  part(g,new T.SphereGeometry(.045,10,8),MAT.m,[1.3,1.78,-.18]);
-  return g;
-}
-function buildPrint(){
-  var g=new T.Group();
-  for(var i=0;i<3;i++){ part(g,new T.BoxGeometry(1.6,2.06,.025),MAT.paper,[i*.07,-i*.06,-i*.05],[0,0,-.06+i*.06]); }
-  var top=new T.Mesh(new T.BoxGeometry(1.6,2.06,.025), boxFront(0,0,0,TEX.paper)); top.position.set(-.06,.05,.04); top.rotation.z=-.1; g.add(top); top.add(new T.LineSegments(new T.EdgesGeometry(top.geometry),EDGE));
-  var roll=new T.Group(); roll.position.set(.9,-.75,.45); roll.rotation.set(.2,.3,.95); g.add(roll);
-  part(roll,new T.CylinderGeometry(.17,.17,1.7,20),MAT.paper);
-  part(roll,new T.TorusGeometry(.175,.03,6,24),MAT.m,[0,.2,0],[Math.PI/2,0,0]);
-  part(roll,new T.TorusGeometry(.175,.03,6,24),MAT.m,[0,-.3,0],[Math.PI/2,0,0]);
-  return g;
-}
-function buildOOH(){
-  var g=new T.Group();
-  part(g,new T.BoxGeometry(3,1.52,.12),MAT.v,[0,.5,0]);
-  part(g,new T.PlaneGeometry(2.86,1.4),basic(TEX.board),[0,.5,.062],null,true);
-  part(g,new T.CylinderGeometry(.11,.14,1.9,12),MAT.shade,[0,-1.2,-.05]);
-  part(g,new T.BoxGeometry(3,.04,.34),MAT.shade,[0,-.3,.2]);
-  for(var i=0;i<12;i++) part(g,new T.BoxGeometry(.012,.22,.012),MAT.shade,[-1.45+i*.264,-.18,.36],null,true);
-  [-1,0,1].forEach(function(x){ part(g,new T.BoxGeometry(.03,.03,.36),MAT.ink,[x,1.3,.18]); part(g,new T.BoxGeometry(.2,.08,.1),MAT.y,[x,1.28,.38],[.5,0,0]); });
-  return g;
-}
-function buildDigital(){
-  var g=new T.Group();
-  part(g,new T.BoxGeometry(1.04,2.06,.1),MAT.v);
-  part(g,new T.PlaneGeometry(.94,1.92),basic(TEX.phone),[0,0,.051],null,true);
-  part(g,new T.CylinderGeometry(.14,.14,.06,24),MAT.m,[.5,1.02,.1],[Math.PI/2,0,0]);
-  var c1=part(g,new T.BoxGeometry(.9,.56,.03),MAT.paper,[1.05,.45,.35],[0,-.4,.08]);
-  part(c1,new T.BoxGeometry(.3,.3,.02),MAT.c,[-.22,0,.02],null,true);
-  part(c1,new T.BoxGeometry(.34,.05,.02),MAT.shade,[.16,.08,.02],null,true);
-  part(c1,new T.BoxGeometry(.24,.05,.02),MAT.shade,[.11,-.04,.02],null,true);
-  var c2=part(g,new T.BoxGeometry(.7,.44,.03),MAT.paper,[-1,-.45,.3],[0,.45,-.1]);
-  part(c2,new T.BoxGeometry(.5,.12,.02),MAT.y,[0,.06,.02],null,true);
-  part(c2,new T.BoxGeometry(.36,.05,.02),MAT.shade,[-.07,-.1,.02],null,true);
-  return g;
-}
-function arrowGeo(len){ var s=new T.Shape(), h=.34, t=.28; s.moveTo(0,-h/2); s.lineTo(len-t,-h/2); s.lineTo(len,0); s.lineTo(len-t,h/2); s.lineTo(0,h/2); s.lineTo(0,-h/2); var geo=new T.ExtrudeGeometry(s,{depth:.07,bevelEnabled:false}); geo.translate(.07,0,-.035); return geo; }
-function buildSignage(){
-  var g=new T.Group();
-  part(g,new T.CylinderGeometry(.065,.065,3.1,12),MAT.shade,[0,0,0]);
-  part(g,new T.CylinderGeometry(.38,.44,.12,24),MAT.v,[0,-1.55,0]);
-  part(g,new T.SphereGeometry(.1,14,10),MAT.m,[0,1.6,0]);
-  [[1.1,MAT.c,0,1.35],[.62,MAT.m,Math.PI+.35,1.15],[.14,MAT.y,-.55,1.3]].forEach(function(a){
-    var sg=new T.Group(); sg.position.y=a[0]; sg.rotation.y=a[2]; g.add(sg); part(sg,arrowGeo(a[3]),a[1]);
-  });
-  part(g,new T.BoxGeometry(.9,.6,.04),MAT.paper,[0,-.55,.08]);
-  part(g,new T.BoxGeometry(.5,.07,.01),MAT.ink,[0,-.42,.105],null,true);
-  part(g,new T.BoxGeometry(.66,.05,.01),MAT.shade,[0,-.58,.105],null,true);
-  part(g,new T.BoxGeometry(.4,.05,.01),MAT.shade,[0,-.7,.105],null,true);
-  return g;
-}
-function buildPlan(){
-  var g=new T.Group();
-  part(g,new T.BoxGeometry(2.5,.1,1.5),MAT.shade,[0,-.05,0]);
-  for(var i=0;i<6;i++) part(g,new T.BoxGeometry(2.3,.005,.01),MAT.ink,[0,.005,-.6+i*.24],null,true);
-  var hs=[.55,.85,.7,1.2,1.05,1.7], pts=[];
-  hs.forEach(function(h,i){ var x=-1+i*.4; part(g,new T.BoxGeometry(.26,h,.26),[MAT.y,MAT.c,MAT.v,MAT.y,MAT.c,MAT.m][i],[x,h/2,0]); pts.push(new T.Vector3(x,h+.22,0)); });
-  var curve=new T.CatmullRomCurve3(pts); part(g,new T.TubeGeometry(curve,60,.028,8,false),MAT.c,null,null,true);
-  pts.forEach(function(p){ part(g,new T.SphereGeometry(.06,12,8),MAT.y,[p.x,p.y,p.z],null,true); });
-  return g;
-}
-function buildStrat(){
-  var g=new T.Group();
-  var rings=[[1.05,MAT.c],[.84,MAT.paper],[.63,MAT.m],[.42,MAT.paper],[.2,MAT.y]];
-  rings.forEach(function(r,i){ part(g,new T.CylinderGeometry(r[0],r[0],.1,48),r[1],[0,0,i*.012],[Math.PI/2,0,0]); });
-  [-1,1].forEach(function(s){ part(g,new T.CylinderGeometry(.045,.045,2.2,8),MAT.shade,[s*.55,-.55,-.35],[.3,0,s*.2]); });
-  var ar=new T.Group(); ar.position.set(.04,.05,.1); ar.rotation.set(-.55,.6,0); g.add(ar);
-  part(ar,new T.CylinderGeometry(.03,.03,1.5,8),MAT.ink,[0,0,.75],[Math.PI/2,0,0]);
-  part(ar,new T.BoxGeometry(.02,.24,.34),MAT.v,[0,.1,1.38],null);
-  part(ar,new T.BoxGeometry(.24,.02,.34),MAT.v,[.1,0,1.38],null);
-  return g;
-}
-var BUILD={tv:buildTV,radio:buildRadio,print:buildPrint,ooh:buildOOH,digital:buildDigital,signage:buildSignage,plan:buildPlan,strat:buildStrat};
-function fit(inner,size){
-  var box=new T.Box3().setFromObject(inner), c=box.getCenter(new T.Vector3()), s=box.getSize(new T.Vector3());
-  inner.position.sub(c); var k=size/Math.max(s.x,s.y,s.z);
-  var sc=new T.Group(); sc.scale.setScalar(k); sc.add(inner);
-  var o=new T.Group(); o.add(sc); o.userData.h=s.y*k; return o;
-}
-function lights(scene){
-  scene.add(new T.HemisphereLight(0xffffff,0x7d86a3,.95));
-  var d=new T.DirectionalLight(0xffffff,.85); d.position.set(4,6,6); scene.add(d);
-  var f=new T.DirectionalLight(0xbfe6ff,.28); f.position.set(-6,1,3); scene.add(f);
-}
-function makeRenderer(canvas){
-  try{ var r=new T.WebGLRenderer({canvas:canvas, antialias:true, alpha:true, powerPreference:'high-performance'}); r.setClearColor(0x000000,0); r.setPixelRatio(Math.min(devicePixelRatio||1,2)); return r; }
-  catch(e){ return null; }
-}
-function spring(o,target,dt){ o.v+=(target-o.s)*140*dt; o.v*=Math.exp(-15*dt); o.s+=o.v*dt; }
-
-var mx=0,my=0;
-addEventListener('pointermove',function(e){ mx=e.clientX/innerWidth*2-1; my=e.clientY/innerHeight*2-1; },{passive:true});
-
-function start(){
-  makeTextures();
-
-  /* ---------- HERO ---------- */
-  var hc=document.getElementById('hero3d'), hero=document.getElementById('top');
-  var hr=makeRenderer(hc);
-  if(!hr){ document.documentElement.classList.add('no3d'); return; }
-  var hs=new T.Scene(), hcam=new T.PerspectiveCamera(34,1,.1,100); hcam.position.set(0,0,12); lights(hs);
-  var root=new T.Group(); hs.add(root);
-  var LAYOUT={ // normalised x,y,z and size factor
-    tv:[-.28,.42,.4,1.05], ooh:[.46,.7,-.9,1.35], radio:[.62,.02,.3,1], print:[-.62,-.38,.2,.95],
-    digital:[.06,-.6,.7,.95], signage:[.95,-.72,-1.4,1.05], plan:[-.5,.98,-1.6,.95], strat:[1.02,.52,-2.6,1.05]
-  };
-  var items=CH.map(function(c,i){ var o=fit(BUILD[c.k](),1); root.add(o); o.scale.setScalar(.0001);
-    return {o:o,k:c.k,n:LAYOUT[c.k],s:0,v:0,delay:.25+i*.11,ph:i*1.7,home:new T.Vector3(),size:1,spin:0}; });
-  var sheets=[]; var sheetGeo=new T.PlaneGeometry(.42,.56);
-  for(var i=0;i<16;i++){ var sm=new T.Mesh(sheetGeo,[MAT.paperDS,MAT.mDS,MAT.paperDS,MAT.cDS,MAT.yDS,MAT.vDS][i%6]); sm.add(new T.LineSegments(new T.EdgesGeometry(sheetGeo),EDGE)); hs.add(sm);
-    sheets.push({m:sm,x:Math.random(),y:Math.random(),z:-1-Math.random()*5,sp:.12+Math.random()*.2,rx:Math.random()*6,ry:Math.random()*6,vr:(Math.random()-.5)*1.2}); }
-  var halfW=5,halfH=3,wide=true;
-  function heroLayout(){
-    var w=hc.clientWidth,h=hc.clientHeight; if(!w||!h) return;
-    hr.setSize(w,h,false); hcam.aspect=w/h; hcam.updateProjectionMatrix();
-    halfH=Math.tan(T.MathUtils.degToRad(hcam.fov/2))*hcam.position.z; halfW=halfH*hcam.aspect; wide=hcam.aspect>1.15;
-    var cx=wide?halfW*.5:0, cy=wide?.15:0, rw=wide?halfW*.42:halfW*.78, rh=wide?halfH*.74:halfH*.72, unit=Math.min(rw*1.15,rh);
-    items.forEach(function(it){ it.home.set(cx+it.n[0]*rw, cy+it.n[1]*rh, it.n[2]*unit*.9); it.size=unit*(wide?.5:.56)*it.n[3]; });
-  }
-  new ResizeObserver(heroLayout).observe(hc); heroLayout();
-
-  hc.addEventListener('pointerdown',function(){ items.forEach(function(it,i){ it.spin+=2.2+i*.1; }); });
-
-  var heroOn=true; new IntersectionObserver(function(e){ heroOn=e[0].isIntersecting; if(heroOn) kick(); }).observe(hc);
-  var rx=0,ry=0, last=performance.now(), tStart=last, heroRAF=0;
-  function heroFrame(now){
-    heroRAF=0;
-    var dt=Math.min(.05,(now-last)/1000); last=now; var t=(now-tStart)/1000;
-    var p=Math.max(0,Math.min(1,window.scrollY/Math.max(1,hero.offsetHeight)));
-    rx+=((reduce?0:my*.12)-rx)*.05; ry+=((reduce?0:mx*.22)-ry)*.05;
-    root.rotation.set(rx+p*.25, ry+p*.7, 0); root.position.y=p*2.2;
-    items.forEach(function(it){
-      if(reduce){ it.s=1; } else spring(it, t>it.delay?1:0, dt);
-      it.spin*=Math.exp(-2.4*dt);
-      var o=it.o, bob=reduce?0:Math.sin(t*.8+it.ph)*.09;
-      o.position.set(it.home.x, it.home.y+bob, it.home.z);
-      o.scale.setScalar(Math.max(.0001,it.size*it.s));
-      o.rotation.set(-.08+(reduce?0:Math.sin(t*.4+it.ph)*.06), -.42+(reduce?0:Math.sin(t*.5+it.ph)*.28)+(1-Math.min(1,it.s))*-2.4+it.spin, (reduce?0:Math.sin(t*.35+it.ph)*.04));
-    });
-    sheets.forEach(function(s){
-      if(!reduce){ s.y-=s.sp*dt*.08; if(s.y<-.1){ s.y=1.1; s.x=Math.random(); } s.rx+=s.vr*dt; s.ry+=s.vr*.7*dt; }
-      var d=hcam.position.z-s.z, hh=Math.tan(T.MathUtils.degToRad(hcam.fov/2))*d, ww=hh*hcam.aspect;
-      s.m.position.set((s.x*2-1)*ww, (s.y*2-1)*hh + p*1.5, s.z); s.m.rotation.set(s.rx,s.ry,0);
-    });
-    hcam.position.x=reduce?0:mx*.35; hcam.lookAt(0,0,0);
-    hr.render(hs,hcam);
-    if(heroOn && !reduce) kick();
-  }
-  function kick(){ if(!heroRAF) heroRAF=requestAnimationFrame(heroFrame); }
-  kick();
-  if(reduce){ addEventListener('scroll',kick,{passive:true}); new ResizeObserver(kick).observe(hc); }
-
-  /* ---------- STAGE ---------- */
-  var sc=document.getElementById('stage3d'), sr=makeRenderer(sc);
-  if(!sr) return;
-  var ss=new T.Scene(), scam=new T.PerspectiveCamera(30,1,.1,100); scam.position.set(0,1.1,10.5); scam.lookAt(0,-.2,0); lights(ss);
-  var turn=new T.Group(); ss.add(turn);
-  var FLOOR=-1.7;
-  var tt=part(turn,new T.CylinderGeometry(2.1,2.1,.14,64),MAT.paper,[0,FLOOR-.07,0]);
-  part(turn,new T.CylinderGeometry(2.16,2.16,.06,64),MAT.m,[0,FLOOR-.17,0]);
-  for(var k=0;k<48;k++){ var a=k/48*Math.PI*2, len=k%6===0?.22:.1; part(turn,new T.BoxGeometry(.012,.004,len),k%12===0?MAT.m:MAT.ink,[Math.sin(a)*(2.1-len/2-.04),FLOOR+.003,Math.cos(a)*(2.1-len/2-.04)],[0,a,0],true); }
-  var sItems=CH.map(function(c,i){ var o=fit(BUILD[c.k](), c.k==='ooh'?3.4:(c.k==='signage'?3.1:2.9)); o.position.y=FLOOR+o.userData.h/2+.02; turn.add(o); o.visible=i===0;
-    return {o:o,s:i===0?1:0,v:0,spin:0}; });
-  var active=0, spinV=reduce?0:.25, spinA=0, dragging=false, lx=0;
-  function stageLayout(){ var w=sc.clientWidth,h=sc.clientHeight; if(!w||!h) return; sr.setSize(w,h,false); scam.aspect=w/h;
-    scam.position.z = w/h<1.1 ? 12.5 : 10.5; scam.updateProjectionMatrix(); scam.lookAt(0,-.7,0); skick(); }
-  new ResizeObserver(stageLayout).observe(sc); stageLayout();
-
-  var nEl=document.getElementById('chNum'), nmEl=document.getElementById('chName'), spEl=document.getElementById('chSpec');
-  var btns=[].slice.call(document.querySelectorAll('.ch'));
-  function setActive(i){
-    if(i===active) return; active=i;
-    sItems.forEach(function(it,j){ if(j===i){ it.o.visible=true; it.spin=reduce?0:-2.2; } });
-    btns.forEach(function(b,j){ b.classList.toggle('on',j===i); b.setAttribute('aria-pressed', j===i?'true':'false'); });
-    nEl.textContent='CH '+String(i+1).padStart(2,'0')+' / 08'; nmEl.textContent=CH[i].name; spEl.textContent=CH[i].spec;
-    skick();
-  }
-  btns.forEach(function(b,i){ b.setAttribute('aria-pressed', i===0?'true':'false');
-    b.addEventListener('mouseenter',function(){ setActive(i); }); b.addEventListener('focus',function(){ setActive(i); }); b.addEventListener('click',function(){ setActive(i); }); });
-  // scroll-driven selection
-  var rowIO=new IntersectionObserver(function(ents){ ents.forEach(function(en){ if(en.isIntersecting) setActive(+en.target.dataset.i); }); },{rootMargin:'-48% 0px -48% 0px'});
-  btns.forEach(function(b){ rowIO.observe(b); });
-
-  sc.addEventListener('pointerdown',function(e){ dragging=true; lx=e.clientX; try{ sc.setPointerCapture(e.pointerId); }catch(_){} skick(); });
-  sc.addEventListener('pointermove',function(e){ if(!dragging) return; var dx=e.clientX-lx; lx=e.clientX; spinA+=dx*.012; spinV=dx*.6; skick(); });
-  function endDrag(){ dragging=false; }
-  sc.addEventListener('pointerup',endDrag); sc.addEventListener('pointercancel',endDrag);
-
-  var stageOn=false, sLast=performance.now(), sRAF=0;
-  new IntersectionObserver(function(e){ stageOn=e[0].isIntersecting; if(stageOn) skick(); }).observe(sc);
-  function sFrame(now){
-    sRAF=0; var dt=Math.min(.05,(now-sLast)/1000); sLast=now; var busy=false;
-    if(!dragging){ var base=reduce?0:.25; spinV+=(base-spinV)*Math.min(1,dt*1.5); spinA+=spinV*dt; }
-    turn.rotation.y=spinA;
-    sItems.forEach(function(it,j){
-      var tgt=j===active?1:0;
-      if(reduce){ it.s=tgt; it.v=0; } else spring(it,tgt,dt);
-      it.spin*=Math.exp(-3.2*dt);
-      if(Math.abs(it.s-tgt)>.001||Math.abs(it.v)>.001||Math.abs(it.spin)>.001) busy=true;
-      it.o.visible = it.s>.002 || j===active;
-      it.o.scale.setScalar(Math.max(.0001,it.s));
-      it.o.rotation.y = it.spin + (1-Math.min(1,Math.max(0,it.s)))*(j===active?-1:1.4);
-    });
-    scam.position.x += ((stageOn&&!reduce? mx*.4:0) - scam.position.x)*.05; scam.lookAt(0,-.7,0);
-    sr.render(ss,scam);
-    if(stageOn && (!reduce || busy || dragging)) skick();
-  }
-  function skick(){ if(!sRAF) sRAF=requestAnimationFrame(sFrame); }
-  skick();
-}
-
-var fontsReady = (document.fonts && document.fonts.load) ? Promise.all([document.fonts.load('900 60px "Big Shoulders Display"'),document.fonts.load('500 14px "IBM Plex Mono"')]) : Promise.resolve();
-Promise.race([fontsReady, new Promise(function(r){ setTimeout(r,1800); })]).then(start, start);
-})();
-</script>
+<script src="assets/vendor/three.r128.min.js"></script>
+<script src="assets/vendor/lenis.1.1.13.min.js"></script>
+<script src="assets/js/site.js"></script>
+<script src="assets/js/scene.js"></script>
 </body>
 </html>
