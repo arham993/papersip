@@ -707,6 +707,6 @@ a.v:hover,.foot-grid a:hover,.crumbs a:hover{color:var(--ink);text-decoration:un
 
 /* brand logo (designed on black, so it sits in its own black badge) */
 .logo-img{display:block;height:56px;width:auto;border-radius:10px;background:#000;box-shadow:0 6px 18px -10px rgba(17,17,17,.6);transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
-.logo:hover .logo-img{transform:translateY(-1px);box-shadow:0 10px 24px -10px rgba(201,154,46,.7)}
+.logo:hover .logo-img{transform:translateY(-1px);box-shadow:0 10px 22px -10px rgba(17,17,17,.55)}
 .logo-foot .logo-img{height:125px;border-radius:16px}
 @media (max-width:520px){.logo-img{height:48px}.logo-foot .logo-img{height:110px}}
