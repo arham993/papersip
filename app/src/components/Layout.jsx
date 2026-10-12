@@ -46,7 +46,10 @@ function Header({ menuOpen, setMenuOpen }) {
   return (
     <header className={'hdr' + (scrolled ? ' scrolled' : '')}>
       <div className="wrap">
-        <Link className="logo" to="/" aria-label="Papersip Company home"><Reg />Papersip <small>Est. 2010</small></Link>
+        <Link className="logo" to="/" aria-label="Papersip Company home">
+          <img className="logo-img" src={asset('brand/papersip-logo-180.webp')} srcSet={`${asset('brand/papersip-logo-180.webp')} 1x, ${asset('brand/papersip-logo-360.webp')} 2x`} width="72" height="56" alt="PaperSip" />
+          <small>Est. 2010</small>
+        </Link>
         <nav className="nav" aria-label="Main">
           <NavLink to="/" end>Home</NavLink>
           <NavLink to="/about/">About</NavLink>
@@ -94,7 +97,9 @@ function Footer() {
       <div className="wrap">
         <div className="foot-grid">
           <div>
-            <Link className="logo" to="/"><Reg />Papersip</Link>
+            <Link className="logo logo-foot" to="/" aria-label="Papersip Company home">
+              <img className="logo-img" src={asset('brand/papersip-logo-360.webp')} srcSet={`${asset('brand/papersip-logo-360.webp')} 1x, ${asset('brand/papersip-logo-640.webp')} 2x`} width="160" height="125" loading="lazy" alt="PaperSip" />
+            </Link>
             <p className="about" style={{ marginTop: 14 }}>A brand-focused marketing media consultancy with a strong team of innovative and strategic thinkers, in business since 2010.</p>
             <p style={{ marginTop: 16 }}><span className="cmyk" aria-hidden="true"><i /><i /><i /><i /></span></p>
           </div>
