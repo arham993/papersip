@@ -33,7 +33,7 @@ export default function Services() {
                 <div className="tag mono"><span>{pad2(front + 1)} / 08</span><span className="live">Drag · click to open</span></div>
                 <div style={{ position: 'absolute', left: 20, right: 20, bottom: 18, display: 'flex', justifyContent: 'space-between', alignItems: 'end', gap: 12, pointerEvents: 'none' }}>
                   <h3 style={{ fontSize: 'clamp(30px,3.6vw,48px)' }}>{s.name}</h3>
-                  <Link className="btn btn-sm" to={`/services/${s.slug}/`} style={{ pointerEvents: 'auto', background: 'var(--paper)', borderColor: 'var(--paper)' }}>Open <span className="arr">→</span></Link>
+                  <Link className="btn btn-sm btn-light" to={`/services/${s.slug}/`} style={{ pointerEvents: 'auto' }}>Open <span className="arr">→</span></Link>
                 </div>
               </div>
             </div>
@@ -41,7 +41,7 @@ export default function Services() {
         </section>
         <Ticker hidden />
 
-        <section className="sec" id="all">
+        <section className="sec alt" id="all">
           <div className="wrap">
             <SecHead slug="All services" title="Pick a channel, or let us mix them." intro="Every service runs on the same three-stage process and the same team, so channels work together instead of competing for budget." />
             <div className="svc-grid">{SERVICES.map((x) => <SvcCard key={x.k} s={x} />)}</div>
@@ -64,7 +64,7 @@ export default function Services() {
           </div>
         </section>
 
-        <section className="sec tight">
+        <section className="sec tight alt">
           <div className="wrap">
             <SecHead slug="How we run it" title="Same three stages on every channel." />
             <Steps />

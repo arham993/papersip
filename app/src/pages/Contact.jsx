@@ -93,7 +93,7 @@ export default function Contact() {
         </div>
       </section>
 
-      <section className="sec tight" id="brief-sec">
+      <section className="sec tight alt" id="brief-sec">
         <div className="wrap contact">
           <div className="rv">
             <Slug>Reach us directly</Slug>

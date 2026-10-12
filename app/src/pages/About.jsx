@@ -38,7 +38,7 @@ export default function About() {
           </div>
         </section>
 
-        <section className="sec tight">
+        <section className="sec tight alt">
           <div className="wrap">
             <Stats four items={[[2010, 'The year we started planning and buying media.', { from: 1994 }], [99, 'Advertising skills across the team.', { pct: true }], [95, 'Successful projects delivered.', { pct: true }], [8, 'Disciplines under one roof.']]} />
           </div>
@@ -56,7 +56,7 @@ export default function About() {
           </div>
         </section>
 
-        <section className="sec">
+        <section className="sec alt">
           <div className="wrap mission">
             <div className="rv">
               <Slug>The team</Slug>

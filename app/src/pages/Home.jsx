@@ -31,7 +31,7 @@ function Channels() {
       <div className="stage">
         <StageScene active={active} />
         <div className="stage-top mono"><span>CH {pad2(active + 1)} / 08</span><span className="live">Drag to turn</span></div>
-        <div className="stage-bot"><h3>{s.name}</h3><Link className="btn btn-sm" to={`/services/${s.slug}/`} style={{ background: 'var(--paper)', borderColor: 'var(--paper)' }}>Open <span className="arr">→</span></Link></div>
+        <div className="stage-bot"><h3>{s.name}</h3><Link className="btn btn-sm btn-light" to={`/services/${s.slug}/`}>Open <span className="arr">→</span></Link></div>
       </div>
     </div>
   );
@@ -73,7 +73,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="sec" id="what">
+        <section className="sec alt" id="what">
           <div className="wrap integrated">
             <div className="copy rv">
               <Slug>What we do</Slug>
@@ -100,7 +100,7 @@ export default function Home() {
         </section>
 
         {!workEmpty && (
-          <section className="sec" id="work">
+          <section className="sec alt" id="work">
             <div className="wrap">
               <div className="strip-head rv"><div><Slug>Our work</Slug><h2 style={{ marginTop: 14 }}>Out there, on the route.</h2></div><Link className="btn" to="/our-work/">See all work <span className="arr">→</span></Link></div>
               <Gallery images={[OOH_IMG[0], SIGN_IMG[14], PRINT_IMG[0], OOH_IMG[11], SIGN_IMG[3], OOH_IMG[2]]} label="Campaign" strip onEmpty={() => setWorkEmpty(true)} />

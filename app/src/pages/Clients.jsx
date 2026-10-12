@@ -20,7 +20,7 @@ export default function Clients() {
           </div>
         </section>
 
-        <section className="sec tight">
+        <section className="sec tight alt">
           <div className="wrap">
             <SecHead slug="Brands we've worked with" intro="Hover a logo to bring it to colour." style={{ marginBottom: 28 }} />
             <LogoWall logos={CLIENT_LOGOS} />

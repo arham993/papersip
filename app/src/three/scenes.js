@@ -16,11 +16,11 @@ export const KEYS = ['tv', 'radio', 'print', 'ooh', 'digital', 'signage', 'plan'
 /* ---------- materials ---------- */
 const mat = (c, o = {}) => new MeshLambertMaterial({ color: c, side: o.ds ? DoubleSide : FrontSide });
 const MAT = {
-  paper: mat(0xf7f6f1), paperDS: mat(0xf7f6f1, { ds: true }), shade: mat(0xd7dae1), ink: mat(0x1b1f35),
-  m: mat(0xff1f8e), c: mat(0x00b8ff), y: mat(0xffd60a), v: mat(0x7b3cff),
-  mDS: mat(0xff1f8e, { ds: true }), cDS: mat(0x00b8ff, { ds: true }), yDS: mat(0xffd60a, { ds: true }), vDS: mat(0x7b3cff, { ds: true }),
+  paper: mat(0xfbfaf7), paperDS: mat(0xfbfaf7, { ds: true }), shade: mat(0xe5e5e5), ink: mat(0x111111),
+  m: mat(0xc99a2e), c: mat(0xe2b84b), y: mat(0xf5e4b5), v: mat(0x161616),
+  mDS: mat(0xc99a2e, { ds: true }), cDS: mat(0xe2b84b, { ds: true }), yDS: mat(0xf5e4b5, { ds: true }), vDS: mat(0x161616, { ds: true }),
 };
-const EDGE = new LineBasicMaterial({ color: 0x151931, transparent: true, opacity: 0.5 });
+const EDGE = new LineBasicMaterial({ color: 0x111111, transparent: true, opacity: 0.45 });
 function part(g, geo, m, p, r, noEdge) {
   const mesh = new Mesh(geo, m);
   if (p) mesh.position.set(p[0], p[1], p[2]);
@@ -40,55 +40,55 @@ function makeTextures() {
   TEX = {};
   TEX.bars = canvasTex(512, 384, (x, w, h) => {
     const bw = w / 7;
-    ['#C0C0C0', '#C0C000', '#00C0C0', '#00C000', '#C000C0', '#C00000', '#0000C0'].forEach((c, i) => { x.fillStyle = c; x.fillRect(i * bw, 0, bw + 1, h * 0.67); });
-    ['#0000C0', '#131313', '#C000C0', '#131313', '#00C0C0', '#131313', '#C0C0C0'].forEach((c, i) => { x.fillStyle = c; x.fillRect(i * bw, h * 0.67, bw + 1, h * 0.08); });
-    let sx = 0; [['#00214C', 1.25], ['#FFFFFF', 1.25], ['#32006A', 1.25], ['#131313', 2], ['#262626', 1]].forEach(([c, f]) => { x.fillStyle = c; const ww = (w * f) / 6.75; x.fillRect(sx, h * 0.75, ww + 1, h * 0.25); sx += ww; });
+    ['#FFFFFF', '#F5E4B5', '#E2B84B', '#C99A2E', '#777777', '#4A4A4A', '#2A2A2A'].forEach((c, i) => { x.fillStyle = c; x.fillRect(i * bw, 0, bw + 1, h * 0.67); });
+    ['#2A2A2A', '#131313', '#777777', '#131313', '#E2B84B', '#131313', '#FFFFFF'].forEach((c, i) => { x.fillStyle = c; x.fillRect(i * bw, h * 0.67, bw + 1, h * 0.08); });
+    let sx = 0; [['#3A2E12', 1.25], ['#FFFFFF', 1.25], ['#6B5218', 1.25], ['#131313', 2], ['#262626', 1]].forEach(([c, f]) => { x.fillStyle = c; const ww = (w * f) / 6.75; x.fillRect(sx, h * 0.75, ww + 1, h * 0.25); sx += ww; });
     x.fillStyle = 'rgba(0,0,0,.14)'; for (let y = 0; y < h; y += 3) x.fillRect(0, y, w, 1);
   });
   TEX.board = canvasTex(1024, 512, (x, w, h) => {
-    x.fillStyle = '#FF1F8E'; x.fillRect(0, 0, w, h);
-    x.fillStyle = 'rgba(255,255,255,.08)'; for (let i = 0; i < 14; i++) x.fillRect((i * w) / 14, 0, 2, h);
+    x.fillStyle = '#111111'; x.fillRect(0, 0, w, h);
+    x.fillStyle = 'rgba(226,184,75,.10)'; for (let i = 0; i < 14; i++) x.fillRect((i * w) / 14, 0, 2, h);
     const bs = Math.min(fitFont(x, '900', 190, FD, 'YOUR BRAND,', w - 110), fitFont(x, '900', 190, FD, '40 FT WIDE.', w - 110));
     x.font = `900 ${bs}px ${FD}`; x.textBaseline = 'alphabetic';
     x.fillStyle = '#fff'; x.fillText('YOUR BRAND,', 56, 220);
-    x.fillStyle = '#FFD60A'; x.fillText('40 FT', 56, 410);
+    x.fillStyle = '#E2B84B'; x.fillText('40 FT', 56, 410);
     x.fillStyle = '#fff'; x.fillText(' WIDE.', 56 + x.measureText('40 FT').width, 410);
-    x.font = `500 26px ${FM}`; x.fillStyle = 'rgba(255,255,255,.85)'; x.fillText('PAPERSIP · OOH', 60, 470);
+    x.font = `500 26px ${FM}`; x.fillStyle = '#C99A2E'; x.fillText('PAPERSIP · OOH', 60, 470);
   });
   TEX.paper = canvasTex(512, 660, (x, w) => {
-    x.fillStyle = '#F7F6F1'; x.fillRect(0, 0, w, 660); x.fillStyle = '#16192B';
+    x.fillStyle = '#FBFAF7'; x.fillRect(0, 0, w, 660); x.fillStyle = '#111111';
     fitFont(x, '900', 58, FD, 'THE MORNING EDITION', w - 52); x.textAlign = 'center'; x.fillText('THE MORNING EDITION', w / 2, 74);
     x.fillRect(24, 92, w - 48, 4); x.fillRect(24, 100, w - 48, 1.5);
     x.font = `500 14px ${FM}`; x.textAlign = 'left'; x.fillText('VOL. XVI', 26, 124); x.textAlign = 'right'; x.fillText('DELHI NCR', w - 26, 124);
     x.fillRect(24, 134, w - 48, 1.5);
     x.textAlign = 'left'; fitFont(x, '900', 54, FD, 'FROM GROUND ZERO', w - 52); x.fillText('BRANDS BUILT', 26, 196); x.fillText('FROM GROUND ZERO', 26, 248);
     x.save(); x.beginPath(); x.rect(26, 272, 260, 200); x.clip(); x.fillStyle = '#fff'; x.fillRect(26, 272, 260, 200);
-    for (let yy = 272; yy < 472; yy += 9) for (let xx = 26; xx < 286; xx += 9) { const rr = 1 + 3.2 * Math.abs(Math.sin(xx * 0.021 + yy * 0.013)); x.fillStyle = (xx + yy) % 18 < 9 ? '#FF1F8E' : '#00B8FF'; x.beginPath(); x.arc(xx, yy, rr, 0, 7); x.fill(); }
-    x.restore(); x.strokeStyle = '#16192B'; x.lineWidth = 2; x.strokeRect(26, 272, 260, 200);
-    x.fillStyle = 'rgba(22,25,43,.35)';
+    for (let yy = 272; yy < 472; yy += 9) for (let xx = 26; xx < 286; xx += 9) { const rr = 1 + 3.2 * Math.abs(Math.sin(xx * 0.021 + yy * 0.013)); x.fillStyle = (xx + yy) % 18 < 9 ? '#C99A2E' : '#111111'; x.beginPath(); x.arc(xx, yy, rr, 0, 7); x.fill(); }
+    x.restore(); x.strokeStyle = '#111111'; x.lineWidth = 2; x.strokeRect(26, 272, 260, 200);
+    x.fillStyle = 'rgba(17,17,17,.3)';
     for (let l = 0; l < 16; l++) x.fillRect(304, 276 + l * 12.4, l % 4 === 3 ? 120 : 180, 5);
     for (let c = 0; c < 3; c++) for (let l2 = 0; l2 < 11; l2++) x.fillRect(26 + c * 160, 494 + l2 * 14, l2 % 5 === 4 ? 90 : 140, 5);
   });
   TEX.phone = canvasTex(360, 720, (x, w, h) => {
-    x.fillStyle = '#F4F5F8'; x.fillRect(0, 0, w, h);
-    x.fillStyle = '#11152A'; x.font = '600 22px sans-serif'; x.fillText('9:41', 28, 40);
+    x.fillStyle = '#F8F8F6'; x.fillRect(0, 0, w, h);
+    x.fillStyle = '#111111'; x.font = '600 22px sans-serif'; x.fillText('9:41', 28, 40);
     const card = (y, hh, ad) => {
-      x.fillStyle = '#fff'; x.fillRect(18, y, w - 36, hh); x.strokeStyle = '#D8DCE4'; x.lineWidth = 2; x.strokeRect(18, y, w - 36, hh);
-      x.fillStyle = ad ? '#FF1F8E' : '#CBD1DB'; x.fillRect(30, y + 48, w - 60, hh - 110);
-      x.fillStyle = '#11152A'; x.beginPath(); x.arc(44, y + 26, 12, 0, 7); x.fill(); x.fillStyle = '#8A92A6'; x.fillRect(64, y + 18, 120, 8); x.fillRect(64, y + 30, 70, 6);
+      x.fillStyle = '#fff'; x.fillRect(18, y, w - 36, hh); x.strokeStyle = '#E5E5E5'; x.lineWidth = 2; x.strokeRect(18, y, w - 36, hh);
+      x.fillStyle = ad ? '#C99A2E' : '#E5E5E5'; x.fillRect(30, y + 48, w - 60, hh - 110);
+      x.fillStyle = '#111111'; x.beginPath(); x.arc(44, y + 26, 12, 0, 7); x.fill(); x.fillStyle = '#9A9A9A'; x.fillRect(64, y + 18, 120, 8); x.fillRect(64, y + 30, 70, 6);
       if (ad) {
-        x.fillStyle = '#8A92A6'; x.font = `500 14px ${FM}`; x.fillText('SPONSORED', w - 130, y + 30);
-        x.fillStyle = '#00B8FF'; x.fillRect(30, y + hh - 50, w - 60, 34); x.fillStyle = '#fff'; x.font = '700 18px sans-serif'; x.fillText('Get a quote', w / 2 - 50, y + hh - 27);
-        x.fillStyle = '#fff'; fitFont(x, '900', 64, FD, 'ON AIR.', w - 100); x.fillText('ON AIR.', 48, y + 140);
-      } else { x.fillStyle = '#8A92A6'; x.fillRect(30, y + hh - 50, w - 120, 8); x.fillRect(30, y + hh - 34, w - 170, 8); }
+        x.fillStyle = '#777777'; x.font = `500 14px ${FM}`; x.fillText('SPONSORED', w - 130, y + 30);
+        x.fillStyle = '#111111'; x.fillRect(30, y + hh - 50, w - 60, 34); x.fillStyle = '#fff'; x.font = '700 18px sans-serif'; x.fillText('Get a quote', w / 2 - 50, y + hh - 27);
+        x.fillStyle = '#111111'; fitFont(x, '900', 64, FD, 'ON AIR.', w - 100); x.fillText('ON AIR.', 48, y + 140);
+      } else { x.fillStyle = '#9A9A9A'; x.fillRect(30, y + hh - 50, w - 120, 8); x.fillRect(30, y + hh - 34, w - 170, 8); }
     };
     card(66, 330, true); card(412, 280, false);
   });
   TEX.dial = canvasTex(256, 96, (x, w, h) => {
-    x.fillStyle = '#FFD60A'; x.fillRect(0, 0, w, h); x.fillStyle = '#1B1F35';
+    x.fillStyle = '#F5E4B5'; x.fillRect(0, 0, w, h); x.fillStyle = '#111111';
     for (let i = 0; i <= 40; i++) { const xx = 12 + (i * (w - 24)) / 40; x.fillRect(xx, h - 30, 1.5, i % 5 === 0 ? 20 : 10); }
     x.font = `600 16px ${FM}`; ['88', '96', '104'].forEach((n, i) => x.fillText(n, 14 + i * 100, 26));
-    x.fillStyle = '#FF1F8E'; x.fillRect(150, 6, 4, h - 10);
+    x.fillStyle = '#C99A2E'; x.fillRect(150, 6, 4, h - 10);
   });
 }
 const boxFront = (t) => { const face = new MeshLambertMaterial({ map: t }); return [MAT.paper, MAT.paper, MAT.paper, MAT.paper, face, MAT.paper]; };
@@ -135,7 +135,7 @@ function buildPrint() {
 }
 function buildOOH() {
   const g = new Group();
-  part(g, new BoxGeometry(3, 1.52, 0.12), MAT.v, [0, 0.5, 0]);
+  part(g, new BoxGeometry(3, 1.52, 0.12), MAT.m, [0, 0.5, 0]);
   part(g, new PlaneGeometry(2.86, 1.4), basic(TEX.board), [0, 0.5, 0.062], null, true);
   part(g, new CylinderGeometry(0.11, 0.14, 1.9, 12), MAT.shade, [0, -1.2, -0.05]);
   part(g, new BoxGeometry(3, 0.04, 0.34), MAT.shade, [0, -0.3, 0.2]);
@@ -205,9 +205,9 @@ const modelSize = (k, base) => (k === 'ooh' ? base * 1.17 : k === 'signage' ? ba
 
 /* ---------- plumbing ---------- */
 function lights(scene) {
-  scene.add(new HemisphereLight(0xffffff, 0x7d86a3, 0.95));
-  const d = new DirectionalLight(0xffffff, 0.85); d.position.set(4, 6, 6); scene.add(d);
-  const f = new DirectionalLight(0xbfe6ff, 0.28); f.position.set(-6, 1, 3); scene.add(f);
+  scene.add(new HemisphereLight(0xffffff, 0x8f877a, 0.62));
+  const d = new DirectionalLight(0xffffff, 0.5); d.position.set(4, 6, 6); scene.add(d);
+  const f = new DirectionalLight(0xfff0d0, 0.18); f.position.set(-6, 1, 3); scene.add(f);
 }
 function makeRenderer(canvas, opts = {}) {
   try {

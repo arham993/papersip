@@ -31,6 +31,24 @@ Then commit and push. GitHub Pages serves the repo root, so you don't need to ch
 
 For a custom domain at the root (for example `papersipcompany.com`), build with `BASE_PATH=/ npm run publish`.
 
+## Brand colours
+
+Defined once at the top of `app/src/styles/site.css`:
+
+| Element | HEX |
+|---|---|
+| Main / card background | `#FFFFFF` |
+| Section background | `#F8F8F6` |
+| Primary text, hover background | `#111111` |
+| Secondary text | `#4A4A4A` |
+| Muted text | `#777777` |
+| PaperSip gold | `#C99A2E` |
+| Champagne gold | `#E2B84B` |
+| Soft gold | `#F5E4B5` |
+| Borders | `#E5E5E5` |
+
+Gold is used for fills, rules and highlights, always with black text on it. Gold text on white is too faint to read, so highlighted words get a champagne-gold marker stroke instead. The 3D models use the same palette. After changing model colours, refresh the stills in `public/thumbs` (see `scripts/stills.html`).
+
 ## Why it's fast
 
 - Pages are pre-rendered HTML with the CSS inlined, so they need no extra request before first paint.

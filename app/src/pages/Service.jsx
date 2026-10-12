@@ -75,7 +75,7 @@ export default function Service() {
           </div>
         </section>
 
-        <section className="sec tight">
+        <section className="sec tight alt">
           <div className="wrap">
             <SecHead slug="How we run it" title="Same three-stage process, tuned to this channel." />
             <Steps />
@@ -85,7 +85,7 @@ export default function Service() {
         <WorkStrip s={s} />
 
         {s.faq && (
-          <section className="sec tight">
+          <section className="sec tight alt">
             <div className="wrap why">
               <div className="copy rv"><Slug>Common questions</Slug><h2>Before you book a hoarding.</h2></div>
               <Faq items={FAQ} />
