@@ -1,5 +1,6 @@
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { PROCESS, CLIENTS, TICKER, CONTACT } from '../data.js';
+import { PROCESS, CLIENTS, TICKER, CONTACT, STREAM_IMG } from '../data.js';
 
 export const asset = (p) => import.meta.env.BASE_URL + p;
 export const thumb = (k, size) => asset(`thumbs/${k}${size === 'md' ? '-md' : size ? '-sm' : ''}.webp`);
@@ -116,21 +117,35 @@ export function Wave({ n = 28 }) {
   return <div className="wave" aria-hidden="true">{Array.from({ length: n }, (_, i) => { const a = Math.abs(Math.sin(i * 12.9898) * 43758.5453) % 1, b = Math.abs(Math.sin(i * 78.233) * 12345.678) % 1; return <i key={i} style={{ animationDelay: `-${(a * 1.1).toFixed(2)}s`, animationDuration: `${(0.6 + b * 0.9).toFixed(2)}s` }} />; })}</div>;
 }
 
+// Real channel photo over the drawn illustration; if the photo can't load, the illustration stays.
+function StreamPhoto({ k, label }) {
+  const [state, setState] = useState('loading');
+  const ref = useRef(null);
+  useEffect(() => { const i = ref.current; if (i && i.complete) setState(i.naturalWidth ? 'ok' : 'bad'); }, []);
+  if (state === 'bad') return null;
+  return (
+    <span className={'photo-real' + (state === 'ok' ? ' in' : '')}>
+      <img ref={ref} src={STREAM_IMG[k]} alt="" loading="lazy" decoding="async" onLoad={() => setState('ok')} onError={() => setState('bad')} />
+      <span className="chip mono">{label}</span>
+    </span>
+  );
+}
+
 export function Streams() {
   const seven = [0, 1, 2, 3, 4, 5, 6];
   return (
     <div className="streams">
       <div className="drift" data-speed="0.03"><Link className="tilt" to="/services/tv-advertising/">
-        <div className="vis v-tv" aria-hidden="true"><div className="rec"><span><b>●</b> REC</span><span data-tc="loop">00:00:30:00</span></div><div className="bars">{seven.map((i) => <span key={i} />)}</div><div className="mid">{seven.map((i) => <span key={i} />)}</div><div className="low">{[0, 1, 2, 3, 4].map((i) => <span key={i} />)}</div></div>
+        <div className="vis v-tv has-photo" aria-hidden="true"><div className="rec"><span><b>●</b> REC</span><span data-tc="loop">00:00:30:00</span></div><div className="bars">{seven.map((i) => <span key={i} />)}</div><div className="mid">{seven.map((i) => <span key={i} />)}</div><div className="low">{[0, 1, 2, 3, 4].map((i) => <span key={i} />)}</div><StreamPhoto k="tv" label="TV" /></div>
         <div className="txt"><p className="kicker mono">The reach of TV</p><h3>Television</h3><p>Sight, sound and motion in the living room. Commercials built to earn trust, then placed where your buyers watch.</p></div></Link></div>
       <div className="drift" data-speed="-0.02"><Link className="tilt" to="/services/radio-advertising/">
-        <div className="vis v-radio" aria-hidden="true"><div className="dial"><div className="nums">{['88', '92', '96', '100', '104', '108'].map((n) => <span key={n}>{n}</span>)}</div><div className="needle" /></div><Wave /><div className="band"><span>FM</span><span>MHz</span></div></div>
+        <div className="vis v-radio has-photo" aria-hidden="true"><div className="dial"><div className="nums">{['88', '92', '96', '100', '104', '108'].map((n) => <span key={n}>{n}</span>)}</div><div className="needle" /></div><Wave /><div className="band"><span>FM</span><span>MHz</span></div><StreamPhoto k="radio" label="FM Radio" /></div>
         <div className="txt"><p className="kicker mono">The intimacy of radio</p><h3>Radio</h3><p>One voice talking to one listener, often on the drive home. Audio stays in memory long after visuals fade.</p></div></Link></div>
       <div className="drift" data-speed="0.04"><Link className="tilt" to="/services/print-advertising/">
-        <div className="vis v-print" aria-hidden="true"><div className="mast">The Morning Edition</div><div className="date"><span>Vol. XVI</span><span>Delhi NCR</span><span>₹5</span></div><div className="body"><div className="photo" /><div className="cols"><b>Brands built from ground zero</b>{[0, 1, 2, 3, 4, 5, 6, 7].map((i) => <i key={i} />)}</div></div></div>
+        <div className="vis v-print has-photo" aria-hidden="true"><div className="mast">The Morning Edition</div><div className="date"><span>Vol. XVI</span><span>Delhi NCR</span><span>₹5</span></div><div className="body"><div className="photo" /><div className="cols"><b>Brands built from ground zero</b>{[0, 1, 2, 3, 4, 5, 6, 7].map((i) => <i key={i} />)}</div></div><StreamPhoto k="print" label="Print" /></div>
         <div className="txt"><p className="kicker mono">The trust of print</p><h3>Print</h3><p>A written confirmation to your consumer. Something they can hold, read twice and keep on the table.</p></div></Link></div>
       <div className="drift" data-speed="-0.03"><Link className="tilt" to="/services/ooh-advertising/">
-        <div className="vis v-ooh" aria-hidden="true"><div className="dim"><span>40 × 20 FT</span></div><div className="board">Seen daily<small>on the whole route</small></div><div className="pole" /><div className="phone"><div><span className="tag">SPONSORED</span><span className="img" /><span className="cta" /></div></div></div>
+        <div className="vis v-ooh has-photo" aria-hidden="true"><div className="dim"><span>40 × 20 FT</span></div><div className="board">Seen daily<small>on the whole route</small></div><div className="pole" /><div className="phone"><div><span className="tag">SPONSORED</span><span className="img" /><span className="cta" /></div></div><StreamPhoto k="ooh" label="Outdoor" /></div>
         <div className="txt"><p className="kicker mono">The precision of OOH & digital</p><h3>Outdoor + Digital</h3><p>Hoardings cover a whole route many times a day. Digital narrows it to the prospects most likely to buy.</p></div></Link></div>
     </div>
   );
