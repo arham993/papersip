@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { SERVICES, OOH_IMG, SIGN_IMG, PRINT_IMG } from '../data.js';
 import { useSeo } from '../components/Seo.jsx';
-import { Lines, Eyebrow, SecHead, Slug, Steps, Streams, Marquee, Stats, Ticker, CtaBand, pad2 } from '../components/ui.jsx';
+import { Lines, Eyebrow, SecHead, Slug, Streams, Marquee, Stats, Ticker, CtaBand, pad2 } from '../components/ui.jsx';
 import { HeroScene, StageScene } from '../components/Scene3D.jsx';
 import { Gallery } from '../components/Media.jsx';
 
@@ -83,13 +83,6 @@ export default function Home() {
               <div className="ctas"><Link className="btn" to="/about/">About Papersip <span className="arr">→</span></Link></div>
             </div>
             <Stats items={[[2010, 'In business since. Sixteen years of planning and buying media.', { from: 1994 }], [8, 'Disciplines under one roof, run by one team.'], [95, 'Successful projects delivered for our clients.', { pct: true }], [27, 'Brands on our client list, from real estate to healthcare.']]} />
-          </div>
-        </section>
-
-        <section className="sec tight" id="approach">
-          <div className="wrap">
-            <SecHead slug="How a campaign runs" title="Ground work first. Then the noise." intro="Creativity has a role to play. Strategy is the garnishing effect. Every campaign moves through the same three stages." />
-            <Steps />
           </div>
         </section>
 
