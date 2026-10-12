@@ -72,7 +72,7 @@ export function Eyebrow({ tag, children }) {
 export function CtaBand({ title, btn = 'Get a quote', to = '/contact/', acc = 'm', ghost = 'Papersip', sub }) {
   return (
     <section className="cta-band" data-acc={acc}>
-      <span className="ghost" aria-hidden="true">{ghost}</span>
+      {ghost && <span className="ghost" aria-hidden="true">{ghost}</span>}
       <div className="wrap">
         <div><h2>{title}</h2>{sub && <p className="lede" style={{ color: 'inherit', opacity: 0.85, marginTop: 18 }}>{sub}</p>}</div>
         <div className="ctas"><Link className="btn btn-solid" to={to}>{btn} <span className="arr">→</span></Link><a className="btn" href={`tel:${CONTACT.tel}`}>{CONTACT.phone}</a></div>
@@ -137,26 +137,26 @@ export function Streams() {
     <div className="streams">
       <div className="drift" data-speed="0.03"><Link className="tilt" to="/services/tv-advertising/">
         <div className="vis v-tv has-photo" aria-hidden="true"><div className="rec"><span><b>●</b> REC</span><span data-tc="loop">00:00:30:00</span></div><div className="bars">{seven.map((i) => <span key={i} />)}</div><div className="mid">{seven.map((i) => <span key={i} />)}</div><div className="low">{[0, 1, 2, 3, 4].map((i) => <span key={i} />)}</div><StreamPhoto k="tv" label="TV" /></div>
-        <div className="txt"><p className="kicker mono">The reach of TV</p><h3>Television</h3><p>Sight, sound and motion in the living room. Commercials built to earn trust, then placed where your buyers watch.</p></div></Link></div>
+        <div className="txt"><h3>Television</h3><p>Sight, sound and motion in the living room. Commercials built to earn trust, then placed where your buyers watch.</p></div></Link></div>
       <div className="drift" data-speed="-0.02"><Link className="tilt" to="/services/radio-advertising/">
         <div className="vis v-radio has-photo" aria-hidden="true"><div className="dial"><div className="nums">{['88', '92', '96', '100', '104', '108'].map((n) => <span key={n}>{n}</span>)}</div><div className="needle" /></div><Wave /><div className="band"><span>FM</span><span>MHz</span></div><StreamPhoto k="radio" label="FM Radio" /></div>
-        <div className="txt"><p className="kicker mono">The intimacy of radio</p><h3>Radio</h3><p>One voice talking to one listener, often on the drive home. Audio stays in memory long after visuals fade.</p></div></Link></div>
+        <div className="txt"><h3>Radio</h3><p>One voice talking to one listener, often on the drive home. Audio stays in memory long after visuals fade.</p></div></Link></div>
       <div className="drift" data-speed="0.04"><Link className="tilt" to="/services/print-advertising/">
         <div className="vis v-print has-photo" aria-hidden="true"><div className="mast">The Morning Edition</div><div className="date"><span>Vol. XVI</span><span>Delhi NCR</span><span>₹5</span></div><div className="body"><div className="photo" /><div className="cols"><b>Brands built from ground zero</b>{[0, 1, 2, 3, 4, 5, 6, 7].map((i) => <i key={i} />)}</div></div><StreamPhoto k="print" label="Print" /></div>
-        <div className="txt"><p className="kicker mono">The trust of print</p><h3>Print</h3><p>A written confirmation to your consumer. Something they can hold, read twice and keep on the table.</p></div></Link></div>
+        <div className="txt"><h3>Print</h3><p>A written confirmation to your consumer. Something they can hold, read twice and keep on the table.</p></div></Link></div>
       <div className="drift" data-speed="-0.03"><Link className="tilt" to="/services/ooh-advertising/">
         <div className="vis v-ooh has-photo" aria-hidden="true"><div className="dim"><span>40 × 20 FT</span></div><div className="board">Seen daily<small>on the whole route</small></div><div className="pole" /><div className="phone"><div><span className="tag">SPONSORED</span><span className="img" /><span className="cta" /></div></div><StreamPhoto k="ooh" label="Outdoor" /></div>
-        <div className="txt"><p className="kicker mono">The precision of OOH & digital</p><h3>Outdoor + Digital</h3><p>Hoardings cover a whole route many times a day. Digital narrows it to the prospects most likely to buy.</p></div></Link></div>
+        <div className="txt"><h3>Outdoor + Digital</h3><p>Hoardings cover a whole route many times a day. Digital narrows it to the prospects most likely to buy.</p></div></Link></div>
     </div>
   );
 }
 
-export function Marquee() {
+export function Marquee({ single }) {
   const a = CLIENTS.slice(0, 14), b = CLIENTS.slice(14);
   return (
     <>
-      <div className="marq" aria-hidden="true">{[...a, ...a].map((n, i) => <span key={i}>{n}</span>)}</div>
-      <div className="marq rev" aria-hidden="true">{[...b, ...b].map((n, i) => <span key={i}>{n}</span>)}</div>
+      <div className="marq" aria-hidden="true">{(single ? [...a, ...b, ...a, ...b] : [...a, ...a]).map((n, i) => <span key={i}>{n}</span>)}</div>
+      {!single && <div className="marq rev" aria-hidden="true">{[...b, ...b].map((n, i) => <span key={i}>{n}</span>)}</div>}
       <p className="sr">Clients include {CLIENTS.join(', ')}.</p>
     </>
   );

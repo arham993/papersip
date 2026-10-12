@@ -36,7 +36,7 @@ export default function MediaPartners() {
     <section className="media-partners" aria-labelledby="mp-title">
       <div className="wrap mp-head">
         <Slug>Our media partners</Slug>
-        <h2 id="mp-title">On air and on screen with India's biggest networks.</h2>
+        <h2 id="mp-title">On air with India's top networks.</h2>
       </div>
       <div aria-hidden="true">
         <Row label="Radio" items={MEDIA_PARTNERS.radio} />

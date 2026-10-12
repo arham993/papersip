@@ -24,7 +24,7 @@ function Channels() {
         {SERVICES.map((x) => (
           <li key={x.k}>
             <Link className={'ch' + (x.i === active ? ' on' : '')} data-i={x.i} to={`/services/${x.slug}/`} onMouseEnter={() => setActive(x.i)} onFocus={() => setActive(x.i)}>
-              <span className="num mono">CH {pad2(x.i + 1)}</span><h3>{x.name}</h3><p>{x.line}</p><span className="more">Explore {x.short} <span>→</span></span>
+              <span className="num mono">{pad2(x.i + 1)}</span><h3>{x.name}</h3><p>{x.line}</p>
             </Link>
           </li>
         ))}
@@ -46,30 +46,27 @@ export default function Home() {
       <main id="main">
         <section className="hero" id="top">
           <HeroScene />
-          <span className="crop tl" aria-hidden="true" /><span className="crop tr" aria-hidden="true" />
-          <p className="drag-hint mono" aria-hidden="true">Move your cursor · the set follows</p>
           <div className="wrap hero-inner">
             <div className="hero-copy">
-              <Eyebrow tag="On air">In business since 2010</Eyebrow>
-              <h1><Lines lines={['Expertly', 'crafting', <>your <em className="grad">brand</em></>, 'story.']} /></h1>
-              <p className="lede">A venture built to provide and run Radio, Outdoor, Digital, TV and Print advertising, wayfinding signage systems, retail solutions, wall art and murals, and creative design. All from ground zero.</p>
+              <Eyebrow tag="Since 2010">Advertising agency · Faridabad</Eyebrow>
+              <h1><Lines lines={['Expertly crafting', <>your <em className="grad">brand</em> story.</>]} /></h1>
+              <p className="lede">TV, radio, print, outdoor and digital advertising, planned and run by one team.</p>
               <div className="ctas"><Link className="btn btn-m" to="/contact/">Get a quote <span className="arr">→</span></Link><Link className="btn" to="/services/">See what we run</Link></div>
             </div>
           </div>
-          <div className="wrap"><div className="hero-meta mono"><span>8 disciplines · One team · Faridabad</span><span className="tc"><b>● REC</b> <span data-tc="">00:00:00:00</span> <span>PAL 25fps</span></span></div></div>
         </section>
         <MediaPartners />
 
         <section className="sec" id="channels">
           <div className="wrap">
-            <SecHead slug="Our channels" title="One team, eight ways to reach your audience." intro="Scroll or hover a channel to bring it onto the table, drag the model to turn it, and open any channel to see how we run it." />
+            <SecHead slug="Our channels" title="Eight ways to reach your audience." intro="Hover a channel to see it on the turntable." />
             <Channels />
           </div>
         </section>
 
         <section className="sec band-v" id="streams">
           <div className="wrap">
-            <SecHead slug="Advertising streams" title="One brand. Multiple touchpoints. Greater impact." intro="From radio and TV to print, OOH and digital, we take your brand message where your audience is and make it matter." />
+            <SecHead slug="Advertising streams" title="One brand. Every touchpoint." intro="We take your message wherever your audience is." />
             <Streams />
           </div>
         </section>
@@ -78,31 +75,30 @@ export default function Home() {
           <div className="wrap integrated">
             <div className="copy rv">
               <Slug>What we do</Slug>
-              <h2>Transforming brands through integrated advertising.</h2>
-              <p>We craft advertising designed to lift your brand across every medium. Whether it's the reach of TV, the intimacy of radio, the trust of print, or the precision of digital and out-of-home, we make sure your message lands with the right audience.</p>
-              <p>Our approach starts with understanding your goals and ends with campaigns that inspire action. With Papersip you get more than advertising. You get a partner dedicated to your success.</p>
+              <h2>Integrated advertising that works.</h2>
+              <p>We start with your goals and plan every channel around them, so your message reaches the right audience and turns into action.</p>
               <div className="ctas"><Link className="btn" to="/about/">About Papersip <span className="arr">→</span></Link></div>
             </div>
-            <Stats items={[[2010, 'In business since. Sixteen years of planning and buying media.', { from: 1994 }], [8, 'Disciplines under one roof, run by one team.'], [95, 'Successful projects delivered for our clients.', { pct: true }], [27, 'Brands on our client list, from real estate to healthcare.']]} />
+            <Stats items={[[2010, 'In business since', { from: 1994 }], [8, 'Disciplines, one team'], [95, 'Successful projects', { pct: true }], [27, 'Brands served']]} />
           </div>
         </section>
 
         <section className="sec band-m" id="clients">
-          <div className="wrap"><div className="sec-head"><Slug>Clients</Slug><h2>Brands that trust us with their media budget.</h2><p className="intro">Developers, hospitals, universities, retailers and automotive brands we've worked with.</p></div></div>
-          <Marquee />
-          <div className="wrap"><div className="note"><span className="mono">27 brands and counting</span><Link className="btn" to="/clients/">See all clients <span className="arr">→</span></Link></div></div>
+          <div className="wrap"><div className="sec-head"><Slug>Clients</Slug><h2>Brands that trust us.</h2></div></div>
+          <Marquee single />
+          <div className="wrap"><div className="note"><span /><Link className="btn" to="/clients/">See all clients <span className="arr">→</span></Link></div></div>
         </section>
 
         {!workEmpty && (
           <section className="sec alt" id="work">
             <div className="wrap">
-              <div className="strip-head rv"><div><Slug>Our work</Slug><h2 style={{ marginTop: 14 }}>Out there, on the route.</h2></div><Link className="btn" to="/our-work/">See all work <span className="arr">→</span></Link></div>
+              <div className="strip-head rv"><div><Slug>Our work</Slug><h2 style={{ marginTop: 14 }}>Recent campaigns.</h2></div><Link className="btn" to="/our-work/">See all work <span className="arr">→</span></Link></div>
               <Gallery images={[OOH_IMG[0], SIGN_IMG[14], PRINT_IMG[0], OOH_IMG[11], SIGN_IMG[3], OOH_IMG[2]]} label="Campaign" strip onEmpty={() => setWorkEmpty(true)} />
             </div>
           </section>
         )}
       </main>
-      <CtaBand title="Ready to craft your brand story from ground zero?" ghost="On air" />
+      <CtaBand title="Ready to start your campaign?" ghost="" />
     </>
   );
 }
