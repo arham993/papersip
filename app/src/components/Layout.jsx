@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, createContext, useContext, useCallback } from 'react';
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom';
 import { SERVICES, CONTACT } from '../data.js';
-import { Reg } from './ui.jsx';
+import { Reg, asset } from './ui.jsx';
 
 /* ---------------- lightbox (shared) ---------------- */
 const LightboxCtx = createContext(() => {});
@@ -109,7 +109,15 @@ function Footer() {
             <li>{CONTACT.address}</li><li>{CONTACT.hours}</li>
           </ul></div>
         </div>
-        <div className="wordmark" aria-hidden="true">Papersip</div>
+        <div className="wordmark">
+          <img
+            src={asset('brand/papersip-wordmark.webp')}
+            srcSet={`${asset('brand/papersip-wordmark-960.webp')} 960w, ${asset('brand/papersip-wordmark.webp')} 1884w`}
+            sizes="(max-width: 1320px) 92vw, 1224px"
+            width="1884" height="401" loading="lazy" decoding="async"
+            alt="Papersip: radio, TV, outdoor and digital advertising"
+          />
+        </div>
         <div className="foot-bot mono"><span>© 2026 Papersip Company. All rights reserved.</span><span>Faridabad · Delhi NCR</span></div>
       </div>
     </footer>

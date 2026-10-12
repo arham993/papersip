@@ -611,7 +611,9 @@ legend,.lbl{font:500 11.5px/1 var(--fm);letter-spacing:.1em;text-transform:upper
 .foot-grid a{text-decoration:none;color:var(--ink);opacity:.85}
 .foot-grid a:hover{color:var(--m);opacity:1}
 .foot-grid .about{color:var(--ink-2);max-width:36ch}
-.wordmark{font:900 clamp(80px,21vw,330px)/.8 var(--fd);text-transform:uppercase;color:transparent;-webkit-text-stroke:1.6px var(--gold);opacity:.75;margin-top:56px;white-space:nowrap;letter-spacing:-.005em;user-select:none;text-align:center}
+.wordmark{margin-top:56px;user-select:none;overflow:hidden}
+.wordmark img{display:block;width:100%;height:auto;transition:transform 1.2s var(--ease),filter .6s var(--ease)}
+.wordmark:hover img{transform:scale(1.015)}
 .foot-bot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:28px;color:var(--ink-2)}
 @media (max-width:900px){.foot-grid{grid-template-columns:1fr 1fr}}
 @media (max-width:520px){.foot-grid{grid-template-columns:1fr}}
