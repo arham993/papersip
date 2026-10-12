@@ -130,7 +130,7 @@ export const CLIENTS = CLIENT_LOGOS.map((c) => c[0]);
 
 // Channel photos shown on the "Advertising streams" cards (from the current papersipcompany.com media library)
 export const STREAM_IMG = {
-  tv: UP + '2026/09/TV-Ad-Pillar-image.jpg',
+  tv: import.meta.env.BASE_URL + 'streams/tv.webp',
   radio: UP + '2026/09/Radio-Pillar-image.jpg',
   print: UP + '2026/09/Print-Pillar-image.jpg',
   ooh: UP + '2026/09/OOH-Pillar-image.jpg',
