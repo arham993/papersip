@@ -113,7 +113,69 @@ export const TV_VID = [
   'https://cariotauto.in/demo/wp-content/uploads/2024/06/TV-Campaign-4.mp4',
 ];
 export const RADIO = ['1857304761', '1857304737', '1857304716', '1857304689', '1857304674', '1857304635', '1857304593', '1857304560'];
-export const WORK_IMAGES = { ooh: OOH_IMG, print: PRINT_IMG, signage: SIGN_IMG };
+/* ── Our Work: content and media from the Papersip Communication credentials deck ── */
+const W = (f) => import.meta.env.BASE_URL + 'work/' + f;
+const shots = (k, caps) => caps.map((alt, i) => {
+  const n = String(i + 1).padStart(2, '0');
+  return { src: W(`${k}-${n}.webp`), sm: W(`${k}-${n}-sm.webp`), alt };
+});
+export const DECK_OOH = shots('ooh', [
+  'Centre for Sight eye-care billboard lit at night',
+  'Centre for Sight hoarding on a Delhi flyover',
+  'Delta Electronics digitised-automation billboard',
+  'Food-court billboard for Subway and partner brands',
+  'Pareena backlit sign — “Creating a new era”',
+  'Miglani backlit hoarding, Laxmi Nagar',
+  'Culture Movement backlit sign',
+  'Paras milk hoarding — “Jiyo Right, Jiyo Bright”',
+  'The Lalit Mumbai flyover hoarding, Santacruz',
+  'Paras Quartier roadside hoardings',
+  'Gulmohur Garden neon rooftop sign',
+  'Beverage billboard lit at night',
+  'Philips cut-out billboard with 3D add-ons',
+  'Levi’s and sneaker billboards at night',
+  'The Art of Success — illuminated throne cut-out',
+  'Earth hoarding over evening traffic',
+  'Roadside and bus-shelter hoarding series',
+  'Underpass branding over a city road',
+  'Airport branding — backlit panels and pillars',
+]);
+export const DECK_RETAIL = shots('retail', [
+  'PC Jeweller store front at night',
+  'PC Jeweller showroom façade',
+  'SRS Jewells store branding',
+  'SRS Cinemas lobby branding',
+  'SRS Cinemas concession counter',
+  'PC Jeweller showroom interior',
+]);
+export const DECK_PRINT = shots('print', [
+  'Emaar India — The Tribune, Chandigarh, 20 June 2021',
+  'Emaar India — Delhi Times, 13 March 2021',
+]);
+export const DECK_TV = [
+  { src: W('tv-01.mp4'), poster: W('tv-01.webp'), title: 'ABP News · ad break, Nov 2023' },
+  { src: W('tv-02.mp4'), poster: W('tv-02.webp'), title: 'ABP News · Pavilion L-band, Nov 2023' },
+];
+export const DECK_DIGITAL = [
+  { src: W('digital-v1.mp4'), poster: W('digital-v1.webp'), title: 'Delta Electronics · IND v SL' },
+  { src: W('digital-v2.mp4'), poster: W('digital-v2.webp'), title: 'Delta Electronics · IND v ENG' },
+  { src: W('digital-v3.mp4'), poster: W('digital-v3.webp'), title: 'Delta Electronics · IND v SA' },
+];
+export const DECK_RADIO = [25, 16, 20, 29, 17, 14].map((s, i) => ({ src: W(`radio-0${i + 1}.mp3`), len: `0:${String(s).padStart(2, '0')}` }));
+export const OOH_FORMATS = [
+  ['Roadside', ['Billboards — regular and unipoles', 'Digital LED displays', 'Gantries', 'Building wraps', 'Mobile displays', 'Glow boxes', 'Tri-vision']],
+  ['Street furniture', ['Bus shelters', 'Kiosks', 'Police pedestals', 'Guide maps', 'Traffic-island panels and fencing', 'Direction signs', 'Median dividers and plant pots', 'Society gate signs', 'Traffic signals']],
+  ['Transit media', ['DTC buses and bus-queue shelters', 'Metro trains — inside and outside', 'Bus terminals, railway stations and airports', 'Taxi and cab branding']],
+  ['Ambient media', ['Cinema theatres', 'Malls and supermarket trolleys', 'Floor posters', 'Lift branding', 'Sports stadia', 'Pubs and clubs', 'Bus and train tickets', 'Balloons and handheld banners', 'Take-away bags']],
+];
+export const DECK_VALUES = [
+  ['Creative', 'The most creative and innovative work, in all mediums.'],
+  ['Negotiation', 'Better negotiations — and so a better buy for the buck.'],
+  ['Ethics', 'Strong professionalism and ethics.'],
+  ['Network', 'A nationwide network to promote and to protect.'],
+];
+
+export const WORK_IMAGES = { ooh: DECK_OOH, print: PRINT_IMG, signage: SIGN_IMG };
 
 export const CLIENT_LOGOS = [
   ['91wheels', '2026/09/91wheels-logo-primary-300x86.png'], ['Amrita Hospital', '2026/09/amrita-hospital-client-logo.svg'],

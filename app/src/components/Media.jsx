@@ -12,47 +12,56 @@ function SafeImg({ onFail, ...props }) {
   return <img ref={ref} onError={onFail} {...props} />;
 }
 
-/* Campaign images. Tiles that fail to load disappear; if all fail, onEmpty fires. */
-export function Gallery({ images, label, limit, strip, onEmpty }) {
+/* Campaign images: plain URLs or { src, sm, alt }. Tiles that fail to load disappear; if all fail, onEmpty fires. */
+const norm = (u) => (typeof u === 'string' ? { src: u } : u);
+export function Gallery({ images, label, limit, strip, fit, onEmpty }) {
   const open = useLightbox();
   const [failed, setFailed] = useState(() => new Set());
-  const list = (limit ? images.slice(0, limit) : images).filter((u) => !failed.has(u));
+  const list = (limit ? images.slice(0, limit) : images).map(norm).filter((u) => !failed.has(u.src));
   useEffect(() => { if (list.length === 0 && onEmpty) onEmpty(); }, [list.length]); // eslint-disable-line react-hooks/exhaustive-deps
   if (!list.length) return null;
+  const srcs = list.map((u) => u.src);
   return (
-    <div className={strip ? 'strip gal' : 'gal'}>
+    <div className={(strip ? 'strip gal' : 'gal') + (fit ? ' gal-' + fit : '')}>
       {list.map((u, i) => (
-        <a key={u} href={u} onClick={(e) => { e.preventDefault(); open(list, i, label); }}>
-          <SafeImg src={u} alt={`${label} campaign by Papersip`} loading="lazy" decoding="async" onFail={() => setFailed((s) => new Set(s).add(u))} />
+        <a key={u.src} href={u.src} aria-label={u.alt ? `View: ${u.alt}` : undefined} onClick={(e) => { e.preventDefault(); open(srcs, i, label, list.map((x) => x.alt)); }}>
+          <SafeImg src={u.sm || u.src} alt={u.alt || `${label} campaign by Papersip`} loading="lazy" decoding="async" onFail={() => setFailed((s) => new Set(s).add(u.src))} />
+          {u.alt && !strip && <span className="cap">{u.alt}</span>}
         </a>
       ))}
     </div>
   );
 }
 
-/* TV commercials: nothing is downloaded until someone presses play. */
-export function TvCards({ videos }) {
+/* Videos: plain URLs or { src, poster, title }. Nothing is downloaded until someone presses play. */
+export function TvCards({ videos, tag = 'TVC' }) {
   return (
     <div className="tv-grid">
-      {videos.map((v, i) => <TvCard key={v} src={v} n={i + 1} />)}
+      {videos.map((v, i) => <TvCard key={v.src || v} v={typeof v === 'string' ? { src: v } : v} n={i + 1} tag={tag} />)}
     </div>
   );
 }
-function TvCard({ src, n }) {
+function TvCard({ v, n, tag }) {
   const [on, setOn] = useState(false);
   const [err, setErr] = useState(false);
+  const name = v.title || `${tag} ${pad2(n)}`;
   return (
-    <div className="tv-card">
-      <span className="lbl"><b>●</b> TVC {pad2(n)}</span>
-      {!on && (
-        <button type="button" className="facade" onClick={() => setOn(true)} aria-label={`Play TV commercial ${n}`}>
-          <span className="bars" aria-hidden="true">{[0, 1, 2, 3, 4, 5, 6].map((i) => <i key={i} />)}</span>
-          <span className="play">{PLAY}</span>
-        </button>
-      )}
-      {on && !err && <video src={src} controls autoPlay playsInline onError={() => setErr(true)} />}
-      {err && <p className="err">This video could not load. Ask us for the reel on {CONTACT.phone}.</p>}
-    </div>
+    <figure className="tv-item">
+      <div className="tv-card">
+        <span className="lbl"><b>●</b> {tag} {pad2(n)}</span>
+        {!on && (
+          <button type="button" className={'facade' + (v.poster ? ' has-poster' : '')} onClick={() => setOn(true)} aria-label={`Play ${name}`}>
+            {v.poster
+              ? <img src={v.poster} alt="" loading="lazy" decoding="async" />
+              : <span className="bars" aria-hidden="true">{[0, 1, 2, 3, 4, 5, 6].map((i) => <i key={i} />)}</span>}
+            <span className="play">{PLAY}</span>
+          </button>
+        )}
+        {on && !err && <video src={v.src} poster={v.poster} controls autoPlay playsInline onError={() => setErr(true)} />}
+        {err && <p className="err">This video could not load. Ask us for the reel on {CONTACT.phone}.</p>}
+      </div>
+      {v.title && <figcaption>{v.title}</figcaption>}
+    </figure>
   );
 }
 
@@ -68,6 +77,22 @@ function RadioCard({ id, n }) {
       <div className="top"><b>Spot {pad2(n)}</b><span className="mono">FM · Radio</span></div>
       {on
         ? <iframe title={`Radio spot ${n}`} allow="autoplay" src={src} />
+        : <button type="button" className="facade" onClick={() => setOn(true)} aria-label={`Play radio spot ${n}`}><span className="play">{PLAY}</span><Wave n={22} /></button>}
+    </div>
+  );
+}
+
+/* Radio spots hosted with the site: the audio file loads only on play. */
+export function AudioCards({ spots }) {
+  return <div className="radio-grid">{spots.map((t, i) => <AudioCard key={t.src} spot={t} n={i + 1} />)}</div>;
+}
+function AudioCard({ spot, n }) {
+  const [on, setOn] = useState(false);
+  return (
+    <div className="rcard">
+      <div className="top"><b>Spot {pad2(n)}</b><span className="mono">FM · {spot.len}</span></div>
+      {on
+        ? <div className="audio-wrap"><audio src={spot.src} controls autoPlay preload="auto" /></div>
         : <button type="button" className="facade" onClick={() => setOn(true)} aria-label={`Play radio spot ${n}`}><span className="play">{PLAY}</span><Wave n={22} /></button>}
     </div>
   );

@@ -23,8 +23,8 @@ function Lightbox({ state, close }) {
   const n = items.length;
   return (
     <div className={'lightbox' + (open ? ' open' : '')} role="dialog" aria-modal="true" aria-label="Campaign image" aria-hidden={!open} onClick={(e) => { if (e.target === e.currentTarget || e.target.classList.contains('stagebox')) close(); }}>
-      <div className="bar"><span className="mono">{state ? `${state.label} · ${idx + 1} / ${n}` : ''}</span><button type="button" ref={closeRef} onClick={close}>Close ✕</button></div>
-      <div className="stagebox">{open && items[idx] && <img src={items[idx]} alt={`${state.label} campaign`} />}</div>
+      <div className="bar"><span className="mono">{state ? `${state.label} · ${idx + 1} / ${n}` : ''}</span>{state?.caps?.[idx] && <span className="lb-cap">{state.caps[idx]}</span>}<button type="button" ref={closeRef} onClick={close}>Close ✕</button></div>
+      <div className="stagebox">{open && items[idx] && <img src={items[idx]} alt={state.caps?.[idx] || `${state.label} campaign`} />}</div>
       <div className="navs">
         <button type="button" aria-label="Previous image" onClick={() => setIdx((i) => (i - 1 + n) % n)}>← Prev</button>
         <button type="button" aria-label="Next image" onClick={() => setIdx((i) => (i + 1) % n)}>Next →</button>
@@ -207,7 +207,7 @@ export default function Layout() {
   const [lb, setLb] = useState(null);
   const [navCount, setNavCount] = useState(0);
   const first = useRef(true);
-  const openLb = useCallback((items, index, label) => setLb({ items, index, label }), []);
+  const openLb = useCallback((items, index, label, caps) => setLb({ items, index, label, caps }), []);
   const closeLb = useCallback(() => setLb(null), []);
 
   // route change: close menu, scroll, play the colour sweep

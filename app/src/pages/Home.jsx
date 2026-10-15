@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { SERVICES, OOH_IMG, SIGN_IMG, PRINT_IMG } from '../data.js';
+import { SERVICES, DECK_OOH, DECK_RETAIL } from '../data.js';
 import { useSeo } from '../components/Seo.jsx';
 import { Lines, Eyebrow, SecHead, Slug, Streams, Marquee, Stats, CtaBand, pad2 } from '../components/ui.jsx';
 import MediaPartners from '../components/MediaPartners.jsx';
@@ -95,7 +95,7 @@ export default function Home() {
           <section className="sec alt" id="work">
             <div className="wrap">
               <div className="strip-head rv"><div><Slug>Our work</Slug><h2 style={{ marginTop: 14 }}>Our works.</h2></div><Link className="btn" to="/our-work/">See all work <span className="arr">→</span></Link></div>
-              <Gallery images={[OOH_IMG[0], SIGN_IMG[14], PRINT_IMG[0], OOH_IMG[11], SIGN_IMG[3], OOH_IMG[2]]} label="Campaign" strip onEmpty={() => setWorkEmpty(true)} />
+              <Gallery images={[DECK_OOH[0], DECK_RETAIL[0], DECK_OOH[2], DECK_OOH[7], DECK_RETAIL[3], DECK_OOH[8]]} label="Campaign" strip onEmpty={() => setWorkEmpty(true)} />
             </div>
           </section>
         )}
