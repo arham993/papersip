@@ -16,11 +16,10 @@ function PartnerLogo({ p }) {
 }
 
 // One scrolling row; the list is repeated so the loop is seamless.
-function Row({ label, items, reverse }) {
+function Row({ items, reverse }) {
   const loop = [...items, ...items, ...items, ...items];
   return (
     <div className="mp-row">
-      <span className="mp-label mono">{label}</span>
       <div className="mp-viewport">
         <div className={'mp-track' + (reverse ? ' rev' : '')} style={{ '--n': items.length }}>
           {loop.map((p, i) => <PartnerLogo key={i} p={p} />)}
@@ -31,7 +30,9 @@ function Row({ label, items, reverse }) {
 }
 
 export default function MediaPartners() {
-  const all = [...MEDIA_PARTNERS.radio, ...MEDIA_PARTNERS.tv].map((p) => p.name).join(', ');
+  const r = MEDIA_PARTNERS.radio, t = MEDIA_PARTNERS.tv, mixed = [];
+  for (let i = 0; i < Math.max(r.length, t.length); i++) { if (t[i]) mixed.push(t[i]); if (r[i]) mixed.push(r[i]); }
+  const all = mixed.map((p) => p.name).join(', ');
   return (
     <section className="media-partners" aria-labelledby="mp-title">
       <div className="wrap mp-head">
@@ -39,8 +40,7 @@ export default function MediaPartners() {
         <h2 id="mp-title">On air with India's top networks.</h2>
       </div>
       <div aria-hidden="true">
-        <Row label="Radio" items={MEDIA_PARTNERS.radio} />
-        <Row label="TV & OTT" items={MEDIA_PARTNERS.tv} reverse />
+        <Row items={mixed} />
       </div>
       <p className="sr">Media partners: {all}.</p>
     </section>

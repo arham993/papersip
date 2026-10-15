@@ -59,7 +59,7 @@ export default function Home() {
 
         <section className="sec" id="channels">
           <div className="wrap">
-            <SecHead slug="Our channels" title="One team, eight ways to reach your audience." intro="Hover a channel to see how we run it." />
+            <SecHead slug="Our channels" title="Every channel your customers tune into." intro="Hover a channel to see how we run it." />
             <Channels />
           </div>
         </section>
