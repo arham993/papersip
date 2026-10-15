@@ -148,10 +148,10 @@ const WP = (f, w = 320) => `https://en.wikipedia.org/wiki/Special:FilePath/${f}?
 const LOCAL = (f) => import.meta.env.BASE_URL + 'partners/' + f;
 export const MEDIA_PARTNERS = {
   radio: [
-    { name: 'Radio Mirchi', src: WM('Mirchi_logo_-_Copy.png') },
+    { name: 'Radio Mirchi', src: LOCAL('mirchi.webp') },
     { name: 'Big FM', src: WM('BIGFM_NEW_LOGO_2019.png') },
     { name: 'Fever FM', src: WP('Fever-104-FM-Logo.png') },
-    { name: 'Radio City', src: null },
+    { name: 'Radio City', src: LOCAL('radiocity.webp') },
     { name: 'Red FM', src: WM('RedFM_logo.svg') },
   ],
   tv: [
