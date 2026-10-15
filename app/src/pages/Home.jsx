@@ -48,7 +48,7 @@ export default function Home() {
           <HeroScene />
           <div className="wrap hero-inner">
             <div className="hero-copy">
-              <Eyebrow tag="In business since 2010">Our story</Eyebrow>
+              <p className="eyebrow mono">In business since 2010</p>
               <h1><Lines lines={['Expertly crafting', <>your <em className="grad">brand</em> story.</>]} /></h1>
               <p className="lede">A venture built to provide and execute Radio, Outdoor, Digital, TV, and Print advertising, wayfinding signage systems, retail solutions, wall art/murals, and creative design — all from ground zero.</p>
               <div className="ctas"><Link className="btn btn-m" to="/contact/">Get a quote <span className="arr">→</span></Link><Link className="btn" to="/our-work/">See our work</Link></div>
