@@ -47,7 +47,7 @@ export default function Service() {
             <Crumbs trail={[['Services', '/services/'], [s.name]]} />
             <div className="phero-grid">
               <div>
-                <p className="eyebrow mono"><span className="onair">CH {pad2(s.i + 1)} / 08</span> {s.line}</p>
+                <p className="eyebrow mono"><span className="onair">CH {pad2(s.i + 1)} / 08</span> Services</p>
                 <h1 style={{ marginTop: 22 }}><Lines lines={s.h1} /></h1>
                 <p className="lede">{s.intro}</p>
                 <div className="ctas"><Link className="btn btn-acc" to={quote}>Get a proposal <span className="arr">→</span></Link><a className="btn" href="#why">How we run it</a></div>
@@ -103,7 +103,7 @@ export default function Service() {
           </div>
         </section>
       </main>
-      <CtaBand title={`Ready to run ${s.name.toLowerCase()}?`} btn="Get a proposal" to={quote} acc={s.acc} ghost={s.short} />
+      <CtaBand title={`Ready to run ${s.name.toLowerCase()}?`} btn="Get a proposal" to={quote} acc={s.acc} ghost="" />
     </div>
   );
 }

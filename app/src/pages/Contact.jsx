@@ -46,7 +46,7 @@ function Brief() {
 
   return (
     <form className="brief rv" onSubmit={(e) => e.preventDefault()} noValidate>
-      <div className="brief-top"><b>Build your brief</b><span className="mono">Takes a minute</span></div>
+      <div className="brief-top"><b>Send us a message</b><span className="mono">Takes a minute</span></div>
       <fieldset>
         <legend>Channels you're considering</legend>
         <div className="chips">
@@ -87,9 +87,9 @@ export default function Contact() {
         <FieldScene mode="plane" />
         <div className="wrap">
           <Crumbs trail={[['Contact']]} />
-          <Eyebrow tag="Open">Mon – Sat · 9:30am – 6:30pm</Eyebrow>
+          <Eyebrow tag="Contact">Monday – Saturday, 9:30am – 6:30pm</Eyebrow>
           <h1 style={{ marginTop: 22 }}><Lines lines={['Get a quote', 'for your next', <em className="grad">campaign.</em>]} /></h1>
-          <p className="lede">Tell us about your brand and your goal, and we'll come back with a plan.</p>
+          <p className="lede">Feel free to contact and reach us — tell us about your brand and goal, and we’ll come back with a plan.</p>
         </div>
       </section>
 
@@ -102,7 +102,7 @@ export default function Contact() {
               <div><span className="k mono">Phone</span><a className="v" href={`tel:${CONTACT.tel}`}>{CONTACT.phone}</a><CopyBtn text={CONTACT.phone} /></div>
               <div><span className="k mono">Studio</span><span className="v">{CONTACT.address}</span><CopyBtn text={CONTACT.address} /></div>
             </div>
-            <div className="hours"><span><i />Monday – Saturday</span><span>9:30am – 6:30pm</span></div>
+            <div className="hours"><span><i />Hours</span><span>Monday – Saturday, 9:30am – 6:30pm</span></div>
             <MapFacade query={CONTACT.address} />
             <p style={{ marginTop: 12 }}><a className="link-arr" href={`https://www.google.com/maps/search/?api=1&query=${q}`} target="_blank" rel="noopener noreferrer">Open in Google Maps <span>↗</span></a></p>
           </div>
@@ -112,7 +112,7 @@ export default function Contact() {
 
       <section className="sec">
         <div className="wrap why">
-          <div className="copy rv"><Slug>Common questions</Slug><h2>Before you reach out.</h2><p>Quick answers to what most clients ask first. Anything else, just call.</p></div>
+          <div className="copy rv"><Slug>Common questions</Slug><h2>Before you reach out</h2></div>
           <Faq items={FAQ} />
         </div>
       </section>

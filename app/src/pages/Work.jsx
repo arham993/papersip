@@ -7,11 +7,11 @@ import { FieldScene } from '../components/Scene3D.jsx';
 import { Gallery, TvCards, RadioCards } from '../components/Media.jsx';
 
 const SECTIONS = [
-  { k: 'ooh', label: 'OOH', title: 'OOH campaigns', desc: 'Hoardings, unipoles and transit placed on high-traffic routes.', acc: 'v', n: OOH_IMG.length },
-  { k: 'tv', label: 'TV', title: 'TV campaigns', desc: 'Commercials we scripted, shot and placed. Press play to load.', acc: 'y', n: TV_VID.length },
-  { k: 'radio', label: 'Radio', title: 'Radio campaigns', desc: 'Spots written for sound. Press play to load the player.', acc: 'c', n: RADIO.length },
-  { k: 'signage', label: 'Signage', title: 'Visibility signage', desc: 'Retail, hospitality and brand signage, designed and installed.', acc: 'm', n: SIGN_IMG.length },
-  { k: 'print', label: 'Print', title: 'Print campaigns', desc: 'Newspaper and magazine ads built for the page.', acc: 'y', n: PRINT_IMG.length },
+  { k: 'ooh', label: 'OOH', title: 'OOH campaigns', acc: 'v', n: OOH_IMG.length },
+  { k: 'radio', label: 'Radio', title: 'Radio campaigns', acc: 'c', n: RADIO.length },
+  { k: 'tv', label: 'TV', title: 'TV campaigns', acc: 'y', n: TV_VID.length },
+  { k: 'signage', label: 'Signage', title: 'Visibility signages', acc: 'm', n: SIGN_IMG.length },
+  { k: 'print', label: 'Print', title: 'Print campaigns', acc: 'y', n: PRINT_IMG.length },
 ];
 const IMAGES = { ooh: OOH_IMG, signage: SIGN_IMG, print: PRINT_IMG };
 
@@ -36,9 +36,9 @@ export default function Work() {
           <FieldScene />
           <div className="wrap">
             <Crumbs trail={[['Our Work']]} />
-            <Eyebrow tag="Portfolio">OOH · TV · Radio · Signage · Print</Eyebrow>
-            <h1 style={{ marginTop: 22 }}><Lines lines={['Our work,', <em className="grad">out there.</em>]} /></h1>
-            <p className="lede">Hoardings on the highway, spots on the radio, ads in the morning paper and signs on the storefront. A selection of campaigns we've run.</p>
+            <Eyebrow tag="Portfolio">OOH · Radio · TV · Signage · Print</Eyebrow>
+            <h1 style={{ marginTop: 22 }}><Lines lines={[<>Our <em className="grad">works</em></>]} /></h1>
+            <p className="lede">OOH, radio, TV, visibility signage and print campaigns we’ve planned and placed.</p>
           </div>
         </section>
         <div className="wrap" style={{ paddingBottom: 'clamp(40px,6vw,80px)' }}>
@@ -48,7 +48,7 @@ export default function Work() {
           </div>
           {live.map((s) => (
             <section className="work-sec" id={s.k} key={s.k} data-acc={s.acc} hidden={!(filter === 'all' || filter === s.k)}>
-              <div className="work-head"><h2><i aria-hidden="true" />{s.title}</h2><p>{s.desc}</p></div>
+              <div className="work-head"><h2><i aria-hidden="true" />{s.title}</h2></div>
               {IMAGES[s.k] && <Gallery images={IMAGES[s.k]} label={s.label} onEmpty={() => setEmpty((e) => ({ ...e, [s.k]: true }))} />}
               {s.k === 'tv' && <TvCards videos={TV_VID} />}
               {s.k === 'radio' && <RadioCards ids={RADIO} />}
@@ -56,7 +56,7 @@ export default function Work() {
           ))}
         </div>
       </main>
-      <CtaBand title="Want to see your campaign here?" acc="m" ghost="Our work" />
+      <CtaBand title="Want your brand on this list next?" acc="m" ghost="" />
     </>
   );
 }

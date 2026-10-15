@@ -48,10 +48,10 @@ export default function Home() {
           <HeroScene />
           <div className="wrap hero-inner">
             <div className="hero-copy">
-              <Eyebrow tag="Since 2010">Advertising agency · Faridabad</Eyebrow>
+              <Eyebrow tag="In business since 2010">Our story</Eyebrow>
               <h1><Lines lines={['Expertly crafting', <>your <em className="grad">brand</em> story.</>]} /></h1>
-              <p className="lede">TV, radio, print, outdoor and digital advertising, planned and run by one team.</p>
-              <div className="ctas"><Link className="btn btn-m" to="/contact/">Get a quote <span className="arr">→</span></Link><Link className="btn" to="/services/">See what we run</Link></div>
+              <p className="lede">A venture built to provide and execute Radio, Outdoor, Digital, TV, and Print advertising, wayfinding signage systems, retail solutions, wall art/murals, and creative design — all from ground zero.</p>
+              <div className="ctas"><Link className="btn btn-m" to="/contact/">Get a quote <span className="arr">→</span></Link><Link className="btn" to="/our-work/">See our work</Link></div>
             </div>
           </div>
         </section>
@@ -59,14 +59,14 @@ export default function Home() {
 
         <section className="sec" id="channels">
           <div className="wrap">
-            <SecHead slug="Our channels" title="Eight ways to reach your audience." intro="Hover a channel to see it on the turntable." />
+            <SecHead slug="Our channels" title="One team, eight ways to reach your audience." intro="Hover a channel to see how we run it." />
             <Channels />
           </div>
         </section>
 
         <section className="sec band-v" id="streams">
           <div className="wrap">
-            <SecHead slug="Advertising streams" title="One brand. Every touchpoint." intro="We take your message wherever your audience is." />
+            <SecHead slug="Advertising Streams" title="One brand. Multiple touchpoints. Greater impact." intro="From radio and TV to print, OOH and digital, we take your brand message where your audience is and make it matter." />
             <Streams />
           </div>
         </section>
@@ -75,16 +75,18 @@ export default function Home() {
           <div className="wrap integrated">
             <div className="copy rv">
               <Slug>What we do</Slug>
-              <h2>Integrated advertising that works.</h2>
-              <p>We start with your goals and plan every channel around them, so your message reaches the right audience and turns into action.</p>
+              <h2>Transforming brands through integrated advertising.</h2>
+              <p>We craft advertising solutions designed to elevate your brand across every medium. Whether it’s the reach of TV, the intimacy of radio, the trust of print, or the precision of digital and out-of-home, we make sure your message lands with the right audience.</p>
+              <p>Our approach starts with understanding your goals and ends with campaigns that inspire action. With Papersip Company, you get more than just advertising — you get a partner dedicated to your success.</p>
+              <ul className="value-list">{['Transparency', 'Accountability', 'Creative Excellence', 'Results-Driven Approach'].map((v) => <li key={v}>{v}</li>)}</ul>
               <div className="ctas"><Link className="btn" to="/about/">About Papersip <span className="arr">→</span></Link></div>
             </div>
-            <Stats items={[[2010, 'In business since', { from: 1994 }], [8, 'Disciplines, one team'], [95, 'Successful projects', { pct: true }], [27, 'Brands served']]} />
+            <Stats items={[[2010, 'Founded', { from: 1994 }], [99, 'Advertising skills', { pct: true }], [95, 'Successful projects', { pct: true }], [8, 'Disciplines under one roof']]} />
           </div>
         </section>
 
         <section className="sec band-m" id="clients">
-          <div className="wrap"><div className="sec-head"><Slug>Clients</Slug><h2>Brands that trust us.</h2></div></div>
+          <div className="wrap"><div className="sec-head"><Slug>Clients</Slug><h2>Brands that trust us with their media budget.</h2></div></div>
           <Marquee single />
           <div className="wrap"><div className="note"><span /><Link className="btn" to="/clients/">See all clients <span className="arr">→</span></Link></div></div>
         </section>
@@ -92,13 +94,13 @@ export default function Home() {
         {!workEmpty && (
           <section className="sec alt" id="work">
             <div className="wrap">
-              <div className="strip-head rv"><div><Slug>Our work</Slug><h2 style={{ marginTop: 14 }}>Recent campaigns.</h2></div><Link className="btn" to="/our-work/">See all work <span className="arr">→</span></Link></div>
+              <div className="strip-head rv"><div><Slug>Our work</Slug><h2 style={{ marginTop: 14 }}>Our works.</h2></div><Link className="btn" to="/our-work/">See all work <span className="arr">→</span></Link></div>
               <Gallery images={[OOH_IMG[0], SIGN_IMG[14], PRINT_IMG[0], OOH_IMG[11], SIGN_IMG[3], OOH_IMG[2]]} label="Campaign" strip onEmpty={() => setWorkEmpty(true)} />
             </div>
           </section>
         )}
       </main>
-      <CtaBand title="Ready to start your campaign?" ghost="" />
+      <CtaBand title="Ready to craft your brand story from ground zero?" ghost="" />
     </>
   );
 }

@@ -136,14 +136,27 @@ function useEnhancements(pathname) {
     const cleanups = [];
     const $$ = (s) => [...document.querySelectorAll(s)];
 
-    // reveal on scroll (only for elements below the fold, so first paint is complete)
+    // reveal on scroll (only for elements below the fold, so first paint is complete).
+    // A scroll check runs alongside the observer so nothing stays hidden after a fast
+    // scroll or an anchor jump: anything at or above the reveal line is shown.
     if (!reduce) {
-      const io = new IntersectionObserver((ents) => ents.forEach((en) => { if (en.isIntersecting) { en.target.classList.remove('pre'); io.unobserve(en.target); } }), { rootMargin: '0px 0px -8% 0px' });
-      // read every position first, then write, so layout is computed once
-      const els = $$('.rv'), limit = innerHeight * 0.92;
-      const below = els.map((el) => el.getBoundingClientRect().top > limit);
-      els.forEach((el, i) => { if (below[i]) { el.classList.add('pre'); el.style.transitionDelay = `${(i % 4) * 70}ms`; io.observe(el); } });
-      cleanups.push(() => io.disconnect());
+      const els = $$('.rv'), limit = () => innerHeight * 0.92;
+      const tops = els.map((el) => el.getBoundingClientRect().top);
+      let pending = els.filter((el, i) => tops[i] > limit());
+      pending.forEach((el, i) => { el.classList.add('pre'); el.style.transitionDelay = `${(i % 4) * 70}ms`; });
+      const show = (el) => { el.classList.remove('pre'); io.unobserve(el); };
+      const io = new IntersectionObserver((ents) => ents.forEach((en) => { if (en.isIntersecting) show(en.target); }), { rootMargin: '0px 0px -8% 0px' });
+      pending.forEach((el) => io.observe(el));
+      let raf = 0;
+      const sweep = () => {
+        raf = 0; const lim = limit();
+        pending = pending.filter((el) => { if (!el.classList.contains('pre')) return false; if (el.getBoundingClientRect().top < lim) { show(el); return false; } return true; });
+        if (!pending.length) removeEventListener('scroll', onScroll);
+      };
+      const onScroll = () => { if (!raf) raf = requestAnimationFrame(sweep); };
+      addEventListener('scroll', onScroll, { passive: true });
+      const safety = setTimeout(sweep, 400);
+      cleanups.push(() => { io.disconnect(); removeEventListener('scroll', onScroll); cancelAnimationFrame(raf); clearTimeout(safety); });
     }
     // count up
     if (!reduce) {

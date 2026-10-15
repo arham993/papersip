@@ -258,20 +258,26 @@ function dragSpin(canvas, st, kick) {
   canvas.addEventListener('pointerup', up); canvas.addEventListener('pointercancel', up);
   return () => { canvas.removeEventListener('pointerdown', down); canvas.removeEventListener('pointermove', move); canvas.removeEventListener('pointerup', up); canvas.removeEventListener('pointercancel', up); };
 }
-function sheetField(scene, cam, n, spread = 5) {
-  const geo = new PlaneGeometry(0.42, 0.56), list = [], mats = [MAT.paperDS, MAT.mDS, MAT.paperDS, MAT.cDS, MAT.yDS, MAT.vDS];
+// Drifting paper sheets. `zone` keeps them in a horizontal band (0..1 of the view width)
+// so they never drift behind the page's text; it can be changed on resize.
+function sheetField(scene, cam, n, spread = 5, zone = { min: 0, max: 1 }) {
+  const geo = new PlaneGeometry(0.42, 0.56), list = [], mats = [MAT.paperDS, MAT.yDS, MAT.paperDS, MAT.cDS, MAT.mDS, MAT.yDS];
   let seed = 7; const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
+  const pickX = () => zone.min + rnd() * (zone.max - zone.min);
   for (let i = 0; i < n; i++) {
     const m = new Mesh(geo, mats[i % 6]); m.add(new LineSegments(new EdgesGeometry(geo), EDGE)); scene.add(m);
-    list.push({ m, x: rnd(), y: rnd(), z: -1 - rnd() * spread, sp: 0.12 + rnd() * 0.2, rx: rnd() * 6, ry: rnd() * 6, vr: (rnd() - 0.5) * 1.2, s: 0.8 + rnd() * 0.7 });
+    list.push({ m, x: pickX(), y: rnd(), z: -2 - rnd() * spread, sp: 0.12 + rnd() * 0.2, rx: rnd() * 6, ry: rnd() * 6, vr: (rnd() - 0.5) * 1.2, s: 0.7 + rnd() * 0.4 });
   }
-  return (dt, lift = 0) => {
+  const step = (dt, lift = 0) => {
     list.forEach((s) => {
-      if (!reduce) { s.y -= s.sp * dt * 0.08; if (s.y < -0.1) { s.y = 1.1; s.x = rnd(); } s.rx += s.vr * dt; s.ry += s.vr * 0.7 * dt; }
+      if (!reduce) { s.y -= s.sp * dt * 0.08; if (s.y < -0.1) { s.y = 1.1; s.x = pickX(); } s.rx += s.vr * dt; s.ry += s.vr * 0.7 * dt; }
+      if (s.x < zone.min || s.x > zone.max) s.x = pickX();
       const d = cam.position.z - s.z, hh = Math.tan(MathUtils.degToRad(cam.fov / 2)) * d, ww = hh * cam.aspect;
       s.m.position.set((s.x * 2 - 1) * ww, (s.y * 2 - 1) * hh + lift, s.z); s.m.rotation.set(s.rx, s.ry, 0); s.m.scale.setScalar(s.s);
     });
   };
+  step.zone = zone;
+  return step;
 }
 function turntable(parent, FLOOR, ringMat = MAT.m) {
   part(parent, new CylinderGeometry(2.1, 2.1, 0.14, 64), MAT.paper, [0, FLOOR - 0.07, 0]);
@@ -292,12 +298,13 @@ export function mountHero(canvas) {
   const items = KEYS.map((k, i) => ({ k, o: null, n: L[k], s: 0, v: 0, delay: 0, ph: i * 1.7, home: new Vector3(), size: 1, spin: 0 }));
   let built = 0, t = 0;
   const buildNext = () => { if (built >= items.length) return; const it = items[built++]; it.o = fit(BUILD[it.k](), 1); it.o.scale.setScalar(0.0001); it.delay = t + 0.05; root.add(it.o); };
-  const sheets = sheetField(scene, cam, small ? 8 : 14);
+  const sheets = sheetField(scene, cam, small ? 6 : 12, 5, { min: 0.55, max: 1 });
   const layout = () => {
     if (!sizeTo(r, cam, canvas)) return;
     const halfH = Math.tan(MathUtils.degToRad(cam.fov / 2)) * cam.position.z, halfW = halfH * cam.aspect, wide = cam.aspect > 1.15;
     const cx = wide ? halfW * 0.5 : 0, cy = wide ? 0.15 : 0, rw = wide ? halfW * 0.42 : halfW * 0.78, rh = wide ? halfH * 0.74 : halfH * 0.72, unit = Math.min(rw * 1.15, rh);
     items.forEach((it) => { it.home.set(cx + it.n[0] * rw, cy + it.n[1] * rh, it.n[2] * unit * 0.9); it.size = unit * (wide ? 0.5 : 0.56) * it.n[3]; });
+    sheets.zone.min = wide ? 0.55 : 0; sheets.zone.max = 1;
   };
   const click = () => items.forEach((it, i) => { it.spin += 2.2 + i * 0.1; });
   canvas.addEventListener('pointerdown', click);
@@ -444,7 +451,7 @@ export function mountField(canvas, mode = 'sheets') {
   const r = makeRenderer(canvas); if (!r) return null;
   const host = canvas.parentElement;
   const scene = new Scene(), cam = new PerspectiveCamera(34, 1, 0.1, 100); cam.position.set(0, 0, 12); lights(scene);
-  const sheets = sheetField(scene, cam, (mode === 'plane' ? 10 : 16) - (small ? 6 : 0), 6);
+  const sheets = sheetField(scene, cam, small ? 3 : (mode === 'plane' ? 8 : 12), 6, { min: small ? 0.82 : 0.6, max: 1 });
   let plane = null; const trail = [], hist = [];
   if (mode === 'plane') {
     plane = new Group(); const pg = planeGeo(); const pm = new Mesh(pg, MAT.mDS); pm.add(new LineSegments(new EdgesGeometry(pg), EDGE)); plane.add(pm); plane.scale.setScalar(0.8); scene.add(plane);

@@ -758,3 +758,15 @@ a.v:hover,.foot-grid a:hover,.crumbs a:hover{color:var(--ink);text-decoration:un
 .cta-band h2{font-size:clamp(40px,5.2vw,80px)}
 .media-partners .mp-head h2{font-size:clamp(28px,3vw,44px)}
 .hero-copy{max-width:700px}
+
+.value-list{list-style:none;margin:4px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.value-list li{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-weight:600;font-size:14.5px}
+.value-list li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--gold)}
+.desks.desks-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (max-width:900px){.desks.desks-4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:460px){.desks.desks-4{grid-template-columns:1fr}}
+
+/* gallery: uniform tiles so the page doesn't jump while photos load */
+.gal:not(.strip){columns:auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+.gal:not(.strip) a{margin:0;aspect-ratio:4/3}
+.gal:not(.strip) img{width:100%;height:100%;object-fit:cover}

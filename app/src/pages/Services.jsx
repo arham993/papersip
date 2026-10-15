@@ -2,13 +2,13 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { SERVICES } from '../data.js';
 import { useSeo } from '../components/Seo.jsx';
-import { Crumbs, Lines, Eyebrow, SecHead, Steps, Streams, Ticker, SvcCard, CtaBand, Icon, pad2 } from '../components/ui.jsx';
+import { Crumbs, Lines, Eyebrow, SecHead, Streams, Ticker, SvcCard, CtaBand, Icon, pad2 } from '../components/ui.jsx';
 import { RingScene } from '../components/Scene3D.jsx';
 
 const BENEFITS = [
-  ['m', 'globe', '360° solutions', 'Multiple services under one roof give your brand a broader presence and a larger audience.'],
-  ['c', 'star', 'Expertise', 'Our core team has years of experience in planning, buying and execution, which shows in every media plan.'],
-  ['y', 'eye', 'Visibility & delivery', "Media plans built around your brand's image and message, so you stand out from competitors and draw traffic."],
+  ['m', 'globe', '360° Solutions', 'As we provide 360° solutions under one roof, we are capable of giving your brand a more expansive presence and reaching a much wider audience.'],
+  ['c', 'star', 'Expertise', 'Our core team has years of experience in their respective fields: planning, buying and execution.'],
+  ['y', 'eye', 'Brand Visibility & Delivery', 'We work to create media plans that are consistent with your brand image and message.'],
 ];
 
 export default function Services() {
@@ -23,9 +23,9 @@ export default function Services() {
             <Crumbs trail={[['Services']]} />
             <div className="phero-grid">
               <div>
-                <Eyebrow tag="8 channels">One team running them together</Eyebrow>
-                <h1 style={{ marginTop: 22 }}><Lines lines={['Eight', 'disciplines.', <em className="grad">One team.</em>]} /></h1>
-                <p className="lede">TV, radio, print, outdoor and digital advertising, visibility signage, media buying and strategy, planned together so every touchpoint tells the same story.</p>
+                <Eyebrow tag="Services">Eight disciplines</Eyebrow>
+                <h1 style={{ marginTop: 22 }}><Lines lines={['Eight disciplines.', <><em className="grad">One team</em> running</>, 'them together.']} /></h1>
+                <p className="lede">We craft advertising solutions designed to elevate your brand across every medium.</p>
                 <div className="ctas"><Link className="btn btn-m" to="/contact/">Get a proposal <span className="arr">→</span></Link><a className="btn" href="#all">Browse services</a></div>
               </div>
               <div className="solo" data-acc="y">
@@ -43,35 +43,29 @@ export default function Services() {
 
         <section className="sec alt" id="all">
           <div className="wrap">
-            <SecHead slug="All services" title="Pick a channel, or let us mix them." intro="Every service runs on the same three-stage process and the same team, so channels work together instead of competing for budget." />
+            <SecHead slug="All services" title="One team, eight ways to reach your audience." />
             <div className="svc-grid">{SERVICES.map((x) => <SvcCard key={x.k} s={x} />)}</div>
           </div>
         </section>
 
         <section className="sec band-v">
           <div className="wrap">
-            <SecHead slug="Advertising streams" title="One brand. Multiple touchpoints." intro="The reach of TV, the intimacy of radio, the trust of print, and the precision of OOH and digital." />
+            <SecHead slug="Advertising Streams" title="One brand. Multiple touchpoints. Greater impact." intro="From radio and TV to print, OOH and digital, we take your brand message where your audience is and make it matter." />
             <Streams />
           </div>
         </section>
 
         <section className="sec">
           <div className="wrap">
-            <SecHead slug="Why Papersip" title="Benefits of hiring Papersip." />
+            <SecHead slug="Benefits" title="Benefits to hire PaperSip Company." />
             <div className="benefits">
               {BENEFITS.map(([acc, ic, h, p]) => <div className="benefit rv" data-acc={acc} key={h}><span className="ic"><Icon name={ic} /></span><h3>{h}</h3><p>{p}</p></div>)}
             </div>
           </div>
         </section>
 
-        <section className="sec tight alt">
-          <div className="wrap">
-            <SecHead slug="How we run it" title="Same three stages on every channel." />
-            <Steps />
-          </div>
-        </section>
       </main>
-      <CtaBand title="Not sure which channels fit?" btn="Ask for a media plan" acc="c" ghost="Services" sub="Tell us the goal and budget. We will propose the mix." />
+      <CtaBand title="Ready to craft your brand story from ground zero?" acc="c" ghost="" />
     </>
   );
 }
